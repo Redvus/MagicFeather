@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0aca5916-4aea-4b5d-bb31-e8b627824666" name="magicFeather" url="https://smibs.ru/magic-feather-game">
+        <fileTransfer rootFolder="/sites/new.smibs.ru/root/assets/games/magicFeather" accessType="SFTP" host="178.21.10.63" port="22" sshConfigId="c5b19eab-3296-441c-a2b6-b2f2039a37c9" sshConfig="root@178.21.10.63:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
