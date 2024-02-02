@@ -3,26 +3,35 @@
 =============================*/
 
 @font-face {
-    font-family: "IzhitsaC";
-    src: local("IzhitsaC"),
-    url("../fonts/IzhitsaC.woff") format("woff"),
-    url("../fonts/IzhitsaC.woff2") format("woff2");
+    font-family: "Glafira TYGRA";
+    src: local("Glafira TYGRA"),
+    url("../fonts/Glafir/Glafir.woff") format("woff"),
+    url("../fonts/Glafir/Glafir.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
-    font-family: "AvantGardeGothicC";
-    src: local("IzhitsaC"),
-    url("../fonts/AvantGardeGothicC.woff") format("woff"),
-    url("../fonts/AvantGardeGothicC.woff2") format("woff2");
+    font-family: "Karelia Bold";
+    src: local("Karelia Bold"),
+    url("../fonts/KareliaBold/KareliaBold.woff") format("woff"),
+    url("../fonts/KareliaBold/KareliaBold.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
 }
 
-$primary-font:          "AvantGardeGothicC";
-$heading-font:          "IzhitsaC";
-$heading-font-second:    "AvantGardeGothicC";
+@font-face {
+    font-family: "Karelia";
+    src: local("Karelia"),
+    url("../fonts/KareliaRegular/KareliaRegular.woff") format("woff"),
+    url("../fonts/KareliaRegular/KareliaRegular.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+}
+
+$primary-font:          "Karelia";
+$primary-font-second:   "Karelia Bold";
+$heading-font:          "Glafira TYGRA";
 
 $body-font-color     : $primary;
 

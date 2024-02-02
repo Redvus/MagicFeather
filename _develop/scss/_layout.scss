@@ -7,7 +7,7 @@
 	//align-items: center;
 	//justify-content: center;
 	position: relative;
-	background-color: $six;
+	background: linear-gradient(to left, $eight 0, $seven 100% );
 	overflow: hidden;
 	//transition: all .3s;
 	//animation: fadeIn 0.6s ease-in-out;
@@ -20,7 +20,20 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		background: url("../images/kraevedia_back.jpg") 50% 0 no-repeat;
+		background: url("../images/mf_backStart.jpg") 50% 0 no-repeat;
+		background-size: auto 100%;
+		z-index: 0;
+		opacity: 0;
+	}
+
+	&__dialog {
+		width: 100%;
+		height: 100vh;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: url("../images/mf_backDialog.jpg") 50% 0 no-repeat;
 		background-size: auto 100%;
 		z-index: 0;
 		opacity: 0;
@@ -138,6 +151,32 @@
 		}
 	}
 
+	&__center {
+		//width: $introTopBlockWidth;
+		//height: auto;
+		width: auto;
+		display: block;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		//margin: 0 calc((100% - #{$introTopBlockWidth}) / 2);
+		z-index: 20;
+		opacity: 0;
+
+		&_image {
+			width: auto;
+			height: 50vmin;
+			display: block;
+			position: relative;
+
+			img {
+				@extend %imgCenter;
+				object-fit: contain;
+			}
+		}
+	}
+
 	&__title {
 		width: $introTitleBlockWidth;
 		//height: $introTitleBlockHeight;
@@ -192,6 +231,8 @@
 				height: 100%;
 				display: block;
 				position: relative;
+				background: url("../images/mf_buttonStart.png") 100% 100% no-repeat;
+				background-size: 100% 100%;
 
 				a {
 					width: calc(100% - 2rem);
@@ -199,18 +240,20 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					padding: 0.75rem 1rem;
-					background: linear-gradient($five, $secondary);
+					padding: 1.2rem 1rem 1.4rem;
+					//background: linear-gradient($five, $secondary);
 					border-radius: 0.3rem;
-					color: $fourth;
+					color: $introButtonTextColor;
 					font-size: $font-size-large;
-					font-family: $heading-font-second;
+					font-family: $primary-font-second;
+					transition: all $base-duration;
 				}
 
 				&:hover {
 
 					a {
-						background: linear-gradient(darken($secondary, 2%), $secondary);
+						letter-spacing: 0.05rem;
+						color: $introButtonTextColorHover;
 					}
 				}
 
@@ -496,14 +539,14 @@
 }
 
 .container {
-	width: calc(#{$containerHeight} * 1.4);
+	width: $containerWidth;
 	height: $containerHeight;
 	display: flex;
 	align-items: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -3.5vh;
+	margin-top: -3vh;
 	transform: translate(-50%, -50%);
 	//background-color: cornflowerblue;
 	z-index: 5;

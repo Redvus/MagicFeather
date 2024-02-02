@@ -1,9 +1,33 @@
-#introTitle {
-    width: auto;
-    height: 20vmin;
-    display: block;
-    position: relative;
-    margin-top: 3vh;
+//#introTitle {
+//    width: auto;
+//    height: 20vmin;
+//    display: block;
+//    position: relative;
+//    margin-top: 3vh;
+//
+//    img {
+//        @extend %imgCenter;
+//    }
+//}
+
+#containerNestor {
+    height: $nestorHeight;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#containerVovka {
+    height: $vovkaHeight;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
 
     img {
         @extend %imgCenter;

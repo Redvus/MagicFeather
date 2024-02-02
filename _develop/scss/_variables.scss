@@ -10,8 +10,8 @@ $base-duration: 0.2s;
 $base-timing: 0.2s;
 
 // Layout
-$containerWidth: 57rem;
-$containerHeight: 75vmin;
+$containerWidth: 95vmin;
+$containerHeight: 85vh;
 $containerInsideWidth: 72%;
 $containerIncrease: 5;
 
@@ -27,6 +27,9 @@ $frameBackWidth: 85.5%;
 $frameBackLeftTop: 47%;
 $frameBackRightTop: 50%;
 
+// Layout
+$backgroundColor: $third;
+
 // Intro
 $introTopBlockHeight: 40vh;
 $introTopBlockWidth: 60vw;
@@ -34,6 +37,13 @@ $introTitleBlockHeight: 40vh;
 $introTitleBlockWidth: 76vw;
 $introTitleSymbolWidth: calc(#{$containerWidth} / 11);
 $introTitleSymbolLeft: calc((-#{$containerWidth} / 11) / 5.8);
+
+$introButtonTextColor: $secondary;
+$introButtonTextColorHover: $five;
+
+// Dialog
+$nestorHeight: 80vmin;
+$vovkaHeight: 60vmin;
 
 //Intro Mobile
 $introTopBlockWidthMobile: 100vw;
