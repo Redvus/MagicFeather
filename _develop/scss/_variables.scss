@@ -10,12 +10,12 @@ $base-duration: 0.2s;
 $base-timing: 0.2s;
 
 // Layout
-$containerWidth: 95vmin;
+$containerWidth: 45rem;
 $containerHeight: 85vh;
 $containerInsideWidth: 72%;
 $containerIncrease: 5;
 
-$containerPadding: 3rem;
+$containerPadding: 2rem;
 $paddingBase: 1rem;
 
 $frameWidth: 46%;
@@ -52,8 +52,9 @@ $introTextHeightMobile: 7%;
 $introButtonHeightMobile: 25%;
 
 //About
-$containerAboutWidth: 22rem;
-$containerPadding: 7rem;
+$containerAboutWidth: 55rem;
+$containerAboutWidthMobile: 85vw;
+$containerAboutPadding: 9rem;
 
 /*=====  End of Variable  ======*/
 

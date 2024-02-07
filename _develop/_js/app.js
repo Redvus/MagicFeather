@@ -18,6 +18,7 @@ function introDev() {
         wrapperCenter = document.querySelector('.wrapper__center'),
         wrapperBack = document.querySelector('.wrapper__intro'),
         backgroundMusicID = document.getElementById('backgroundMusicID'),
+        introFeather = document.getElementById('introFeather'),
         choiceCatLoad = new ChoiceCategory()
     ;
 
@@ -80,6 +81,7 @@ function introDev() {
                 wrapper.removeChild(wrapperBottom);
                 wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
+                wrapper.removeChild(wrapperCenter);
                 authorsStart();
             }
         });
@@ -89,12 +91,11 @@ function introDev() {
                 autoAlpha: 0,
                 y: '-3%'
             })
-            // .to(wrapperTitle, {
-            //     duration: 0.7,
-            //     delay: -0.5,
-            //     autoAlpha: 0,
-            //     y: '5%'
-            // })
+            .to(wrapperCenter, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0
+            })
             .to(wrapperBottom, {
                 duration: 0.7,
                 delay: -0.5,
@@ -157,6 +158,17 @@ function dialogDev() {
 
 /* Запускаем категории */
 
+/* Authors */
+function authorsStart() {
+    const authorsLoad = new About();
+    authorsLoad.aboutAuthors('Сценарист',
+        'Инна Ямщикова',
+        'Художники',
+        'Елена Расторгуева',
+        'Анастасия Полякова',
+        'Программист',
+        'Александр Суворов');
+}
 
 function init() {
     introDev();

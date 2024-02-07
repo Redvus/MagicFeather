@@ -46,7 +46,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		background: url("../images/kraevedia_backService.jpg") 50% 0 no-repeat;
+		background: url("../images/mf_backAuthors.jpg") 50% 0 no-repeat;
 		background-size: auto 100%;
 		z-index: 1;
 
@@ -551,8 +551,8 @@
 	//background-color: cornflowerblue;
 	z-index: 5;
 
-	&--wide {
-		width: calc(#{$containerHeight} * 1.8);
+	&--about {
+		width: $containerAboutWidth;
 	}
 
 	&__wrapper {
@@ -661,18 +661,19 @@
 		justify-content: center;
 		position: relative;
 
-		&_back {
-			background: url("../images/kraevedia_catBack.png") 50% 0 no-repeat;
-			background-size: auto 100%;
-		}
+		//&_back {
+		//	background: url("../images/mf_fieldTextAuthors.png") 50% 0 no-repeat;
+		//	background-size: auto 100%;
+		//}
 
 		&_person {
 			text-align: center;
-			margin-top: 2rem;
+			margin-top: calc(#{$paddingBase} * 1.5);
 			color: $secondary;
 
 			p {
-				margin: 0.5rem 0;
+				margin: calc(#{$paddingBase} / 2) 0;
+				font-size: $font-size-large;
 			}
 
 			&:first-child {
@@ -682,17 +683,18 @@
 			&--gone {
 				border: $border_1;
 				border-color: $secondary;
-				padding: calc(#{$paddingBase} / 2);
+				padding: calc(#{$paddingBase} / 3) calc(#{$paddingBase} / 2);
 				display: inline-block;
 			}
 		}
 
 		&_text {
-			height: 70%;
+			width: 100%;
+			height: 100%;
 			flex-direction: row;
 			color: $secondary;
 			font-size: $font-size-base;
-			margin-top: 7vh;
+			margin-top: calc(#{$paddingBase} * 4);
 
 			ul {
 				li {
@@ -701,29 +703,50 @@
 			}
 		}
 
+		&_image {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 7vh;
+
+			img {
+				width: 50%;
+				height: 50%;
+				display: block;
+				position: absolute;
+			}
+
+			#aboutSparkle {
+				width: 120%;
+				height: 80%;
+			}
+		}
+
 		&_left {
-			width: calc(50% - #{$containerPadding} - #{$paddingBase});
-			height: calc(100% - (#{$containerPadding} * 2));
+			width: calc(50% - (#{$paddingBase} * 2));
+			height: calc(100% - #{$containerAboutPadding} - (calc(#{$containerAboutPadding} - (#{$paddingBase} * 2))));
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			margin-right: $paddingBase;
-			padding: $containerPadding;
-			background: url("../images/kraevedia_catBack.png") 50% 0 no-repeat;
-			background-size: auto 100%;
+			padding: $containerAboutPadding calc(#{$paddingBase} * 4) calc(#{$containerAboutPadding} - (#{$paddingBase} * 2));
+			background: url("../images/mf_fieldTextAuthors.png") 50% 50% no-repeat;
+			background-size: auto 80%;
 		}
 
 		&_right {
-			width: calc(50% - #{$containerPadding} - #{$paddingBase});
-			height: calc(100% - (#{$containerPadding} * 2));
+			width: calc(50% - (#{$paddingBase} * 2));
+			height: calc(100% - #{$containerAboutPadding} - (calc(#{$containerAboutPadding} - (#{$paddingBase} * 2))));
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
 			margin-left: $paddingBase;
-			padding: $containerPadding;
-			background: url("../images/kraevedia_catBack.png") 50% 0 no-repeat;
-			background-size: auto 100%;
+			padding: $containerAboutPadding calc(#{$paddingBase} * 4) calc(#{$containerAboutPadding} - (#{$paddingBase} * 2));
+			background: url("../images/mf_fieldTextAuthors.png") 50% 50% no-repeat;
+			background-size: auto 80%;
 
 			p {
 				margin-bottom: calc(#{$paddingBase} / 2.5);
@@ -743,10 +766,12 @@
 	//	//background-size: calc(#{$containerWidth} + (#{$containerWidth} / 2));
 	//}
 
-	//@include grid-media($Medium) {
-	//	width: $containerWidth;
-	//	height: calc(#{$containerWidth} / 1.57);
-	//}
+	@include grid-media($Medium) {
+
+		&--about {
+			width: $containerAboutWidthMobile;
+		}
+	}
 
 	//@include grid-media($HSmall) {
 	//	width: $containerWidth;

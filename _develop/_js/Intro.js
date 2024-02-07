@@ -12,7 +12,7 @@ class Intro {
         `;
         introBlockCenter.className = 'wrapper__center';
         introBlockCenter.innerHTML = `
-            <picture class="wrapper__center_image">
+            <picture class="wrapper__center_image" id="introFeather">
                 <img src="assets/games/magicFeather/images/mf_featherStart.png" alt="Волшебное перо">
             </picture>
         `;

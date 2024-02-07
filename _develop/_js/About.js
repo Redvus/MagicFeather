@@ -1,38 +1,59 @@
 class About {
 
-    aboutAuthors(peronFirstTitle, peronFirstName, peronSecondTitle, peronSecondName, peronThirdTitle, peronThirdName) {
+    aboutAuthors(personFirstTitle,
+                 personFirstName,
+                 personSecondTitle,
+                 personSecondNameGone,
+                 personSecondName,
+                 personThirdTitle,
+                 personThirdName) {
         const containerWrapper = document.createElement('div'),
             containerTitle = document.createElement('div'),
-            wrapperTitleAuthors = document.createElement('div')
+            wrapperTitleAuthors = document.createElement('div'),
+            containerAboutLeft = document.createElement('div'),
+            containerAboutRight = document.createElement('div')
         ;
         containerWrapper.className = 'container__wrapper container__wrapper_about';
         containerTitle.className = 'container__title container__title_category';
+        containerAboutLeft.className = 'container__about container__about_left';
+        containerAboutRight.className = 'container__about container__about_right';
         wrapperTitleAuthors.className = 'wrapper__top';
-        container.className = 'container container--wide';
+        container.className = 'container container--about';
 
         wrapperTitleAuthors.innerHTML = `
-            <picture id="authorsTitle" class="wrapper__top_title">
-                <img src="assets/games/kraevedia/images/kraevedia_titleAuthors.png" alt="Краеведия. Об авторах">
-            </picture>
+<!--            <picture id="authorsTitle" class="wrapper__top_title">-->
+<!--                <img src="assets/games/kraevedia/images/kraevedia_titleAuthors.png" alt="Краеведия. Об авторах">-->
+<!--            </picture>-->
         `;
-        containerWrapper.innerHTML = `
-            <div class="container__about container__about_back">
+
+        containerAboutLeft.innerHTML = `
+            <div class="container__about_image">
+                <img src="assets/games/magicfeather/images/mf_featherSparkles.png" id="aboutSparkle">
+                <img src="assets/games/magicfeather/images/mf_featherStart.png" id="aboutFeather">
+            </div>
+        `;
+
+        containerAboutRight.innerHTML = `
+            <div class="container__about_text">
                 <div class="container__about_person">
-                    <h4>${peronFirstTitle}</h4>
-                    <p>${peronFirstName}</p>
+                    <h4>${personFirstTitle}</h4>
+                    <p>${personFirstName}</p>
                 </div>
                 <div class="container__about_person">
-                    <h4>${peronSecondTitle}</h4>
-                    <p class="container__about_person--gone">${peronSecondName}</p>
+                    <h4>${personSecondTitle}</h4>
+                    <p class="container__about_person--gone">${personSecondNameGone}</p>
+                    <p class="container__about_person">${personSecondName}</p>
                 </div>
                 <div class="container__about_person">
-                    <h4>${peronThirdTitle}</h4>
-                    <p>${peronThirdName}</p>
+                    <h4>${personThirdTitle}</h4>
+                    <p>${personThirdName}</p>
                 </div>
             </div>
         `;
         wrapper.appendChild(wrapperTitleAuthors);
         container.appendChild(containerWrapper);
+        containerWrapper.appendChild(containerAboutLeft);
+        containerWrapper.appendChild(containerAboutRight);
 
         const introBlockBack = document.createElement('div');
         introBlockBack.className = 'wrapper__service';
@@ -45,7 +66,10 @@ class About {
         let titleAuthors = document.querySelector('.wrapper__top'),
             containerAboutPerson = document.querySelectorAll('.container__about_person'),
             aboutBack = document.querySelector('.wrapper__back_about'),
-            containerAbout = document.querySelector('.container__about')
+            aboutLeft = document.querySelector('.container__about_left'),
+            aboutRight = document.querySelector('.container__about_right'),
+            aboutSparkle = document.getElementById('aboutSparkle'),
+            aboutFeather = document.getElementById('aboutFeather')
         ;
 
         function aboutAuthorsAnim() {
@@ -57,12 +81,12 @@ class About {
                     duration: 0.4,
                     scale: 0.98
                 })
-                .to(titleAuthors, {
-                    autoAlpha: 1,
+                .from(aboutLeft, {
+                    autoAlpha: 0,
                     duration: 0.4,
-                    delay: '-0.2'
+                    delay: '-0.3'
                 })
-                .from(containerAbout, {
+                .from(aboutRight, {
                     autoAlpha: 0,
                     duration: 0.4,
                     delay: '-0.3'
@@ -73,6 +97,18 @@ class About {
                     delay: '-0.2',
                     y: "-0.5rem",
                     stagger: 0.07
+                })
+                .from(aboutFeather, {
+                    autoAlpha: 0,
+                    duration: 1,
+                    delay: '-0.2',
+                    scale: 1.05
+                })
+                .from(aboutSparkle, {
+                    autoAlpha: 0,
+                    duration: 0.8,
+                    delay: '-0.4',
+                    scale: 0.90
                 })
             ;
         }
