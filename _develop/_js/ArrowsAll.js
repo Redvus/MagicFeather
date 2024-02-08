@@ -5,9 +5,20 @@ class ArrowsAll {
         containerArrowBack.className = 'wrapper__service_arrow';
         containerArrowBack.id = 'arrowBack';
         containerArrowBack.innerHTML = `
-            <img src="assets/games/kraevedia/images/kraevedia_arrowBack.png" alt="Стрелка назад">
+            <img src="assets/games/magicFeather/images/mf_buttonBack.png" alt="Стрелка назад">
         `;
         wrapper.appendChild(containerArrowBack);
+
+        const arrowBackLoad = document.getElementById('arrowBack');
+
+        function arrowBackAnim() {
+            let arrowAnim = gsap.from(arrowBackLoad, {
+                duration: 1,
+                delay: 1,
+                autoAlpha: 0
+            });
+        }
+        arrowBackAnim();
     }
 
     clearStorage() {
@@ -15,7 +26,7 @@ class ArrowsAll {
         containerClear.className = 'wrapper__service_clear';
         containerClear.id = 'settingsClick';
         containerClear.innerHTML = `
-            <img src="assets/games/kraevedia/images/kraevedia_settings.png" alt="Настройки">
+            <img src="assets/games/magicFeather/images/mf_buttonSettings.png" alt="Настройки">
         `;
         wrapper.appendChild(containerClear);
     }
@@ -25,7 +36,7 @@ class ArrowsAll {
         containerClear.className = 'wrapper__service_next';
         containerClear.id = 'answerNext';
         containerClear.innerHTML = `
-            <img src="assets/games/kraevedia/images/kraevedia_arrowNext.png" alt="Следующий вопрос">
+            <img src="assets/games/magicFeather/images/mf_buttonBack.png" alt="Следующий вопрос">
         `;
         wrapper.appendChild(containerClear);
     }

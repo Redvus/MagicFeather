@@ -21,20 +21,24 @@ class About {
         container.className = 'container container--about';
 
         wrapperTitleAuthors.innerHTML = `
-<!--            <picture id="authorsTitle" class="wrapper__top_title">-->
-<!--                <img src="assets/games/kraevedia/images/kraevedia_titleAuthors.png" alt="Краеведия. Об авторах">-->
-<!--            </picture>-->
+            <picture id="authorsTitle" class="wrapper__top_title">
+                <img src="assets/games/magicFeather/images/mf_titleAbout.png" alt="Волшебное перо. Об авторах">
+            </picture>
         `;
 
         containerAboutLeft.innerHTML = `
-            <div class="container__about_image">
-                <img src="assets/games/magicfeather/images/mf_featherSparkles.png" id="aboutSparkle">
-                <img src="assets/games/magicfeather/images/mf_featherStart.png" id="aboutFeather">
+            <div class="container__about_inside">
+                <picture id="aboutSparkle">
+                    <img src="assets/games/magicFeather/images/mf_featherSparkles.png" alt="Вспышка под пером">
+                </picture>
+                <picture id="aboutFeather">
+                    <img src="assets/games/magicFeather/images/mf_featherStart.png" alt="Перо">
+                </picture>
             </div>
         `;
 
         containerAboutRight.innerHTML = `
-            <div class="container__about_text">
+            <div class="container__about_inside container__about_text">
                 <div class="container__about_person">
                     <h4>${personFirstTitle}</h4>
                     <p>${personFirstName}</p>
@@ -80,6 +84,12 @@ class About {
                     autoAlpha: 0,
                     duration: 0.4,
                     scale: 0.98
+                })
+                .to(titleAuthors, {
+                    duration: 0.4,
+                    delay: '-0.4',
+                    y: '2%',
+                    autoAlpha: 1
                 })
                 .from(aboutLeft, {
                     autoAlpha: 0,

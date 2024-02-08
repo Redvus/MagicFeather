@@ -6,7 +6,7 @@ class Intro {
         ;
         introBlockTop.className = 'wrapper__top';
         introBlockTop.innerHTML = `
-            <picture class="wrapper__top_title">
+            <picture class="wrapper__top_title wrapper__top_title--front">
                 <img src="assets/games/magicFeather/images/mf_titleStart.png" alt="Название игры. Волшебное перо">
             </picture>
         `;

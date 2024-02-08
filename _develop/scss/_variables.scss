@@ -2,9 +2,9 @@
 =            Variable            =
 ================================*/
 
-$border_1: 1px solid $primary;
-$border_2: 2px solid $primary;
-$border_3: 3px solid $primary;
+$border_1: 0.15rem solid $secondary;
+$border_2: 0.3rem solid $secondary;
+$border_3: 0.6rem solid $secondary;
 
 $base-duration: 0.2s;
 $base-timing: 0.2s;
@@ -52,9 +52,10 @@ $introTextHeightMobile: 7%;
 $introButtonHeightMobile: 25%;
 
 //About
-$containerAboutWidth: 55rem;
+$containerAboutWidth: 100vmin;
 $containerAboutWidthMobile: 85vw;
 $containerAboutPadding: 9rem;
+$containerAboutPaddingTop: 6vh;
 
 /*=====  End of Variable  ======*/
 

@@ -160,7 +160,10 @@ function dialogDev() {
 
 /* Authors */
 function authorsStart() {
-    const authorsLoad = new About();
+    const authorsLoad = new About(),
+        arrowBackLoad = new ArrowsAll()
+    ;
+
     authorsLoad.aboutAuthors('Сценарист',
         'Инна Ямщикова',
         'Художники',
@@ -168,15 +171,48 @@ function authorsStart() {
         'Анастасия Полякова',
         'Программист',
         'Александр Суворов');
+
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__service'),
+        wrapperTopAbout = document.querySelector('.wrapper__top')
+    ;
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(arrowBackClick);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
+                wrapper.removeChild(wrapperTopAbout);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to(wrapperTopAbout, {
+                duration: 0.4,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to([containerAbout, arrowBackClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                scale: 0.98
+            })
+        ;
+    });
 }
 
 function init() {
-    introDev();
+    // introDev();
     // dialogDev();
-    // categoryDev();
-    // citizenCategoryDev();
-    // chicheroneCategory();
-    // authorsStart();
+    authorsStart();
 }
 
 init();
