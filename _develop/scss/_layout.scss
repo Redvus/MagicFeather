@@ -36,7 +36,7 @@
 		background: url("../images/mf_backDialog.jpg") 50% 0 no-repeat;
 		background-size: auto 100%;
 		z-index: 0;
-		opacity: 0;
+		//opacity: 0;
 	}
 
 	&__service {
@@ -56,7 +56,7 @@
 			display: block;
 			position: absolute;
 			left: 50%;
-			bottom: 3vmin;
+			//bottom: 3vmin;
 			transform: translateX(-50%);
 			z-index: 10;
 
@@ -67,6 +67,11 @@
 				object-position: center;
 				object-fit: cover;
 			}
+
+			&--left {
+				left: 0;
+				transform: translateX(0);
+			}
 		}
 
 		&_clear,
@@ -76,7 +81,7 @@
 			display: block;
 			position: absolute;
 			right: 13vmin;
-			bottom: 5vh;
+			//bottom: 5vh;
 			z-index: 10;
 
 			img {
@@ -215,13 +220,14 @@
 
 	&__bottom {
 		width: calc(#{$introTitleBlockWidth} / 1.3);
+		min-height: 5rem;
 		display: block;
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		margin: 0 calc((100% - (#{$introTitleBlockWidth} / 1.3)) / 2) 0;
+		margin: 0 calc((100% - (#{$introTitleBlockWidth} / 1.3)) / 2);
 		z-index: 3;
-		opacity: 0;
+		//opacity: 0;
 
 		&_menu {
 			width: 100%;
@@ -442,12 +448,12 @@
 			background-size: auto 100%;
 		}
 
-		&__service {
-
-			&_arrow {
-				bottom: 5vmin;
-			}
-		}
+		//&__service {
+		//
+		//	&_arrow {
+		//		bottom: 5vmin;
+		//	}
+		//}
 	}
 
 	@include grid-media($XLarge) {
@@ -456,22 +462,22 @@
 			background-size: auto 100%;
 		}
 
-		&__service {
-
-			&_arrow {
-				bottom: 5vmin;
-			}
-		}
+		//&__service {
+		//
+		//	&_arrow {
+		//		bottom: 5vmin;
+		//	}
+		//}
 	}
 
 	@include grid-media($Large) {
 
-		&__service {
-
-			&_arrow {
-				bottom: 5vmin;
-			}
-		}
+		//&__service {
+		//
+		//	&_arrow {
+		//		bottom: 5vmin;
+		//	}
+		//}
 	}
 
 	@include grid-media($Small) {
@@ -582,7 +588,12 @@
 
 	&--about {
 		width: $containerAboutWidth;
+		height: $containerAboutWidthMobile;
 		margin-top: 5vh;
+	}
+
+	&--dialog {
+		width: $containerDialogWidth;
 	}
 
 	&__wrapper {
@@ -681,8 +692,8 @@
 			margin-top: 3vh;
 
 			picture {
-				width: 100%;
-				height: 100%;
+				width: 70%;
+				height: 70%;
 				display: block;
 				position: absolute;
 				//padding: calc(#{$paddingBase} * 2);
@@ -711,12 +722,23 @@
 		}
 
 		&_text {
+			width: calc(100% - (#{$paddingBase} * 2));
 			flex-direction: column;
+			align-items: flex-start;
+			padding: 0 $paddingBase;
+
+			p {
+				font-size: $font-size-base;
+			}
 
 			ul {
 				li {
 					font-size: $font-size-base;
 				}
+			}
+
+			&--center {
+				align-items: center;
 			}
 		}
 
@@ -726,7 +748,7 @@
 			color: $secondary;
 
 			p {
-				margin: calc(#{$paddingBase} / 2) 0;
+				margin: 0;
 				font-size: calc(#{$body-font-size} + 1vmin);
 			}
 
@@ -771,35 +793,35 @@
 
 	@include grid-media($XXLarge) {
 
-		&__about {
-
-			&_inside {
-				height: 60%;
-			}
-		}
+		//&__about {
+		//
+		//	&_inside {
+		//		height: 60%;
+		//	}
+		//}
 	}
 
 	@include grid-media($XLarge) {
 
-		&--about {
-			height: 65vh;
-		}
+		//&--about {
+		//	height: 65vh;
+		//}
 
-		&__about {
-
-			&_inside {
-				height: 100%;
-			}
-		}
+		//&__about {
+		//
+		//	&_inside {
+		//		height: 70%;
+		//	}
+		//}
 	}
 
 	@include grid-media($Large) {
 
 		&__about {
 
-			&_inside {
-				height: 100%;
-			}
+			//&_inside {
+			//	height: 80%;
+			//}
 
 			&_person {
 				margin-top: calc(#{$paddingBase} / 2);

@@ -10,7 +10,7 @@ $base-duration: 0.2s;
 $base-timing: 0.2s;
 
 // Layout
-$containerWidth: 45rem;
+$containerWidth: 55rem;
 $containerHeight: 85vh;
 $containerInsideWidth: 72%;
 $containerIncrease: 5;
@@ -42,6 +42,7 @@ $introButtonTextColor: $secondary;
 $introButtonTextColorHover: $five;
 
 // Dialog
+$containerDialogWidth: 95vmin;
 $nestorHeight: 80vmin;
 $vovkaHeight: 60vmin;
 
@@ -53,8 +54,8 @@ $introButtonHeightMobile: 25%;
 
 //About
 $containerAboutWidth: 100vmin;
-$containerAboutWidthMobile: 85vw;
-$containerAboutPadding: 9rem;
+$containerAboutWidthMobile: 65vh;
+$containerAboutPadding: 8vh;
 $containerAboutPaddingTop: 6vh;
 
 /*=====  End of Variable  ======*/

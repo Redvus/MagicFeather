@@ -56,10 +56,10 @@ class Intro {
                     y: '2%',
                     autoAlpha: 1
                 })
-                .to(wrapperBottom, {
+                .from(wrapperBottom, {
                     duration: 0.4,
                     delay: '-0.4',
-                    autoAlpha: 1
+                    autoAlpha: 0
                 })
                 .to(wrapperCenter, {
                     duration: 1,
@@ -76,6 +76,8 @@ class Intro {
         const dialogBlockVovka = document.createElement('picture'),
             dialogBlockNestor = document.createElement('picture')
         ;
+
+        container.className += ' container--dialog';
         dialogBlockVovka.id = 'containerVovka';
         dialogBlockVovka.innerHTML = `
             <img src="assets/games/magicFeather/images/mf_vovka.png" alt="Диалог в библиотеке. Вовка">
@@ -112,9 +114,9 @@ class Intro {
         function dialogAnim() {
             let tl = gsap.timeline();
             tl
-                .to(wrapperDialogBack, {
+                .from(wrapperDialogBack, {
                     duration: 0.6,
-                    autoAlpha: 1
+                    autoAlpha: 0
                 })
                 .to(containerNestor, {
                     duration: 0.4,

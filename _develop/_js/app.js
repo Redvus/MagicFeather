@@ -42,7 +42,7 @@ function introDev() {
                 wrapper.removeChild(wrapperBottom);
                 wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
-                introDevLoad.dialogStart();
+                dialogDev();
             }
         });
         tl
@@ -106,7 +106,7 @@ function introDev() {
                 duration: 0.7,
                 delay: -0.5,
                 autoAlpha: 0,
-                scale: 0.98
+                // scale: 0.98
             })
         ;
     });
@@ -120,6 +120,7 @@ function introDev() {
                 wrapper.removeChild(wrapperBottom);
                 wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
+                wrapper.removeChild(wrapperCenter);
                 aboutStart();
             }
         });
@@ -129,12 +130,11 @@ function introDev() {
                 autoAlpha: 0,
                 y: '-3%'
             })
-    //         .to(wrapperTitle, {
-    //             duration: 0.7,
-    //             delay: -0.5,
-    //             autoAlpha: 0,
-    //             y: '5%'
-    //         })
+            .to(wrapperCenter, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0
+            })
             .to(wrapperBottom, {
                 duration: 0.7,
                 delay: -0.5,
@@ -145,15 +145,68 @@ function introDev() {
                 duration: 0.7,
                 delay: -0.5,
                 autoAlpha: 0,
-                scale: 0.98
+                // scale: 0.98
             })
         ;
     });
 }
 
 function dialogDev() {
-    const dialogDevLoad = new Intro();
+    const dialogDevLoad = new Intro(),
+        arrowBackLoad = new ArrowsAll()
+    ;
+
     dialogDevLoad.dialogStart();
+
+    const introAboutBack = document.querySelector('.wrapper__dialog'),
+        containerVovka = document.getElementById('containerVovka'),
+        containerNestor = document.getElementById('containerNestor'),
+        wrapperBottom = document.createElement('div')
+    ;
+
+    wrapperBottom.className = 'wrapper__bottom';
+    wrapper.appendChild(wrapperBottom);
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    wrapperBottom.appendChild(arrowBackClick);
+    arrowBackClick.className += ' wrapper__service_arrow--left';
+
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(wrapperBottom);
+                container.className = 'container';
+                container.removeChild(containerNestor);
+                container.removeChild(containerVovka);
+                wrapper.removeChild(introAboutBack);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to([containerVovka, containerNestor, arrowBackClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                // scale: 0.98
+            })
+        ;
+    });
+
+    arrowBackLoad.arrowBack();
+    const arrowNextClick = document.getElementById('arrowNwxt');
+    wrapperBottom.appendChild(arrowNextClick);
+    arrowNextClick.className += ' wrapper__service_arrow--right';
+
+    arrowNextClick.addEventListener('click', () => {
+       let tl = gsap.timeline({
+
+       });
+    });
 }
 
 /* Запускаем категории */
@@ -174,15 +227,21 @@ function authorsStart() {
 
     const containerAbout = document.querySelector('.container__wrapper_about'),
         introAboutBack = document.querySelector('.wrapper__service'),
-        wrapperTopAbout = document.querySelector('.wrapper__top')
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBottom = document.createElement('div')
     ;
+
+    wrapperBottom.className = 'wrapper__bottom';
+    wrapper.appendChild(wrapperBottom);
 
     arrowBackLoad.arrowBack();
     const arrowBackClick = document.getElementById('arrowBack');
+    wrapperBottom.appendChild(arrowBackClick);
+
     arrowBackClick.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
-                wrapper.removeChild(arrowBackClick);
+                wrapper.removeChild(wrapperBottom);
                 container.removeChild(containerAbout);
                 wrapper.removeChild(introAboutBack);
                 wrapper.removeChild(wrapperTopAbout);
@@ -203,7 +262,57 @@ function authorsStart() {
             .to(introAboutBack, {
                 autoAlpha: 0,
                 delay: '-0.1',
-                scale: 0.98
+                // scale: 0.98
+            })
+        ;
+    });
+}
+
+function aboutStart() {
+    const aboutLoad = new About(),
+        arrowBackLoad = new ArrowsAll()
+    ;
+
+    aboutLoad.aboutLibrary('МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе&nbsp;– Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы&nbsp;– это информационные, образовательные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием</li><li>сканированием</li><li>ламинированием</li><li>документов</li><li>распечаткой информации</li><li>на принтере</li><li>записью на электронные</li><li>носители</li></ul>');
+
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__dialog'),
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBottom = document.createElement('div')
+    ;
+
+    wrapperBottom.className = 'wrapper__bottom';
+    wrapper.appendChild(wrapperBottom);
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    wrapperBottom.appendChild(arrowBackClick);
+
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(wrapperBottom);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
+                wrapper.removeChild(wrapperTopAbout);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to(wrapperTopAbout, {
+                duration: 0.4,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to([containerAbout, arrowBackClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                // scale: 0.98
             })
         ;
     });
@@ -211,8 +320,9 @@ function authorsStart() {
 
 function init() {
     // introDev();
-    // dialogDev();
-    authorsStart();
+    dialogDev();
+    // authorsStart();
+    // aboutStart();
 }
 
 init();
