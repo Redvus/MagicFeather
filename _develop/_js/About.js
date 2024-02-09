@@ -212,4 +212,101 @@ class About {
         }
         aboutLibraryAnim();
     }
+
+    aboutWriter(writerText) {
+        const containerWrapper = document.createElement('div'),
+            containerTitle = document.createElement('div'),
+            wrapperTitleAuthors = document.createElement('div'),
+            containerAboutLeft = document.createElement('div'),
+            containerAboutRight = document.createElement('div')
+        ;
+        containerWrapper.className = 'container__wrapper container__wrapper_about';
+        containerTitle.className = 'container__title container__title_category';
+        containerAboutLeft.className = 'container__about container__about_left';
+        containerAboutRight.className = 'container__about container__about_right';
+        wrapperTitleAuthors.className = 'wrapper__top';
+        container.className = 'container container--writer';
+
+        wrapperTitleAuthors.innerHTML = `
+            <picture id="writerTitle" class="wrapper__top_title wrapper__top_title--writer">
+                <img src="assets/games/magicFeather/images/mf_sun.png" alt="Волшебное перо. Солнце">
+            </picture>
+        `;
+
+        containerAboutLeft.innerHTML = `
+            <div class="container__about_inside">
+                <picture id="aboutWriter">
+                    <img src="assets/games/magicFeather/images/mf_afanasiev.png" alt="Волшебное перо. Писаетель Афанасьев">
+                </picture>
+            </div>
+        `;
+
+        containerAboutRight.innerHTML = `
+            <div class="container__about_inside container__about_text">
+                <p>${writerText}</p>
+            </div>
+        `;
+        wrapper.appendChild(wrapperTitleAuthors);
+        container.appendChild(containerWrapper);
+        containerWrapper.appendChild(containerAboutLeft);
+        containerWrapper.appendChild(containerAboutRight);
+
+        const introBlockBack = document.createElement('div');
+        introBlockBack.className = 'wrapper__service';
+        wrapper.appendChild(introBlockBack);
+
+        // const wrapperAboutBack = document.createElement('div');
+        // wrapperAboutBack.className = 'wrapper__back_about';
+        // wrapper.appendChild(wrapperAboutBack);
+
+        let writerTitle = document.querySelector('.wrapper__top'),
+            containerAboutPerson = document.querySelectorAll('.container__about_inside'),
+            aboutBack = document.querySelector('.wrapper__back_about'),
+            aboutLeft = document.querySelector('.container__about_left'),
+            aboutRight = document.querySelector('.container__about_right'),
+            aboutWriter = document.getElementById('aboutWriter')
+        ;
+
+        function aboutWriterAnim() {
+            let tl = new gsap.timeline();
+
+            tl
+                .from(introBlockBack, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    // scale: 0.98
+                })
+                .to(writerTitle, {
+                    duration: 0.4,
+                    delay: '-0.4',
+                    y: '2%',
+                    autoAlpha: 1
+                })
+                .from(aboutLeft, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.3'
+                })
+                .from(aboutRight, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.3'
+                })
+                .from(containerAboutPerson, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.2',
+                    y: "-0.5rem",
+                    stagger: 0.07
+                })
+                .from(aboutWriter, {
+                    autoAlpha: 0,
+                    duration: 1,
+                    delay: '-0.2',
+                    scale: 1.05
+                })
+            ;
+        }
+        aboutWriterAnim();
+    }
 }

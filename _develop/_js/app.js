@@ -42,7 +42,7 @@ function introDev() {
                 wrapper.removeChild(wrapperBottom);
                 wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
-                dialogDev();
+                writerStart();
             }
         });
         tl
@@ -197,19 +197,105 @@ function dialogDev() {
         ;
     });
 
-    arrowBackLoad.arrowBack();
-    const arrowNextClick = document.getElementById('arrowNwxt');
-    wrapperBottom.appendChild(arrowNextClick);
-    arrowNextClick.className += ' wrapper__service_arrow--right';
+    // arrowBackLoad.arrowBack();
+    // const arrowNextClick = document.getElementById('arrowNext');
+    // wrapperBottom.appendChild(arrowNextClick);
+    // arrowNextClick.className += ' wrapper__service_arrow--right';
 
-    arrowNextClick.addEventListener('click', () => {
-       let tl = gsap.timeline({
-
-       });
-    });
+    // arrowNextClick.addEventListener('click', () => {
+    //    let tl = gsap.timeline({
+    //
+    //    });
+    // });
 }
 
 /* Запускаем категории */
+
+/* Writer */
+function writerStart() {
+    const writerLoad = new About(),
+        arrowBackLoad = new ArrowsAll()
+    ;
+
+    writerLoad.aboutWriter('Сказки Александра Николаевича Афанасьева – бесценный памятник народного творчества, который он в неприкосновенности сберёг и передал потомкам. В этих сказках отразились все переживания, чаяния, и мечты народа, наш русский культурный код, воплощённый в конкретных образах и сюжетах. Приглашаем вас вспомнить любимые сказки детства в нашей игре «Волшебное перо».');
+
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__service'),
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBottom = document.createElement('div')
+    ;
+
+    wrapperBottom.className = 'wrapper__bottom';
+    wrapper.appendChild(wrapperBottom);
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    wrapperBottom.appendChild(arrowBackClick);
+    arrowBackClick.className += ' wrapper__service_arrow--left';
+
+    arrowBackLoad.clearStorage();
+    const settingsClick = document.getElementById('settingsClick');
+    wrapperBottom.appendChild(settingsClick);
+
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(wrapperBottom);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
+                wrapper.removeChild(wrapperTopAbout);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to(wrapperTopAbout, {
+                duration: 0.4,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to([containerAbout, arrowBackClick, settingsClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                // scale: 0.98
+            })
+        ;
+    });
+
+    settingsClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(wrapperBottom);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
+                wrapper.removeChild(wrapperTopAbout);
+                wrapper.className = 'wrapper';
+                container.className = 'container';
+                dialogDev();
+            }
+        });
+        tl
+            .to(wrapperTopAbout, {
+                duration: 0.4,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to([containerAbout, arrowBackClick, settingsClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                // scale: 0.98
+            })
+        ;
+    });
+}
 
 /* Authors */
 function authorsStart() {
@@ -319,10 +405,11 @@ function aboutStart() {
 }
 
 function init() {
-    // introDev();
-    dialogDev();
+    introDev();
+    // dialogDev();
     // authorsStart();
     // aboutStart();
+    // writerStart();
 }
 
 init();

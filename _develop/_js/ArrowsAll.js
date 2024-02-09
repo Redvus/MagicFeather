@@ -29,6 +29,17 @@ class ArrowsAll {
             <img src="assets/games/magicFeather/images/mf_buttonSettings.png" alt="Настройки">
         `;
         wrapper.appendChild(containerClear);
+
+        const settingsClickLoad = document.getElementById('settingsClick');
+
+        function settingsClickAnim() {
+            let settingsClickGsap = gsap.from(settingsClickLoad, {
+                duration: 1,
+                delay: 1,
+                autoAlpha: 0
+            });
+        }
+        settingsClickAnim();
     }
 
     arrowNext() {

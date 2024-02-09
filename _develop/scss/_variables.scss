@@ -34,7 +34,7 @@ $backgroundColor: $third;
 $introTopBlockHeight: 40vh;
 $introTopBlockWidth: 60vw;
 $introTitleBlockHeight: 40vh;
-$introTitleBlockWidth: 76vw;
+$introTitleBlockWidth: 100vmin;
 $introTitleSymbolWidth: calc(#{$containerWidth} / 11);
 $introTitleSymbolLeft: calc((-#{$containerWidth} / 11) / 5.8);
 
