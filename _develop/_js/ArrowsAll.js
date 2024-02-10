@@ -44,8 +44,29 @@ class ArrowsAll {
 
     arrowNext() {
         const containerClear = document.createElement('a');
-        containerClear.className = 'wrapper__service_next';
-        containerClear.id = 'answerNext';
+        containerClear.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+        containerClear.id = 'arrowNext';
+        containerClear.innerHTML = `
+            <img src="assets/games/magicFeather/images/mf_buttonBack.png" alt="Следующий вопрос">
+        `;
+        wrapper.appendChild(containerClear);
+
+        const arrowNextLoad = document.getElementById('arrowNext');
+
+        function arrowNextAnim() {
+            let arrowAnim = gsap.from(arrowNextLoad, {
+                duration: 1,
+                delay: 1,
+                autoAlpha: 0
+            });
+        }
+        arrowNextAnim();
+    }
+
+    buttonContinueLoad() {
+        const containerClear = document.createElement('a');
+        containerClear.className = 'wrapper__service_continue';
+        containerClear.id = 'buttonContinue';
         containerClear.innerHTML = `
             <img src="assets/games/magicFeather/images/mf_buttonBack.png" alt="Следующий вопрос">
         `;

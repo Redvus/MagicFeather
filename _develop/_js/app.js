@@ -166,11 +166,26 @@ function dialogDev() {
 
     wrapperBottom.className = 'wrapper__bottom';
     wrapper.appendChild(wrapperBottom);
+    wrapperBottom.innerHTML = `
+        <div class="wrapper__bottom_part wrapper__bottom_part--left"></div>
+        <div class="wrapper__bottom_part wrapper__bottom_part--center"></div>
+        <div class="wrapper__bottom_part wrapper__bottom_part--right"></div>
+    `;
 
     arrowBackLoad.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack');
-    wrapperBottom.appendChild(arrowBackClick);
-    arrowBackClick.className += ' wrapper__service_arrow--left';
+    arrowBackLoad.clearStorage();
+    arrowBackLoad.arrowNext();
+    const arrowBackClick = document.getElementById('arrowBack'),
+        arrowNextClick = document.getElementById('arrowNext'),
+        settingsClick = document.getElementById('settingsClick'),
+        wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
+        wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
+        wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
+    ;
+
+    wrapperBottomLeft.appendChild(arrowBackClick);
+    wrapperBottomCenter.appendChild(settingsClick);
+    wrapperBottomRight.appendChild(arrowNextClick);
 
     arrowBackClick.addEventListener('click', () => {
         let tl = gsap.timeline({
@@ -185,7 +200,7 @@ function dialogDev() {
             }
         });
         tl
-            .to([containerVovka, containerNestor, arrowBackClick], {
+            .to([containerVovka, containerNestor, arrowBackClick, arrowNextClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
@@ -227,15 +242,26 @@ function writerStart() {
 
     wrapperBottom.className = 'wrapper__bottom';
     wrapper.appendChild(wrapperBottom);
+    wrapperBottom.innerHTML = `
+        <div class="wrapper__bottom_part wrapper__bottom_part--left"></div>
+        <div class="wrapper__bottom_part wrapper__bottom_part--center"></div>
+        <div class="wrapper__bottom_part wrapper__bottom_part--right"></div>
+    `;
 
     arrowBackLoad.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack');
-    wrapperBottom.appendChild(arrowBackClick);
-    arrowBackClick.className += ' wrapper__service_arrow--left';
-
     arrowBackLoad.clearStorage();
-    const settingsClick = document.getElementById('settingsClick');
-    wrapperBottom.appendChild(settingsClick);
+    arrowBackLoad.arrowNext();
+    const arrowBackClick = document.getElementById('arrowBack'),
+        arrowNextClick = document.getElementById('arrowNext'),
+        settingsClick = document.getElementById('settingsClick'),
+        wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
+        wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
+        wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
+    ;
+
+    wrapperBottomLeft.appendChild(arrowBackClick);
+    wrapperBottomCenter.appendChild(settingsClick);
+    wrapperBottomRight.appendChild(arrowNextClick);
 
     arrowBackClick.addEventListener('click', () => {
         let tl = gsap.timeline({
@@ -254,7 +280,7 @@ function writerStart() {
                 autoAlpha: 0,
                 y: '-3%'
             })
-            .to([containerAbout, arrowBackClick, settingsClick], {
+            .to([containerAbout, arrowBackClick, settingsClick, arrowNextClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
@@ -266,7 +292,7 @@ function writerStart() {
         ;
     });
 
-    settingsClick.addEventListener('click', () => {
+    arrowNextClick.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
                 wrapper.removeChild(wrapperBottom);
@@ -284,7 +310,7 @@ function writerStart() {
                 autoAlpha: 0,
                 y: '-3%'
             })
-            .to([containerAbout, arrowBackClick, settingsClick], {
+            .to([containerAbout, arrowBackClick, settingsClick, arrowNextClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
