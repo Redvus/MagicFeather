@@ -259,7 +259,7 @@ class About {
         // wrapperAboutBack.className = 'wrapper__back_about';
         // wrapper.appendChild(wrapperAboutBack);
 
-        let writerTitle = document.querySelector('.wrapper__top'),
+        const writerTitle = document.querySelector('.wrapper__top'),
             containerAboutPerson = document.querySelectorAll('.container__about_inside'),
             aboutBack = document.querySelector('.wrapper__back_about'),
             aboutLeft = document.querySelector('.container__about_left'),

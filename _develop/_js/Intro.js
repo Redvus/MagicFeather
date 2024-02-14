@@ -112,7 +112,11 @@ class Intro {
         ;
 
         function dialogAnim() {
-            let tl = gsap.timeline();
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    dialogBaloonLoad();
+                }
+            });
             tl
                 .from(wrapperDialogBack, {
                     duration: 0.6,
@@ -132,5 +136,141 @@ class Intro {
             ;
         }
         dialogAnim();
+
+        function dialogBaloonLoad() {
+            const dialogBaloon_1 = document.createElement('picture'),
+                dialogBaloon_2 = document.createElement('picture'),
+                dialogBaloon_3 = document.createElement('picture'),
+                dialogBaloon_4 = document.createElement('picture'),
+                dialogBaloon_5 = document.createElement('picture'),
+                dialogBaloon_6 = document.createElement('picture')
+            ;
+
+            dialogBaloon_1.id = 'dialogBaloon_1';
+            dialogBaloon_2.id = 'dialogBaloon_2';
+            dialogBaloon_3.id = 'dialogBaloon_3';
+            dialogBaloon_4.id = 'dialogBaloon_4';
+            dialogBaloon_5.id = 'dialogBaloon_5';
+            dialogBaloon_6.id = 'dialogBaloon_6';
+
+            dialogBaloon_1.innerHTML = `
+                <img src="assets/games/magicFeather/images/mf_dialogBaloon_1.png" alt="Диалог в библиотеке. Вопрос первый">
+            `;
+                dialogBaloon_2.innerHTML = `
+                <img src="assets/games/magicFeather/images/mf_dialogBaloon_2.png" alt="Диалог в библиотеке. Вопрос второй">
+            `;
+                dialogBaloon_3.innerHTML = `
+                <img src="assets/games/magicFeather/images/mf_dialogBaloon_3.png" alt="Диалог в библиотеке. Вопрос третий">
+            `;
+                dialogBaloon_4.innerHTML = `
+                <img src="assets/games/magicFeather/images/mf_dialogBaloon_4.png" alt="Диалог в библиотеке. Вопрос четвертый">
+            `;
+                dialogBaloon_5.innerHTML = `
+                <img src="assets/games/magicFeather/images/mf_dialogBaloon_5.png" alt="Диалог в библиотеке. Вопрос пятый">
+            `;
+                dialogBaloon_6.innerHTML = `
+                <img src="assets/games/magicFeather/images/mf_dialogBaloon_6.png" alt="Диалог в библиотеке. Вопрос шестой">
+            `;
+
+             container.appendChild(dialogBaloon_1);
+             container.appendChild(dialogBaloon_2);
+             container.appendChild(dialogBaloon_3);
+             container.appendChild(dialogBaloon_4);
+             container.appendChild(dialogBaloon_5);
+             container.appendChild(dialogBaloon_6);
+
+
+             const baloon_1 = document.getElementById('dialogBaloon_1'),
+                 baloon_2 = document.getElementById('dialogBaloon_2'),
+                 baloon_3 = document.getElementById('dialogBaloon_3'),
+                 baloon_4 = document.getElementById('dialogBaloon_4'),
+                 baloon_5 = document.getElementById('dialogBaloon_5'),
+                 baloon_6 = document.getElementById('dialogBaloon_6'),
+                 arrowNext = document.getElementById('arrowNext')
+             ;
+
+            function dialogBaloonAinm() {
+                let tlBaloon = gsap.timeline({
+                    onComplete: () => {
+                        setTimeout(() => {
+                            container.removeChild(baloon_1);
+                            container.removeChild(baloon_2);
+                            container.removeChild(baloon_3);
+                            container.removeChild(baloon_4);
+                            container.removeChild(baloon_5);
+                            container.removeChild(baloon_6);
+                        }, 300);
+                        gsap.to(arrowNext, {
+                            autoAlpha: 1
+                        })
+                    }
+                });
+
+                tlBaloon
+                    .from(baloon_1, {
+                        duration: 0.3,
+                        autoAlpha: 0
+                    })
+                    .to(baloon_1, {
+                        duration: 0.3,
+                        delay: 1,
+                        autoAlpha: 0
+                    })
+                    .from(baloon_2, {
+                        duration: 0.3,
+                        delay: 0.3,
+                        autoAlpha: 0
+                    })
+                    .to(baloon_2, {
+                        duration: 0.3,
+                        delay: 1,
+                        autoAlpha: 0
+                    })
+                    .from(baloon_3, {
+                        duration: 0.3,
+                        delay: 0.3,
+                        autoAlpha: 0
+                    })
+                    .to(baloon_3, {
+                        duration: 0.3,
+                        delay: 2,
+                        autoAlpha: 0
+                    })
+                    .from(baloon_4, {
+                        duration: 0.3,
+                        delay: 0.3,
+                        autoAlpha: 0
+                    })
+                    .to(baloon_4, {
+                        duration: 0.3,
+                        delay: 2,
+                        autoAlpha: 0
+                    })
+                    .from(baloon_5, {
+                        duration: 0.3,
+                        delay: 0.3,
+                        autoAlpha: 0
+                    })
+                    .to(baloon_5, {
+                        duration: 0.3,
+                        delay: 1,
+                        autoAlpha: 0
+                    })
+                    .from(baloon_6, {
+                        duration: 0.3,
+                        delay: 0.3,
+                        autoAlpha: 0
+                    })
+                    .to(baloon_6, {
+                        duration: 0.3,
+                        delay: 2,
+                        autoAlpha: 0
+                    })
+                ;
+                return true;
+            }
+            dialogBaloonAinm();
+
+        }
     }
 }

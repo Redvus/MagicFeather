@@ -165,63 +165,73 @@ function dialogDev() {
     ;
 
     wrapperBottom.className = 'wrapper__bottom';
-    wrapper.appendChild(wrapperBottom);
-    wrapperBottom.innerHTML = `
-        <div class="wrapper__bottom_part wrapper__bottom_part--left"></div>
-        <div class="wrapper__bottom_part wrapper__bottom_part--center"></div>
-        <div class="wrapper__bottom_part wrapper__bottom_part--right"></div>
-    `;
+    setTimeout(() => {
+        wrapper.appendChild(wrapperBottom);
+        wrapperBottom.innerHTML = `
+            <div class="wrapper__bottom_part wrapper__bottom_part--left"></div>
+            <div class="wrapper__bottom_part wrapper__bottom_part--center"></div>
+            <div class="wrapper__bottom_part wrapper__bottom_part--right"></div>
+        `;
 
-    arrowBackLoad.arrowBack();
-    arrowBackLoad.clearStorage();
-    arrowBackLoad.arrowNext();
-    const arrowBackClick = document.getElementById('arrowBack'),
-        arrowNextClick = document.getElementById('arrowNext'),
-        settingsClick = document.getElementById('settingsClick'),
-        wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
-        wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
-        wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
-    ;
-
-    wrapperBottomLeft.appendChild(arrowBackClick);
-    wrapperBottomCenter.appendChild(settingsClick);
-    wrapperBottomRight.appendChild(arrowNextClick);
-
-    arrowBackClick.addEventListener('click', () => {
-        let tl = gsap.timeline({
-            onComplete: () => {
-                wrapper.removeChild(wrapperBottom);
-                container.className = 'container';
-                container.removeChild(containerNestor);
-                container.removeChild(containerVovka);
-                wrapper.removeChild(introAboutBack);
-                wrapper.className = 'wrapper';
-                introDev();
-            }
-        });
-        tl
-            .to([containerVovka, containerNestor, arrowBackClick, arrowNextClick], {
-                autoAlpha: 0,
-                delay: '-0.1'
-            })
-            .to(introAboutBack, {
-                autoAlpha: 0,
-                delay: '-0.1',
-                // scale: 0.98
-            })
+        arrowBackLoad.arrowBack();
+        arrowBackLoad.clearStorage();
+        arrowBackLoad.arrowNext();
+        const arrowBackClick = document.getElementById('arrowBack'),
+            arrowNextClick = document.getElementById('arrowNext'),
+            settingsClick = document.getElementById('settingsClick'),
+            wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
+            wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
+            wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
         ;
-    });
 
-    // arrowBackLoad.arrowBack();
-    // const arrowNextClick = document.getElementById('arrowNext');
-    // wrapperBottom.appendChild(arrowNextClick);
-    // arrowNextClick.className += ' wrapper__service_arrow--right';
+        wrapperBottomLeft.appendChild(arrowBackClick);
+        wrapperBottomCenter.appendChild(settingsClick);
+        wrapperBottomRight.appendChild(arrowNextClick);
 
-    // arrowNextClick.addEventListener('click', () => {
-    //    let tl = gsap.timeline({
-    //
-    //    });
-    // });
+        arrowBackClick.addEventListener('click', () => {
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    wrapper.removeChild(wrapperBottom);
+                    container.className = 'container';
+                    container.removeChild(containerNestor);
+                    container.removeChild(containerVovka);
+                    wrapper.removeChild(introAboutBack);
+                    wrapper.className = 'wrapper';
+                    introDev();
+                }
+            });
+            tl
+                .to([containerVovka, containerNestor, arrowBackClick, arrowNextClick, settingsClick], {
+                    autoAlpha: 0,
+                    delay: '-0.1'
+                })
+                .to(introAboutBack, {
+                    autoAlpha: 0,
+                    delay: '-0.1',
+                    // scale: 0.98
+                })
+            ;
+        });
+
+        arrowNextClick.addEventListener('click', () => {
+           let tl = gsap.timeline({
+               onComplete: () => {
+                   // wrapper.removeChild(wrapperBottom);
+                   // container.className = 'container';
+                   // container.removeChild(containerNestor);
+                   // container.removeChild(containerVovka);
+                   // wrapper.removeChild(introAboutBack);
+                   // wrapper.className = 'wrapper';
+               }
+           });
+           tl
+               .to(containerVovka, {
+                   duration: 1,
+                   left: '40%'
+               })
+           ;
+        });
+    }, 11000);
 }
 
 /* Запускаем категории */
@@ -431,8 +441,8 @@ function aboutStart() {
 }
 
 function init() {
-    introDev();
-    // dialogDev();
+    // introDev();
+    dialogDev();
     // authorsStart();
     // aboutStart();
     // writerStart();

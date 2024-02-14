@@ -33,3 +33,87 @@
         @extend %imgCenter;
     }
 }
+
+#dialogBaloon_1 {
+    width: 40vmin;
+    height: auto;
+    display: block;
+    position: absolute;
+    transform-origin: 0 100%;
+    left: 15vmin;
+    top: 22vmin;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#dialogBaloon_2 {
+    width: 40vmin;
+    height: auto;
+    display: block;
+    position: absolute;
+    transform-origin: 100% 0;
+    right: 22vmin;
+    top: 5vmin;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#dialogBaloon_3 {
+    width: 40vmin;
+    height: auto;
+    display: block;
+    position: absolute;
+    transform-origin: 0 100%;
+    left: 15vmin;
+    top: 22vmin;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#dialogBaloon_4 {
+    width: 40vmin;
+    height: auto;
+    display: block;
+    position: absolute;
+    transform-origin: 100% 0;
+    right: 22vmin;
+    top: 0;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#dialogBaloon_5 {
+    width: 40vmin;
+    height: auto;
+    display: block;
+    position: absolute;
+    transform-origin: 0 100%;
+    left: 15vmin;
+    top: 22vmin;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#dialogBaloon_6 {
+    width: 40vmin;
+    height: auto;
+    display: block;
+    position: absolute;
+    transform-origin: 100% 0;
+    right: 22vmin;
+    top: 5vmin;
+
+    img {
+        @extend %imgCenter;
+    }
+}
