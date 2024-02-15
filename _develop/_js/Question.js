@@ -1,6 +1,129 @@
 class Question {
 
-    questionBlock(
+    questionBlock(questQuestion,
+                  questionVar_1,
+                  questionVar_2,
+                  questionVar_3) {
+        const containerWrapper = document.createElement('div'),
+            containerTitle = document.createElement('div'),
+            wrapperTitleAuthors = document.createElement('div'),
+            containerAboutLeft = document.createElement('div'),
+            containerAboutRight = document.createElement('div')
+        ;
+        containerWrapper.className = 'container__wrapper container__wrapper_about';
+        containerTitle.className = 'container__title container__title_category';
+        containerAboutLeft.className = 'container__about container__about_left';
+        containerAboutRight.className = 'container__about container__about_right';
+        wrapperTitleAuthors.className = 'wrapper__top';
+        container.className = 'container container--writer';
+
+        containerAboutLeft.innerHTML = `
+            <div class="container__about_inside container__about_inside--center">
+                <p>${questQuestion}</p>
+            </div>
+        `;
+
+        containerAboutRight.innerHTML = `
+            <div class="container__about_inside">
+                <ul class="question__block_list">
+                    <li id="questionVar_1"><a href="javascript:void(0);">${questionVar_1}</a></li>
+                    <li id="questionVar_2"><a href="javascript:void(0);">${questionVar_2}</a></li>
+                    <li id="questionVar_3"><a href="javascript:void(0);">${questionVar_3}</a></li>
+                </ul>
+            </div>
+        `;
+        wrapper.appendChild(wrapperTitleAuthors);
+        container.appendChild(containerWrapper);
+        containerWrapper.appendChild(containerAboutLeft);
+        containerWrapper.appendChild(containerAboutRight);
+
+        const introBlockBack = document.createElement('div');
+        introBlockBack.className = 'wrapper__service';
+        wrapper.appendChild(introBlockBack);
+
+        const writerTitle = document.querySelector('.wrapper__top'),
+            containerAboutPerson = document.querySelectorAll('.container__about_inside'),
+            aboutLeft = document.querySelector('.container__about_left'),
+            aboutRight = document.querySelector('.container__about_right'),
+            aboutWriter = document.getElementById('aboutWriter'),
+            questButtonLi_1 = document.getElementById('questionVar_1'),
+            questButtonLi_2 = document.getElementById('questionVar_2'),
+            questButtonLi_3 = document.getElementById('questionVar_3'),
+            questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
+            questButtonLiPosition = ['0', '33%', '66%'],
+            questButtonLi = document.querySelectorAll('.question__block_list li'),
+            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length))
+        ;
+
+        questButtonList.forEach((el, idx) => {
+            el.style.top = positionLiTop[idx];
+        });
+
+        function questionBlockAnimation() {
+            let tl = gsap.timeline();
+            tl
+                // .from('.container__title_category', {
+                //     autoAlpha: 0,
+                //     duration: 0.2,
+                //     delay: 0.3
+                // })
+                .from(questBlockImage, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: 0.2
+                })
+                .from(questButtonList, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    delay: '-0.2'
+                })
+            ;
+        }
+
+        function aboutWriterAnim() {
+            let tl = new gsap.timeline();
+
+            tl
+                .from(introBlockBack, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    // scale: 0.98
+                })
+                .to(writerTitle, {
+                    duration: 0.4,
+                    delay: '-0.4',
+                    y: '2%',
+                    autoAlpha: 1
+                })
+                .from(aboutLeft, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.3'
+                })
+                .from(aboutRight, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.3'
+                })
+                .from(containerAboutPerson, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.2',
+                    y: "-0.5rem",
+                    stagger: 0.07
+                })
+                .from(aboutWriter, {
+                    autoAlpha: 0,
+                    duration: 1,
+                    delay: '-0.2',
+                    scale: 1.05
+                })
+            ;
+        }
+    }
+
+    question(
         questionTitleCategory,
         questionTitle,
         questionQuest,
@@ -73,75 +196,6 @@ class Question {
             ;
         }
         questionBlockAnimation();
-    }
-
-    questionImageBlock(
-        questionTitleCategory,
-        questionTitle,
-        questionImage,
-        questionVariant1,
-        questionVariant2,
-        questionVariant3) {
-
-        // Development
-        wrapper.className += ' wrapper__game';
-
-        const containerWrapper = document.createElement('div'),
-            questionCategoryTitle = document.createElement('div'),
-            questionCategoryStars = document.createElement('ul')
-        ;
-        containerWrapper.className = 'container__wrapper container__wrapper_category';
-        questionCategoryTitle.className = 'container__title container__title_category';
-        questionCategoryStars.className = 'wrapper__stars';
-        questionCategoryTitle.innerHTML = `<h1>${questionTitleCategory}</h1>`;
-        containerWrapper.innerHTML = `
-            <div class="question__block">
-                <div class="question__block_imageblock">
-                    <h4>${questionTitle}</h4>
-                    <div class="question__block_image-single">
-                        <img src="assets/games/cosmicpuzzles/images/${questionImage}.png" alt="${questionImage}">
-                    </div>
-                </div>
-                <ul class="question__block_list">
-                    <li id="answerVar_1"><a href="javascript:void(0);">${questionVariant1}</a></li>
-                    <li id="answerVar_2"><a href="javascript:void(0);">${questionVariant2}</a></li>
-                    <li id="answerVar_3"><a href="javascript:void(0);">${questionVariant3}</a></li>
-                </ul>
-            </div>
-        `;
-        container.appendChild(containerWrapper);
-        containerWrapper.appendChild(questionCategoryTitle);
-
-        const questButtonLi_1 = document.getElementById('answerVar_1'),
-            questButtonLi_2 = document.getElementById('answerVar_2'),
-            questButtonLi_3 = document.getElementById('answerVar_3'),
-            questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
-            questButtonLiPosition = ['0', '33%', '66%'],
-            questButtonLi = document.querySelectorAll('.question__block_list li'),
-            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length))
-        ;
-
-        questButtonList.forEach((el, idx) => {
-            el.style.top = positionLiTop[idx];
-        });
-
-        function questionBlockImageAnim() {
-            let tl = gsap.timeline();
-            tl
-                .from('.question__block_imageblock', {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    delay: 0.2
-                })
-                .from(questButtonList, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    stagger: 0.1,
-                    delay: '-0.2'
-                })
-            ;
-        }
-        questionBlockImageAnim();
     }
 
     answerBlock(answerVarNum, answerTextRight) {

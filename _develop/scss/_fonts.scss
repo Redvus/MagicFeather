@@ -82,7 +82,7 @@ $font-size-h6:      calc(#{$body-font-size} + 0.5vmin) !default; // ~1.2rem 19px
     }
 
     @include grid-media($Medium) {
-        font-size: $font-size-small;
+        font-size: $font-size-large;
         //line-height: 1;
     }
 

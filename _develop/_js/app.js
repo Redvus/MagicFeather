@@ -440,12 +440,22 @@ function aboutStart() {
     });
 }
 
+// Question
+function questionDev() {
+    const questionLoad = new Question();
+    questionLoad.questionBlock('Микроволновка с&nbsp;искусственным интеллектом',
+        'печь с пирожками',
+        'печь Бабы Яги',
+        'печь Емели');
+}
+
 function init() {
     // introDev();
-    dialogDev();
+    // dialogDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
+    questionDev();
 }
 
 init();

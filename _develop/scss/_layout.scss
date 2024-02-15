@@ -732,7 +732,7 @@
 			align-items: center;
 			justify-content: center;
 			position: relative;
-			margin-top: 3vh;
+			//margin-top: 3vh;
 
 			picture {
 				width: 70%;
@@ -765,6 +765,16 @@
 					left: 50%;
 					transform: translate(-50%, -50%);
 					object-fit: cover;
+				}
+			}
+
+			&--center {
+				width: calc(100% - (#{$paddingBase} * 2));
+				padding: 0 $paddingBase;
+				text-align: center;
+
+				p {
+					margin-top: 0;
 				}
 			}
 		}
@@ -813,28 +823,31 @@
 
 		&_left {
 			width: calc(50% - (#{$paddingBase} * 2));
-			height: calc(100% - #{$containerAboutPadding} - (calc(#{$containerAboutPadding} - (#{$paddingBase} * 2))));
+			//height: calc(100% - #{$containerAboutPadding} - (calc(#{$containerAboutPadding} - (#{$paddingBase} * 2))));
+			height: calc(100% - (#{$containerAboutPadding} * 3));
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			margin-right: $paddingBase;
-			padding: $containerAboutPadding calc(#{$paddingBase} * 4) calc(#{$containerAboutPadding} - (#{$paddingBase} * 2));
+			//padding: $containerAboutPadding calc(#{$paddingBase} * 4) calc(#{$containerAboutPadding} - (#{$paddingBase} * 2));
+			padding: calc(#{$containerAboutPadding} * 2) calc(#{$paddingBase} * 4) $containerAboutPadding;
 			background: url("../images/mf_fieldTextAuthors.png") 50% 50% / 100% no-repeat;
 		}
 
 		&_right {
 			width: calc(50% - (#{$paddingBase} * 2));
-			height: calc(100% - #{$containerAboutPadding} - (calc(#{$containerAboutPadding} - (#{$paddingBase} * 2))));
+			height: calc(100% - (#{$containerAboutPadding} * 3));
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
 			margin-left: $paddingBase;
-			padding: $containerAboutPadding calc(#{$paddingBase} * 4) calc(#{$containerAboutPadding} - (#{$paddingBase} * 2));
+			padding: calc(#{$containerAboutPadding} * 2) calc(#{$paddingBase} * 4) $containerAboutPadding;
 			background: url("../images/mf_fieldTextAuthors.png") 50% 50% / 100% no-repeat;
 
 			p {
-				margin-bottom: calc(#{$paddingBase} / 2.5);
+				//margin-bottom: calc(#{$paddingBase} / 2.5);
+				margin: 0;
 			}
 		}
 	}
