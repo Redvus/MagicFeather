@@ -186,7 +186,9 @@ class Intro {
                  baloon_4 = document.getElementById('dialogBaloon_4'),
                  baloon_5 = document.getElementById('dialogBaloon_5'),
                  baloon_6 = document.getElementById('dialogBaloon_6'),
-                 arrowNext = document.getElementById('arrowNext')
+                 arrowNext = document.getElementById('arrowNext'),
+                 timeShort = 0.3,
+                 timeLong = 1.5
              ;
 
             function dialogBaloonAinm() {
@@ -233,7 +235,7 @@ class Intro {
                     })
                     .to(baloon_3, {
                         duration: 0.3,
-                        delay: 2,
+                        delay: timeLong,
                         autoAlpha: 0
                     })
                     .from(baloon_4, {
@@ -243,7 +245,7 @@ class Intro {
                     })
                     .to(baloon_4, {
                         duration: 0.3,
-                        delay: 2,
+                        delay: timeLong,
                         autoAlpha: 0
                     })
                     .from(baloon_5, {
@@ -263,7 +265,7 @@ class Intro {
                     })
                     .to(baloon_6, {
                         duration: 0.3,
-                        delay: 2,
+                        delay: timeLong,
                         autoAlpha: 0
                     })
                 ;

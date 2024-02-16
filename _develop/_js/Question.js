@@ -1,51 +1,82 @@
 class Question {
 
-    questionBlock(questQuestion,
+    questionBlock() {
+        const containerWrapper = document.createElement('div'),
+            containerWriter = document.createElement('div'),
+            containerTitle = document.createElement('div'),
+            wrapperTitleAuthors = document.createElement('div'),
+            containerBlockLeft = document.createElement('div'),
+            containerBlockRight = document.createElement('div')
+        ;
+        containerWriter.className = 'container-quest';
+        containerWrapper.className = 'container__wrapper container__wrapper_about';
+        containerTitle.className = 'container__title container__title_category';
+        containerBlockLeft.className = 'container__about container__about_left';
+        containerBlockRight.className = 'container__about container__about_right';
+        wrapperTitleAuthors.className = 'wrapper__top';
+
+        containerBlockLeft.id = 'containerBlockLeft';
+        containerBlockRight.id = 'containerBlockRight';
+
+        // wrapper.appendChild(wrapperTitleAuthors);
+        wrapper.appendChild(containerWriter);
+        containerWriter.appendChild(containerWrapper);
+        containerWrapper.appendChild(containerBlockLeft);
+        containerWrapper.appendChild(containerBlockRight);
+
+        const writerTitle = document.querySelector('.wrapper__top'),
+            aboutLeft = document.querySelector('.container__about_left'),
+            aboutRight = document.querySelector('.container__about_right')
+        ;
+
+        function questionBlockAnim() {
+            let tl = gsap.timeline();
+            tl
+                .from(aboutLeft, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: 0.2
+                })
+                .from(aboutRight, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: '-0.2'
+                })
+            ;
+        }
+        questionBlockAnim();
+    }
+
+    questionBlockText(questQuestion,
                   questionVar_1,
                   questionVar_2,
                   questionVar_3) {
-        const containerWrapper = document.createElement('div'),
-            containerTitle = document.createElement('div'),
-            wrapperTitleAuthors = document.createElement('div'),
-            containerAboutLeft = document.createElement('div'),
-            containerAboutRight = document.createElement('div')
+
+        const containerInsideLeft = document.createElement('div'),
+            containerInsideRight = document.createElement('div'),
+            containerBlockLeft = document.getElementById('containerBlockLeft'),
+            containerBlockRight = document.getElementById('containerBlockRight')
         ;
-        containerWrapper.className = 'container__wrapper container__wrapper_about';
-        containerTitle.className = 'container__title container__title_category';
-        containerAboutLeft.className = 'container__about container__about_left';
-        containerAboutRight.className = 'container__about container__about_right';
-        wrapperTitleAuthors.className = 'wrapper__top';
-        container.className = 'container container--writer';
 
-        containerAboutLeft.innerHTML = `
-            <div class="container__about_inside container__about_inside--center">
-                <p>${questQuestion}</p>
-            </div>
+        containerInsideLeft.className = 'container__about_inside container__about_inside--center';
+        containerInsideRight.className = 'container__about_inside';
+        containerInsideLeft.id = 'containerInsideLeft';
+        containerInsideRight.id = 'containerInsideRight';
+
+        containerInsideLeft.innerHTML = `<p>${questQuestion}</p>`;
+
+        containerInsideRight.innerHTML = `
+            <ul class="question__block_list">
+                <li id="questionVar_1"><a href="javascript:void(0);">${questionVar_1}</a></li>
+                <li id="questionVar_2"><a href="javascript:void(0);">${questionVar_2}</a></li>
+                <li id="questionVar_3"><a href="javascript:void(0);">${questionVar_3}</a></li>
+            </ul>
         `;
 
-        containerAboutRight.innerHTML = `
-            <div class="container__about_inside">
-                <ul class="question__block_list">
-                    <li id="questionVar_1"><a href="javascript:void(0);">${questionVar_1}</a></li>
-                    <li id="questionVar_2"><a href="javascript:void(0);">${questionVar_2}</a></li>
-                    <li id="questionVar_3"><a href="javascript:void(0);">${questionVar_3}</a></li>
-                </ul>
-            </div>
-        `;
-        wrapper.appendChild(wrapperTitleAuthors);
-        container.appendChild(containerWrapper);
-        containerWrapper.appendChild(containerAboutLeft);
-        containerWrapper.appendChild(containerAboutRight);
+        containerBlockLeft.appendChild(containerInsideLeft);
+        containerBlockRight.appendChild(containerInsideRight);
 
-        const introBlockBack = document.createElement('div');
-        introBlockBack.className = 'wrapper__service';
-        wrapper.appendChild(introBlockBack);
-
-        const writerTitle = document.querySelector('.wrapper__top'),
-            containerAboutPerson = document.querySelectorAll('.container__about_inside'),
-            aboutLeft = document.querySelector('.container__about_left'),
-            aboutRight = document.querySelector('.container__about_right'),
-            aboutWriter = document.getElementById('aboutWriter'),
+        const insideTextLeft = document.querySelectorAll('#containerInsideLeft > p'),
             questButtonLi_1 = document.getElementById('questionVar_1'),
             questButtonLi_2 = document.getElementById('questionVar_2'),
             questButtonLi_3 = document.getElementById('questionVar_3'),
@@ -59,18 +90,13 @@ class Question {
             el.style.top = positionLiTop[idx];
         });
 
-        function questionBlockAnimation() {
+        function questionBlockTextAnim() {
             let tl = gsap.timeline();
             tl
-                // .from('.container__title_category', {
-                //     autoAlpha: 0,
-                //     duration: 0.2,
-                //     delay: 0.3
-                // })
-                .from(questBlockImage, {
+                .from(insideTextLeft, {
                     autoAlpha: 0,
                     duration: 0.4,
-                    delay: 0.2
+                    delay: 0.7
                 })
                 .from(questButtonList, {
                     autoAlpha: 0,
@@ -80,122 +106,13 @@ class Question {
                 })
             ;
         }
-
-        function aboutWriterAnim() {
-            let tl = new gsap.timeline();
-
-            tl
-                .from(introBlockBack, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    // scale: 0.98
-                })
-                .to(writerTitle, {
-                    duration: 0.4,
-                    delay: '-0.4',
-                    y: '2%',
-                    autoAlpha: 1
-                })
-                .from(aboutLeft, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    delay: '-0.3'
-                })
-                .from(aboutRight, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    delay: '-0.3'
-                })
-                .from(containerAboutPerson, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    delay: '-0.2',
-                    y: "-0.5rem",
-                    stagger: 0.07
-                })
-                .from(aboutWriter, {
-                    autoAlpha: 0,
-                    duration: 1,
-                    delay: '-0.2',
-                    scale: 1.05
-                })
-            ;
-        }
+        questionBlockTextAnim();
     }
 
-    question(
-        questionTitleCategory,
-        questionTitle,
-        questionQuest,
-        questionVariant1,
-        questionVariant2,
-        questionVariant3) {
-
-        // Development
-        wrapper.className += ' wrapper__game';
-
-        const containerWrapper = document.createElement('div'),
-            questionCategoryTitle = document.createElement('div'),
-            questionCategoryStars = document.createElement('ul')
-        ;
-        containerWrapper.className = 'container__wrapper container__wrapper_category';
-        questionCategoryTitle.className = 'container__title container__title_category';
-        questionCategoryStars.className = 'wrapper__stars';
-        containerWrapper.innerHTML = `
-            <div class="question__block">
-                <div class="question__block_imageblock">
-                    <div class="question__block_image">
-                        <p>${questionQuest}</p>
-                        <img src="assets/games/kraevedia/images/kraevedia_catBack.png" alt="Изображение по вопросом">
-                    </div>
-                </div>
-                <ul class="question__block_list">
-                    <li id="answerVar_1"><a href="javascript:void(0);">${questionVariant1}</a></li>
-                    <li id="answerVar_2"><a href="javascript:void(0);">${questionVariant2}</a></li>
-                    <li id="answerVar_3"><a href="javascript:void(0);">${questionVariant3}</a></li>
-                </ul>
-            </div>
-        `;
-        container.appendChild(containerWrapper);
-        // containerWrapper.appendChild(questionCategoryTitle);
-        // wrapper.appendChild(questionCategoryStars);
-
-        const questButtonLi_1 = document.getElementById('answerVar_1'),
-            questButtonLi_2 = document.getElementById('answerVar_2'),
-            questButtonLi_3 = document.getElementById('answerVar_3'),
-            questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
-            questButtonLiPosition = ['0', '33%', '66%'],
-            questButtonLi = document.querySelectorAll('.question__block_list li'),
-            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length)),
-            questBlockImage = document.querySelector('.question__block_imageblock')
-        ;
-
-        questButtonList.forEach((el, idx) => {
-            el.style.top = positionLiTop[idx];
-        });
-
-        function questionBlockAnimation() {
-            let tl = gsap.timeline();
-            tl
-                // .from('.container__title_category', {
-                //     autoAlpha: 0,
-                //     duration: 0.2,
-                //     delay: 0.3
-                // })
-                .from(questBlockImage, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    delay: 0.2
-                })
-                .from(questButtonList, {
-                    autoAlpha: 0,
-                    duration: 0.4,
-                    stagger: 0.1,
-                    delay: '-0.2'
-                })
-            ;
-        }
-        questionBlockAnimation();
+    questionWrapperBack(questBack) {
+        const wrapperQuestBack = document.createElement('div');
+        wrapperQuestBack.className = `wrapper__${questBack}`;
+        wrapper.appendChild(wrapperQuestBack);
     }
 
     answerBlock(answerVarNum, answerTextRight) {

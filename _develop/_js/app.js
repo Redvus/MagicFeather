@@ -4,7 +4,7 @@ const container = document.querySelector('.container'),
 
 const soundsLoad = new Sounds();
 
-/* Develop */
+/* Intro */
 function introDev() {
     const introDevLoad = new Intro();
     introDevLoad.introStart();
@@ -151,90 +151,113 @@ function introDev() {
     });
 }
 
-function dialogDev() {
-    const dialogDevLoad = new Intro(),
+/* Authors */
+function authorsStart() {
+    const authorsLoad = new About(),
         arrowBackLoad = new ArrowsAll()
     ;
 
-    dialogDevLoad.dialogStart();
+    authorsLoad.aboutAuthors('Сценарист',
+        'Инна Ямщикова',
+        'Художники',
+        'Елена Расторгуева',
+        'Анастасия Полякова',
+        'Программист',
+        'Александр Суворов');
 
-    const introAboutBack = document.querySelector('.wrapper__dialog'),
-        containerVovka = document.getElementById('containerVovka'),
-        containerNestor = document.getElementById('containerNestor'),
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__service'),
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
         wrapperBottom = document.createElement('div')
     ;
 
     wrapperBottom.className = 'wrapper__bottom';
-    setTimeout(() => {
-        wrapper.appendChild(wrapperBottom);
-        wrapperBottom.innerHTML = `
-            <div class="wrapper__bottom_part wrapper__bottom_part--left"></div>
-            <div class="wrapper__bottom_part wrapper__bottom_part--center"></div>
-            <div class="wrapper__bottom_part wrapper__bottom_part--right"></div>
-        `;
+    wrapper.appendChild(wrapperBottom);
 
-        arrowBackLoad.arrowBack();
-        arrowBackLoad.clearStorage();
-        arrowBackLoad.arrowNext();
-        const arrowBackClick = document.getElementById('arrowBack'),
-            arrowNextClick = document.getElementById('arrowNext'),
-            settingsClick = document.getElementById('settingsClick'),
-            wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
-            wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
-            wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    wrapperBottom.appendChild(arrowBackClick);
+
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(wrapperBottom);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
+                wrapper.removeChild(wrapperTopAbout);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to(wrapperTopAbout, {
+                duration: 0.4,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to([containerAbout, arrowBackClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                // scale: 0.98
+            })
         ;
-
-        wrapperBottomLeft.appendChild(arrowBackClick);
-        wrapperBottomCenter.appendChild(settingsClick);
-        wrapperBottomRight.appendChild(arrowNextClick);
-
-        arrowBackClick.addEventListener('click', () => {
-            let tl = gsap.timeline({
-                onComplete: () => {
-                    wrapper.removeChild(wrapperBottom);
-                    container.className = 'container';
-                    container.removeChild(containerNestor);
-                    container.removeChild(containerVovka);
-                    wrapper.removeChild(introAboutBack);
-                    wrapper.className = 'wrapper';
-                    introDev();
-                }
-            });
-            tl
-                .to([containerVovka, containerNestor, arrowBackClick, arrowNextClick, settingsClick], {
-                    autoAlpha: 0,
-                    delay: '-0.1'
-                })
-                .to(introAboutBack, {
-                    autoAlpha: 0,
-                    delay: '-0.1',
-                    // scale: 0.98
-                })
-            ;
-        });
-
-        arrowNextClick.addEventListener('click', () => {
-           let tl = gsap.timeline({
-               onComplete: () => {
-                   // wrapper.removeChild(wrapperBottom);
-                   // container.className = 'container';
-                   // container.removeChild(containerNestor);
-                   // container.removeChild(containerVovka);
-                   // wrapper.removeChild(introAboutBack);
-                   // wrapper.className = 'wrapper';
-               }
-           });
-           tl
-               .to(containerVovka, {
-                   duration: 1,
-                   left: '40%'
-               })
-           ;
-        });
-    }, 11000);
+    });
 }
 
-/* Запускаем категории */
+/* About */
+function aboutStart() {
+    const aboutLoad = new About(),
+        arrowBackLoad = new ArrowsAll()
+    ;
+
+    aboutLoad.aboutLibrary('МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе&nbsp;– Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы&nbsp;– это информационные, образовательные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием</li><li>сканированием</li><li>ламинированием</li><li>документов</li><li>распечаткой информации</li><li>на принтере</li><li>записью на электронные</li><li>носители</li></ul>');
+
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__dialog'),
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBottom = document.createElement('div')
+    ;
+
+    wrapperBottom.className = 'wrapper__bottom';
+    wrapper.appendChild(wrapperBottom);
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    wrapperBottom.appendChild(arrowBackClick);
+
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.removeChild(wrapperBottom);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
+                wrapper.removeChild(wrapperTopAbout);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to(wrapperTopAbout, {
+                duration: 0.4,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to([containerAbout, arrowBackClick], {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.1',
+                // scale: 0.98
+            })
+        ;
+    });
+}
 
 /* Writer */
 function writerStart() {
@@ -333,129 +356,161 @@ function writerStart() {
     });
 }
 
-/* Authors */
-function authorsStart() {
-    const authorsLoad = new About(),
+/* Dialog */
+function dialogDev() {
+    const dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll()
     ;
 
-    authorsLoad.aboutAuthors('Сценарист',
-        'Инна Ямщикова',
-        'Художники',
-        'Елена Расторгуева',
-        'Анастасия Полякова',
-        'Программист',
-        'Александр Суворов');
+    dialogDevLoad.dialogStart();
 
-    const containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper__service'),
-        wrapperTopAbout = document.querySelector('.wrapper__top'),
+    const introAboutBack = document.querySelector('.wrapper__dialog'),
+        containerVovka = document.getElementById('containerVovka'),
+        containerNestor = document.getElementById('containerNestor'),
         wrapperBottom = document.createElement('div')
     ;
 
     wrapperBottom.className = 'wrapper__bottom';
-    wrapper.appendChild(wrapperBottom);
+    setTimeout(() => {
+        wrapper.appendChild(wrapperBottom);
+        wrapperBottom.innerHTML = `
+            <div class="wrapper__bottom_part wrapper__bottom_part--left"></div>
+            <div class="wrapper__bottom_part wrapper__bottom_part--center"></div>
+            <div class="wrapper__bottom_part wrapper__bottom_part--right"></div>
+        `;
 
-    arrowBackLoad.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack');
-    wrapperBottom.appendChild(arrowBackClick);
-
-    arrowBackClick.addEventListener('click', () => {
-        let tl = gsap.timeline({
-            onComplete: () => {
-                wrapper.removeChild(wrapperBottom);
-                container.removeChild(containerAbout);
-                wrapper.removeChild(introAboutBack);
-                wrapper.removeChild(wrapperTopAbout);
-                wrapper.className = 'wrapper';
-                introDev();
-            }
-        });
-        tl
-            .to(wrapperTopAbout, {
-                duration: 0.4,
-                autoAlpha: 0,
-                y: '-3%'
-            })
-            .to([containerAbout, arrowBackClick], {
-                autoAlpha: 0,
-                delay: '-0.1'
-            })
-            .to(introAboutBack, {
-                autoAlpha: 0,
-                delay: '-0.1',
-                // scale: 0.98
-            })
+        arrowBackLoad.arrowBack();
+        arrowBackLoad.clearStorage();
+        arrowBackLoad.arrowNext();
+        const arrowBackClick = document.getElementById('arrowBack'),
+            arrowNextClick = document.getElementById('arrowNext'),
+            settingsClick = document.getElementById('settingsClick'),
+            wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
+            wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
+            wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
         ;
-    });
+
+        wrapperBottomLeft.appendChild(arrowBackClick);
+        wrapperBottomCenter.appendChild(settingsClick);
+        wrapperBottomRight.appendChild(arrowNextClick);
+
+        arrowBackClick.addEventListener('click', () => {
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    wrapper.removeChild(wrapperBottom);
+                    container.className = 'container';
+                    container.removeChild(containerNestor);
+                    container.removeChild(containerVovka);
+                    wrapper.removeChild(introAboutBack);
+                    wrapper.className = 'wrapper';
+                    introDev();
+                }
+            });
+            tl
+                .to([containerVovka, containerNestor, arrowBackClick, arrowNextClick, settingsClick], {
+                    autoAlpha: 0,
+                    delay: '-0.1'
+                })
+                .to(introAboutBack, {
+                    autoAlpha: 0,
+                    delay: '-0.1',
+                    // scale: 0.98
+                })
+            ;
+        });
+
+        arrowNextClick.addEventListener('click', () => {
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    wrapperBottomCenter.removeChild(settingsClick);
+                    wrapperBottomRight.removeChild(arrowNextClick);
+                    questionFirst();
+                }
+            });
+            tl
+                .to([arrowNextClick, settingsClick], {
+                    autoAlpha: 0,
+                    delay: '-0.1'
+                })
+                .to(containerVovka, {
+                    duration: 1,
+                    left: '40%'
+                })
+            ;
+        });
+    }, 11000);
 }
 
-function aboutStart() {
-    const aboutLoad = new About(),
+/* Question */
+function questionFirst() {
+    const questionLoad = new Question(),
         arrowBackLoad = new ArrowsAll()
     ;
-
-    aboutLoad.aboutLibrary('МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе&nbsp;– Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы&nbsp;– это информационные, образовательные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием</li><li>сканированием</li><li>ламинированием</li><li>документов</li><li>распечаткой информации</li><li>на принтере</li><li>записью на электронные</li><li>носители</li></ul>');
-
-    const containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper__dialog'),
-        wrapperTopAbout = document.querySelector('.wrapper__top'),
-        wrapperBottom = document.createElement('div')
-    ;
-
-    wrapperBottom.className = 'wrapper__bottom';
-    wrapper.appendChild(wrapperBottom);
-
-    arrowBackLoad.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack');
-    wrapperBottom.appendChild(arrowBackClick);
-
-    arrowBackClick.addEventListener('click', () => {
-        let tl = gsap.timeline({
-            onComplete: () => {
-                wrapper.removeChild(wrapperBottom);
-                container.removeChild(containerAbout);
-                wrapper.removeChild(introAboutBack);
-                wrapper.removeChild(wrapperTopAbout);
-                wrapper.className = 'wrapper';
-                introDev();
-            }
-        });
-        tl
-            .to(wrapperTopAbout, {
-                duration: 0.4,
-                autoAlpha: 0,
-                y: '-3%'
-            })
-            .to([containerAbout, arrowBackClick], {
-                autoAlpha: 0,
-                delay: '-0.1'
-            })
-            .to(introAboutBack, {
-                autoAlpha: 0,
-                delay: '-0.1',
-                // scale: 0.98
-            })
-        ;
-    });
-}
-
-// Question
-function questionDev() {
-    const questionLoad = new Question();
-    questionLoad.questionBlock('Микроволновка с&nbsp;искусственным интеллектом',
+    // questionLoad.questionWrapperBack('dialog');
+    questionLoad.questionBlock();
+    questionLoad.questionBlockText(
+        'Микроволновка с&nbsp;искусственным интеллектом',
         'печь с пирожками',
         'печь Бабы Яги',
         'печь Емели');
+
+    const wrapperBottom = document.createElement('div'),
+        containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__dialog'),
+        wrapperTopAbout = document.querySelector('.wrapper__top')
+    ;
+
+    arrowBackLoad.arrowNext();
+
+    const arrowBackClick = document.getElementById('arrowBack'),
+        arrowNextClick = document.getElementById('arrowNext'),
+        wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
+        wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
+    ;
+
+    // wrapperBottomLeft.appendChild(arrowBackClick);
+    wrapperBottomRight.appendChild(arrowNextClick);
+    arrowNextClick.id = 'questionNext_2';
+
+    // Второй вопрос
+    // arrowNextClick.addEventListener('click', () => {
+    //     let tl = gsap.timeline({
+    //         onComplete: () => {
+    //             // wrapper.removeChild(wrapperBottom);
+    //             container.removeChild(containerAbout);
+    //             wrapper.removeChild(introAboutBack);
+    //             wrapper.removeChild(wrapperTopAbout);
+    //             wrapper.className = 'wrapper';
+    //             container.className = 'container';
+    //             introDev();
+    //         }
+    //     });
+    //     tl
+    //         .to(wrapperTopAbout, {
+    //             duration: 0.4,
+    //             autoAlpha: 0,
+    //             y: '-3%'
+    //         })
+    //         .to([containerAbout, arrowBackClick, arrowNextClick], {
+    //             autoAlpha: 0,
+    //             delay: '-0.1'
+    //         })
+    //         .to(introAboutBack, {
+    //             autoAlpha: 0,
+    //             delay: '-0.1',
+    //             // scale: 0.98
+    //         })
+    //     ;
+    // });
 }
 
 function init() {
     // introDev();
-    // dialogDev();
+    dialogDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
-    questionDev();
+    // questionFirst();
 }
 
 init();
