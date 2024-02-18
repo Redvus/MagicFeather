@@ -387,7 +387,9 @@ function dialogDev() {
             settingsClick = document.getElementById('settingsClick'),
             wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
             wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
-            wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
+            wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
+            containerBlockLeft = document.getElementById('containerBlockLeft'),
+            containerBlockRight = document.getElementById('containerBlockRight')
         ;
 
         wrapperBottomLeft.appendChild(arrowBackClick);
@@ -407,7 +409,11 @@ function dialogDev() {
                 }
             });
             tl
-                .to([containerVovka, containerNestor, arrowBackClick, arrowNextClick, settingsClick], {
+                .to([containerVovka,
+                    containerNestor,
+                    arrowBackClick,
+                    arrowNextClick,
+                    settingsClick], {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -424,11 +430,12 @@ function dialogDev() {
                 onComplete: () => {
                     wrapperBottomCenter.removeChild(settingsClick);
                     wrapperBottomRight.removeChild(arrowNextClick);
-                    questionFirst();
+                    wrapperBottomLeft.removeChild(arrowBackClick);
+                    questionLibraryFirst();
                 }
             });
             tl
-                .to([arrowNextClick, settingsClick], {
+                .to([arrowNextClick, settingsClick, arrowBackClick], {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -441,75 +448,12 @@ function dialogDev() {
     }, 11000);
 }
 
-/* Question */
-function questionFirst() {
-    const questionLoad = new Question(),
-        arrowBackLoad = new ArrowsAll()
-    ;
-    // questionLoad.questionWrapperBack('dialog');
-    questionLoad.questionBlock();
-    questionLoad.questionBlockText(
-        'Микроволновка с&nbsp;искусственным интеллектом',
-        'печь с пирожками',
-        'печь Бабы Яги',
-        'печь Емели');
-
-    const wrapperBottom = document.createElement('div'),
-        containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper__dialog'),
-        wrapperTopAbout = document.querySelector('.wrapper__top')
-    ;
-
-    arrowBackLoad.arrowNext();
-
-    const arrowBackClick = document.getElementById('arrowBack'),
-        arrowNextClick = document.getElementById('arrowNext'),
-        wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
-        wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
-    ;
-
-    // wrapperBottomLeft.appendChild(arrowBackClick);
-    wrapperBottomRight.appendChild(arrowNextClick);
-    arrowNextClick.id = 'questionNext_2';
-
-    // Второй вопрос
-    // arrowNextClick.addEventListener('click', () => {
-    //     let tl = gsap.timeline({
-    //         onComplete: () => {
-    //             // wrapper.removeChild(wrapperBottom);
-    //             container.removeChild(containerAbout);
-    //             wrapper.removeChild(introAboutBack);
-    //             wrapper.removeChild(wrapperTopAbout);
-    //             wrapper.className = 'wrapper';
-    //             container.className = 'container';
-    //             introDev();
-    //         }
-    //     });
-    //     tl
-    //         .to(wrapperTopAbout, {
-    //             duration: 0.4,
-    //             autoAlpha: 0,
-    //             y: '-3%'
-    //         })
-    //         .to([containerAbout, arrowBackClick, arrowNextClick], {
-    //             autoAlpha: 0,
-    //             delay: '-0.1'
-    //         })
-    //         .to(introAboutBack, {
-    //             autoAlpha: 0,
-    //             delay: '-0.1',
-    //             // scale: 0.98
-    //         })
-    //     ;
-    // });
-}
-
 function init() {
-    // introDev();
-    dialogDev();
+    introDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
+    // dialogDev();
     // questionFirst();
 }
 
