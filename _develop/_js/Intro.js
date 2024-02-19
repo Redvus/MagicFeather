@@ -275,4 +275,57 @@ class Intro {
 
         }
     }
+
+    categoryLibrary() {
+        const dialogBlockVovka = document.createElement('picture'),
+            dialogBlockNestor = document.createElement('picture')
+        ;
+
+        container.className += ' container--dialog';
+        dialogBlockVovka.id = 'containerVovkaCenter';
+        dialogBlockVovka.innerHTML = `
+            <img src="assets/games/magicFeather/images/mf_vovka.png" alt="Диалог в библиотеке. Вовка">
+        `;
+        dialogBlockNestor.id = 'containerNestor';
+        dialogBlockNestor.innerHTML = `
+            <img src="assets/games/magicFeather/images/mf_nestor.png" alt="Диалог в библиотеке. Нестор">
+        `;
+        // wrapper.appendChild(container);
+        container.appendChild(dialogBlockVovka);
+        container.appendChild(dialogBlockNestor);
+
+        const dialogBlockBack = document.createElement('div');
+        dialogBlockBack.className = 'wrapper__dialog';
+        wrapper.appendChild(dialogBlockBack);
+
+        const containerVovka = document.getElementById('containerVovkaCenter'),
+            containerNestor = document.getElementById('containerNestor'),
+            wrapperDialogBack = document.querySelector('.wrapper__dialog')
+        ;
+
+        function dialogAnim() {
+            let tl = gsap.timeline({
+                onComplete: () => {
+
+                }
+            });
+            tl
+                .from(wrapperDialogBack, {
+                    duration: 0.6,
+                    autoAlpha: 0
+                })
+                .to(containerNestor, {
+                    duration: 0.4,
+                    delay: '-0.4',
+                    autoAlpha: 1
+                })
+                .to(containerVovka, {
+                    duration: 0.4,
+                    delay: '-0.2',
+                    autoAlpha: 1
+                })
+            ;
+        }
+        dialogAnim();
+    }
 }

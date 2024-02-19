@@ -431,7 +431,7 @@ function dialogDev() {
                     wrapperBottomCenter.removeChild(settingsClick);
                     wrapperBottomRight.removeChild(arrowNextClick);
                     wrapperBottomLeft.removeChild(arrowBackClick);
-                    questionLibraryFirst();
+                    questionCat_1_0();
                 }
             });
             tl
@@ -448,13 +448,26 @@ function dialogDev() {
     }, 11000);
 }
 
+function catLibraryDev() {
+    const catLibBack = new Intro();
+    catLibBack.categoryLibrary();
+    questionCat_1_0();
+}
+
+function catQuestDev_1() {
+    const catQuest_1 = new Category();
+    catQuest_1.categoryQuest();
+}
+
 function init() {
-    introDev();
+    // introDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
-    // dialogDev();
-    // questionFirst();
+    dialogDev();
+    // questionCat_1_0();
+    // catLibraryDev();
+    // catQuestDev_1();
 }
 
 init();
