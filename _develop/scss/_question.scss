@@ -88,7 +88,7 @@
 
                 a {
                     width: calc(100% - (#{$paddingBase} * 2));
-                    height: calc(#{$paddingBase} * 3);
+                    height: 7vmin;
                     display: flex;
                     align-items: center;
                     justify-content: center;

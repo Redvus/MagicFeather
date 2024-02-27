@@ -69,13 +69,13 @@ class ArrowsAll {
             wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
         ;
         containerClear.className = 'wrapper__service_arrow wrapper__service_arrow--hidden';
-        containerClear.id = 'arrowNext';
+        // containerClear.id = 'arrowNextCat';
         containerClear.innerHTML = `
             <img src="assets/games/magicFeather/images/mf_buttonBack.png" alt="Следующий вопрос">
         `;
         wrapperBottomRight.appendChild(containerClear);
 
-        const arrowNextLoad = document.getElementById('arrowNext');
+        const arrowNextLoad = document.getElementById('arrowNextCat');
 
         function arrowNextAnim() {
             let arrowAnim = gsap.to(arrowNextLoad, {

@@ -24,7 +24,7 @@ function questionCat_1_0() {
 
     const
         arrowBackClick = document.getElementById('arrowBack'),
-        arrowNextClick = document.getElementById('arrowNext'),
+        arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
         wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
     ;
@@ -52,50 +52,46 @@ function questionCat_1_0() {
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
         answerVar_3 = document.getElementById('answerVar_3'),
-        answerVarArray = [answerVar_1, answerVar_2, answerVar_3],
-        answerLi = document.querySelectorAll('ul.question__block_list > li'),
-        answerLiRight = document.querySelectorAll('ul.question__block_list > li > a')
+        answerVarArray = [answerVar_1, answerVar_2, answerVar_3]
     ;
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
-            answerLi.forEach((el, idx) => {
-                wrapperBottomRight.appendChild(arrowNextClick);
-                arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-                arrowNextClick.id = 'questionNext_1';
-                const questionNext_1 = document.getElementById('questionNext_1');
-                questionNext_1.addEventListener('click', () => {
-                    let tl = gsap.timeline({
-                        onComplete: () => {
-                            wrapperBottomRight.removeChild(questionNext_1);
-                            container.removeChild(containerVovka);
-                            container.removeChild(containerNestor);
-                            container.className = 'container';
-                            wrapper.removeChild(introAboutBack);
-                            categoryQuestBack.className = 'wrapper__category wrapper__category--first';
-                            wrapper.appendChild(categoryQuestBack);
-                            containerBlockLeft.removeChild(containerInsideLeft);
-                            containerBlockRight.removeChild(containerInsideRight);
-                            questionCat_1_1();
-                        }
-                    });
-                    tl
-                        // .to(wrapperTopAbout, {
-                        //     duration: 0.4,
-                        //     autoAlpha: 0,
-                        //     y: '-3%'
-                        // })
-                        .to([
-                            containerVovka,
-                            containerNestor,
-                            introAboutBack,
-                            containerInsideRight,
-                            containerInsideLeft], {
-                            autoAlpha: 0,
-                            delay: '-0.1'
-                        })
-                    ;
+            wrapperBottomRight.appendChild(arrowNextClick);
+            arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+            arrowNextClick.id = 'questionNext_1';
+            const questionNext_1 = document.getElementById('questionNext_1');
+            questionNext_1.addEventListener('click', () => {
+                let tl = gsap.timeline({
+                    onComplete: () => {
+                        wrapperBottomRight.removeChild(questionNext_1);
+                        containerDialog.removeChild(containerVovka);
+                        containerDialog.removeChild(containerNestor);
+                        container.className = 'container';
+                        wrapper.removeChild(introAboutBack);
+                        categoryQuestBack.className = 'wrapper__category wrapper__category--first';
+                        wrapper.appendChild(categoryQuestBack);
+                        containerBlockLeft.removeChild(containerInsideLeft);
+                        containerBlockRight.removeChild(containerInsideRight);
+                        questionCat_1_1();
+                    }
                 });
+                tl
+                    // .to(wrapperTopAbout, {
+                    //     duration: 0.4,
+                    //     autoAlpha: 0,
+                    //     y: '-3%'
+                    // })
+                    .to([
+                        containerVovka,
+                        containerNestor,
+                        introAboutBack,
+                        containerInsideRight,
+                        containerInsideLeft], {
+                        autoAlpha: 0,
+                        delay: '-0.1'
+                    })
+                ;
             });
         });
     }

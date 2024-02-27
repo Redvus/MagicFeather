@@ -360,7 +360,7 @@ function writerStart() {
 function dialogDev() {
     const dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll(),
-        timePause = 1000 // 11000
+        timePause = 11000 // 11000
     ;
 
     dialogDevLoad.dialogStart();
@@ -461,11 +461,11 @@ function catQuestDev_1() {
 }
 
 function init() {
-    // introDev();
+    introDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
-    dialogDev();
+    // dialogDev();
     // questionCat_1_0();
     // catLibraryDev();
     // catQuestDev_1();
