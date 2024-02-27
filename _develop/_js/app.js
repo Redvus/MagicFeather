@@ -359,12 +359,13 @@ function writerStart() {
 /* Dialog */
 function dialogDev() {
     const dialogDevLoad = new Intro(),
-        arrowBackLoad = new ArrowsAll()
+        arrowBackLoad = new ArrowsAll(),
+        timePause = 1000 // 11000
     ;
 
     dialogDevLoad.dialogStart();
 
-    const introAboutBack = document.querySelector('.wrapper__dialog'),
+    const introAboutBack = document.querySelector('.wrapper-back'),
         containerVovka = document.getElementById('containerVovka'),
         containerNestor = document.getElementById('containerNestor'),
         wrapperBottom = document.createElement('div')
@@ -445,7 +446,7 @@ function dialogDev() {
                 })
             ;
         });
-    }, 11000);
+    }, timePause);
 }
 
 function catLibraryDev() {

@@ -48,9 +48,9 @@ class Question {
     }
 
     questionBlockText(questQuestion,
-                  questionVar_1,
-                  questionVar_2,
-                  questionVar_3) {
+                  answerVar_1,
+                  answerVar_2,
+                  answerVar_3) {
 
         const containerInsideLeft = document.createElement('div'),
             containerInsideRight = document.createElement('div'),
@@ -67,9 +67,9 @@ class Question {
 
         containerInsideRight.innerHTML = `
             <ul class="question__block_list">
-                <li id="questionVar_1"><a href="javascript:void(0);">${questionVar_1}</a></li>
-                <li id="questionVar_2"><a href="javascript:void(0);">${questionVar_2}</a></li>
-                <li id="questionVar_3"><a href="javascript:void(0);">${questionVar_3}</a></li>
+                <li id="answerVar_1"><a href="javascript:void(0);">${answerVar_1}</a></li>
+                <li id="answerVar_2"><a href="javascript:void(0);">${answerVar_2}</a></li>
+                <li id="answerVar_3"><a href="javascript:void(0);">${answerVar_3}</a></li>
             </ul>
         `;
 
@@ -77,9 +77,9 @@ class Question {
         containerBlockRight.appendChild(containerInsideRight);
 
         const insideTextLeft = document.querySelectorAll('#containerInsideLeft > p'),
-            questButtonLi_1 = document.getElementById('questionVar_1'),
-            questButtonLi_2 = document.getElementById('questionVar_2'),
-            questButtonLi_3 = document.getElementById('questionVar_3'),
+            questButtonLi_1 = document.getElementById('answerVar_1'),
+            questButtonLi_2 = document.getElementById('answerVar_2'),
+            questButtonLi_3 = document.getElementById('answerVar_3'),
             questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
             questButtonLiPosition = ['0', '33%', '66%'],
             questButtonLi = document.querySelectorAll('.question__block_list li'),
@@ -150,7 +150,7 @@ class Question {
                             let tl = gsap.timeline();
                             let answerBlockText = document.getElementById('answerWright');
                             answerLiRight[i].className += 'question__block_list--right';
-                            soundsLoad.rightAnswer('assets/games/kraevedia/sounds/cp_rightAnswer.ogg');
+                            // soundsLoad.rightAnswer('assets/games/kraevedia/sounds/cp_rightAnswer.ogg');
                             tl
                                 .to(el, {
                                     top: 0,

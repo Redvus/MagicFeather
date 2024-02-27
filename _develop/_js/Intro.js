@@ -91,7 +91,7 @@ class Intro {
         container.appendChild(dialogBlockNestor);
 
         const dialogBlockBack = document.createElement('div');
-        dialogBlockBack.className = 'wrapper__dialog';
+        dialogBlockBack.className = 'wrapper-back wrapper__dialog';
         wrapper.appendChild(dialogBlockBack);
 
         // Кнопки
@@ -187,8 +187,10 @@ class Intro {
                  baloon_5 = document.getElementById('dialogBaloon_5'),
                  baloon_6 = document.getElementById('dialogBaloon_6'),
                  arrowNext = document.getElementById('arrowNext'),
-                 timeShort = 0.3,
-                 timeLong = 1.5
+                 timeShort = 0.1, // 0.3
+                 timeLong = 0.1, // 1.5
+                 timePauseShort = 0.1, // 0.3
+                 timePauseLong = 0.1 // 1
              ;
 
             function dialogBaloonAinm() {
@@ -210,61 +212,61 @@ class Intro {
 
                 tlBaloon
                     .from(baloon_1, {
-                        duration: 0.3,
+                        duration: timeShort,
                         autoAlpha: 0
                     })
                     .to(baloon_1, {
-                        duration: 0.3,
-                        delay: 1,
+                        duration: timeShort,
+                        delay: timePauseLong,
                         autoAlpha: 0
                     })
                     .from(baloon_2, {
-                        duration: 0.3,
-                        delay: 0.3,
+                        duration: timeShort,
+                        delay: timePauseShort,
                         autoAlpha: 0
                     })
                     .to(baloon_2, {
-                        duration: 0.3,
-                        delay: 1,
+                        duration: timeShort,
+                        delay: timePauseLong,
                         autoAlpha: 0
                     })
                     .from(baloon_3, {
-                        duration: 0.3,
-                        delay: 0.3,
+                        duration: timeShort,
+                        delay: timePauseShort,
                         autoAlpha: 0
                     })
                     .to(baloon_3, {
-                        duration: 0.3,
+                        duration: timeShort,
                         delay: timeLong,
                         autoAlpha: 0
                     })
                     .from(baloon_4, {
-                        duration: 0.3,
-                        delay: 0.3,
+                        duration: timeShort,
+                        delay: timePauseShort,
                         autoAlpha: 0
                     })
                     .to(baloon_4, {
-                        duration: 0.3,
+                        duration: timeShort,
                         delay: timeLong,
                         autoAlpha: 0
                     })
                     .from(baloon_5, {
-                        duration: 0.3,
-                        delay: 0.3,
+                        duration: timeShort,
+                        delay: timePauseShort,
                         autoAlpha: 0
                     })
                     .to(baloon_5, {
-                        duration: 0.3,
-                        delay: 1,
+                        duration: timeShort,
+                        delay: timePauseLong,
                         autoAlpha: 0
                     })
                     .from(baloon_6, {
-                        duration: 0.3,
-                        delay: 0.3,
+                        duration: timeShort,
+                        delay: timePauseShort,
                         autoAlpha: 0
                     })
                     .to(baloon_6, {
-                        duration: 0.3,
+                        duration: timeShort,
                         delay: timeLong,
                         autoAlpha: 0
                     })
@@ -295,7 +297,7 @@ class Intro {
         container.appendChild(dialogBlockNestor);
 
         const dialogBlockBack = document.createElement('div');
-        dialogBlockBack.className = 'wrapper__dialog';
+        dialogBlockBack.className = 'wrapper-back wrapper__dialog';
         wrapper.appendChild(dialogBlockBack);
 
         const containerVovka = document.getElementById('containerVovkaCenter'),

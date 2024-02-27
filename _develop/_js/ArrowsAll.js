@@ -63,6 +63,30 @@ class ArrowsAll {
         arrowNextAnim();
     }
 
+    arrowNextHidden() {
+        const
+            containerClear = document.createElement('a'),
+            wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right')
+        ;
+        containerClear.className = 'wrapper__service_arrow wrapper__service_arrow--hidden';
+        containerClear.id = 'arrowNext';
+        containerClear.innerHTML = `
+            <img src="assets/games/magicFeather/images/mf_buttonBack.png" alt="Следующий вопрос">
+        `;
+        wrapperBottomRight.appendChild(containerClear);
+
+        const arrowNextLoad = document.getElementById('arrowNext');
+
+        function arrowNextAnim() {
+            let arrowAnim = gsap.to(arrowNextLoad, {
+                duration: 0.3,
+                delay: 0.3,
+                autoAlpha: 0
+            });
+        }
+        // arrowNextAnim();
+    }
+
     buttonContinueLoad() {
         const containerClear = document.createElement('a');
         containerClear.className = 'wrapper__service_continue';

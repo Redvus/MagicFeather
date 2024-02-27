@@ -92,7 +92,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBack.png") ;
+                    background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBack.png");
                     //border-radius: 1rem;
                     //border: 0.3rem solid $secondary;
                     color: $secondary;
@@ -121,11 +121,11 @@
             }
 
             &--right {
-                background: linear-gradient(#d1f3a9, #7a9a4c) !important;
+                background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBackRight.png") !important;
             }
 
             &--wrong {
-                background: linear-gradient(#fcd8b7, #c45d3c) !important;
+                background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBackWrong.png") !important;
             }
         }
 
