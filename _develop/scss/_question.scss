@@ -87,8 +87,8 @@
                 z-index: 1;
 
                 a {
-                    width: calc(100% - (#{$paddingBase} * 2));
-                    height: 7vmin;
+                    width: calc(100% - (#{$paddingBase} * 4));
+                    min-height: 5vmin;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -98,7 +98,8 @@
                     color: $secondary;
                     font-size: $font-size-h6;
                     text-align: center;
-                    padding: 0 $paddingBase;
+                    line-height: 1;
+                    padding: calc(#{$paddingBase} / 2) calc(#{$paddingBase} * 2);
                     //font-family: $heading-font;
                 }
 

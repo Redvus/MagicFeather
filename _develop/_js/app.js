@@ -267,7 +267,8 @@ function writerStart() {
 
     writerLoad.aboutWriter('Сказки Александра Николаевича Афанасьева – бесценный памятник народного творчества, который он в неприкосновенности сберёг и передал потомкам. В этих сказках отразились все переживания, чаяния, и мечты народа, наш русский культурный код, воплощённый в конкретных образах и сюжетах. Приглашаем вас вспомнить любимые сказки детства в нашей игре «Волшебное перо».');
 
-    const containerAbout = document.querySelector('.container__wrapper_about'),
+    const
+        containerAbout = document.querySelector('.container__wrapper_about'),
         introAboutBack = document.querySelector('.wrapper__service'),
         wrapperTopAbout = document.querySelector('.wrapper__top'),
         wrapperBottom = document.createElement('div')
@@ -284,7 +285,9 @@ function writerStart() {
     arrowBackLoad.arrowBack();
     arrowBackLoad.clearStorage();
     arrowBackLoad.arrowNext();
-    const arrowBackClick = document.getElementById('arrowBack'),
+
+    const
+        arrowBackClick = document.getElementById('arrowBack'),
         arrowNextClick = document.getElementById('arrowNext'),
         settingsClick = document.getElementById('settingsClick'),
         wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
@@ -300,7 +303,7 @@ function writerStart() {
         let tl = gsap.timeline({
             onComplete: () => {
                 wrapper.removeChild(wrapperBottom);
-                container.removeChild(containerAbout);
+                wrapper.removeChild(container);
                 wrapper.removeChild(introAboutBack);
                 wrapper.removeChild(wrapperTopAbout);
                 wrapper.className = 'wrapper';
@@ -313,7 +316,11 @@ function writerStart() {
                 autoAlpha: 0,
                 y: '-3%'
             })
-            .to([containerAbout, arrowBackClick, settingsClick, arrowNextClick], {
+            .to([
+                containerAbout,
+                arrowBackClick,
+                settingsClick,
+                arrowNextClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
@@ -343,7 +350,11 @@ function writerStart() {
                 autoAlpha: 0,
                 y: '-3%'
             })
-            .to([containerAbout, arrowBackClick, settingsClick, arrowNextClick], {
+            .to([
+                containerAbout,
+                arrowBackClick,
+                settingsClick,
+                arrowNextClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
@@ -360,15 +371,17 @@ function writerStart() {
 function dialogDev() {
     const dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll(),
-        timePause = 11000 // 11000
+        timePause = 1000 // 11000
     ;
 
     dialogDevLoad.dialogStart();
 
-    const introAboutBack = document.querySelector('.wrapper-back'),
+    const
+        introAboutBack = document.querySelector('.wrapper-back'),
         containerVovka = document.getElementById('containerVovka'),
         containerNestor = document.getElementById('containerNestor'),
-        wrapperBottom = document.createElement('div')
+        wrapperBottom = document.createElement('div'),
+        wrapperTopAbout = document.querySelector('.wrapper__top')
     ;
 
     wrapperBottom.className = 'wrapper__bottom';
@@ -383,14 +396,17 @@ function dialogDev() {
         arrowBackLoad.arrowBack();
         arrowBackLoad.clearStorage();
         arrowBackLoad.arrowNext();
-        const arrowBackClick = document.getElementById('arrowBack'),
+
+        const
+            arrowBackClick = document.getElementById('arrowBack'),
             arrowNextClick = document.getElementById('arrowNext'),
             settingsClick = document.getElementById('settingsClick'),
             wrapperBottomLeft = document.querySelector('.wrapper__bottom_part--left'),
             wrapperBottomCenter = document.querySelector('.wrapper__bottom_part--center'),
             wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
             containerBlockLeft = document.getElementById('containerBlockLeft'),
-            containerBlockRight = document.getElementById('containerBlockRight')
+            containerBlockRight = document.getElementById('containerBlockRight'),
+            containerQuest = document.querySelector('.container-quest')
         ;
 
         wrapperBottomLeft.appendChild(arrowBackClick);
@@ -401,20 +417,27 @@ function dialogDev() {
             let tl = gsap.timeline({
                 onComplete: () => {
                     wrapper.removeChild(wrapperBottom);
-                    container.className = 'container';
-                    container.removeChild(containerNestor);
-                    container.removeChild(containerVovka);
+                    wrapper.removeChild(wrapperTopAbout);
+                    if (document.querySelector('.container-quest')) {
+                        wrapper.removeChild(document.querySelector('.container-quest'));
+                    }
+                    // wrapper.removeChild(container);
+                    // container.className = 'container';
+                    // container.removeChild(containerNestor);
+                    // container.removeChild(containerVovka);
                     wrapper.removeChild(introAboutBack);
                     wrapper.className = 'wrapper';
                     introDev();
                 }
             });
             tl
-                .to([containerVovka,
+                .to([
+                    containerVovka,
                     containerNestor,
                     arrowBackClick,
                     arrowNextClick,
-                    settingsClick], {
+                    settingsClick,
+                    document.querySelector('.container-quest')], {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -431,12 +454,14 @@ function dialogDev() {
                 onComplete: () => {
                     wrapperBottomCenter.removeChild(settingsClick);
                     wrapperBottomRight.removeChild(arrowNextClick);
-                    wrapperBottomLeft.removeChild(arrowBackClick);
+                    // wrapperBottomLeft.removeChild(arrowBackClick);
                     questionCat_1_0();
                 }
             });
             tl
-                .to([arrowNextClick, settingsClick, arrowBackClick], {
+                .to([
+                    arrowNextClick,
+                    settingsClick], {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -449,23 +474,12 @@ function dialogDev() {
     }, timePause);
 }
 
-function catLibraryDev() {
-    const catLibBack = new Intro();
-    catLibBack.categoryLibrary();
-    questionCat_1_0();
-}
-
-function catQuestDev_1() {
-    const catQuest_1 = new Category();
-    catQuest_1.categoryQuest();
-}
-
 function init() {
-    introDev();
+    // introDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
-    // dialogDev();
+    dialogDev();
     // questionCat_1_0();
     // catLibraryDev();
     // catQuestDev_1();

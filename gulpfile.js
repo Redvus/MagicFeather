@@ -61,6 +61,7 @@ gulp.task('app-js', function(){
         path.src.js + 'ArrowsAll.js',
         path.src.js + 'Settings.js',
         path.src.js + 'questCat_1.js',
+        path.src.js + 'questCat_2.js',
         path.src.js + 'app.js'
     ])
         .pipe(concat('app.js'))
@@ -98,7 +99,8 @@ gulp.task('watch', function() {
         path.watch.js + 'ArrowsAll.js',
         path.watch.js + 'About.js',
         path.watch.js + 'Settings.js',
-        path.watch.js + 'questCat_1.js'
+        path.watch.js + 'questCat_1.js',
+        path.watch.js + 'questCat_2.js'
     ], gulp.series('app-js'));
     // gulp.watch(path.watch.js + 'jgrowl.js', gulp.series('jgrowl-js'));
 

@@ -74,10 +74,12 @@ class Intro {
 
     dialogStart() {
         const dialogBlockVovka = document.createElement('picture'),
-            dialogBlockNestor = document.createElement('picture')
+            dialogBlockNestor = document.createElement('picture'),
+            wrapperTopAbout = document.createElement('div')
         ;
 
         container.className += ' container--dialog';
+        wrapperTopAbout.className = 'wrapper__top';
         dialogBlockVovka.id = 'containerVovka';
         dialogBlockVovka.innerHTML = `
             <img src="assets/games/magicFeather/images/mf_vovka.png" alt="Диалог в библиотеке. Вовка">
@@ -86,13 +88,14 @@ class Intro {
         dialogBlockNestor.innerHTML = `
             <img src="assets/games/magicFeather/images/mf_nestor.png" alt="Диалог в библиотеке. Нестор">
         `;
-        // wrapper.appendChild(container);
+
         container.appendChild(dialogBlockVovka);
         container.appendChild(dialogBlockNestor);
 
         const dialogBlockBack = document.createElement('div');
         dialogBlockBack.className = 'wrapper-back wrapper__dialog';
         wrapper.appendChild(dialogBlockBack);
+        wrapper.appendChild(wrapperTopAbout);
 
         // Кнопки
         // const introBlockButtons = document.createElement('div');
@@ -187,10 +190,10 @@ class Intro {
                  baloon_5 = document.getElementById('dialogBaloon_5'),
                  baloon_6 = document.getElementById('dialogBaloon_6'),
                  arrowNext = document.getElementById('arrowNext'),
-                 timeShort = 0.3, // 0.3
-                 timeLong = 1.5, // 1.5
-                 timePauseShort = 0.3, // 0.3
-                 timePauseLong = 1 // 1
+                 timeShort = 0.1, // 0.3
+                 timeLong = 0.1, // 1.5
+                 timePauseShort = 0.1, // 0.3
+                 timePauseLong = 0.1 // 1
              ;
 
             function dialogBaloonAinm() {
@@ -329,5 +332,58 @@ class Intro {
             ;
         }
         dialogAnim();
+    }
+
+    dialogPersonStart() {
+        const
+            dialogBlockVovka = document.createElement('picture'),
+            dialogBlockNestor = document.createElement('picture')
+        ;
+
+        container.className += ' container--dialog';
+        // wrapperTopAbout.className = 'wrapper__top';
+        dialogBlockVovka.id = 'containerVovka';
+        dialogBlockVovka.innerHTML = `
+            <img src="assets/games/magicFeather/images/mf_vovka.png" alt="Диалог в библиотеке. Вовка">
+        `;
+        dialogBlockNestor.id = 'containerNestor';
+        dialogBlockNestor.innerHTML = `
+            <img src="assets/games/magicFeather/images/mf_nestor.png" alt="Диалог в библиотеке. Нестор">
+        `;
+
+        container.appendChild(dialogBlockVovka);
+        container.appendChild(dialogBlockNestor);
+
+        const dialogBlockBack = document.createElement('div');
+        // dialogBlockBack.className = 'wrapper-back wrapper__dialog';
+        // wrapper.appendChild(dialogBlockBack);
+        // wrapper.appendChild(wrapperTopAbout);
+
+        const containerVovka = document.getElementById('containerVovka'),
+            containerNestor = document.getElementById('containerNestor'),
+            wrapperDialogBack = document.querySelector('.wrapper__dialog')
+        ;
+
+        function dialogPersonAnim() {
+            let tl = gsap.timeline();
+            tl
+                .from(wrapperDialogBack, {
+                    duration: 0.6,
+                    autoAlpha: 0
+                })
+                .to(containerNestor, {
+                    duration: 0.4,
+                    delay: '-0.4',
+                    autoAlpha: 1
+                })
+                .to(containerVovka, {
+                    duration: 0.4,
+                    delay: '-0.2',
+                    left: '40%',
+                    autoAlpha: 1
+                })
+            ;
+        }
+        dialogPersonAnim();
     }
 }
