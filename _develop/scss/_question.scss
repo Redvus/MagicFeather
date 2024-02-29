@@ -243,3 +243,21 @@
         }
     }
 }
+
+#frogSingle {
+    width: 16.8%;
+    position: absolute;
+    left: 5.7%;
+    top: 45.5%;
+    z-index: 2;
+    opacity: 0;
+}
+
+#candySingle {
+    width: 11.5%;
+    position: absolute;
+    right: 5.7%;
+    top: 50%;
+    z-index: 2;
+    opacity: 0;
+}

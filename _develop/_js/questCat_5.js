@@ -350,13 +350,16 @@ function questionCat_5_5() {
                         wrapperBottomRight.removeChild(questionNext_5_5);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
+                        container.removeChild(containerPerson);
+                        wrapper.removeChild(containerQuest);
                         questionCat_5_6();
                     }
                 });
                 tl
                     .to([
                         containerInsideRight,
-                        containerInsideLeft], {
+                        containerInsideLeft,
+                        containerQuest], {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
@@ -376,37 +379,55 @@ function questionCat_5_6() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerDifference = document.createElement('div')
+        containerDifference = document.createElement('div'),
+        findCandy = document.createElement('picture')
     ;
 
     containerDifference.className = 'container__difference';
+    findCandy.id = 'candySingle';
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_FinistCFDifference.png" alt="Перышко Ясно-Сокола. Найди леденец">
     `;
+    findCandy.innerHTML = `
+        <img src="assets/games/magicFeather/images/mf_FinistCFCandy.png" alt="Перышко Ясно-Сокола. Леденец">
+    `;
     container.appendChild(containerDifference);
+    containerDifference.appendChild(findCandy);
     let diff = gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
 
-    wrapperBottomRight.appendChild(arrowNextClick);
-    arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-    arrowNextClick.id = 'questionNext_5_6';
-    const questionNext_5_6 = document.getElementById('questionNext_5_6');
-    questionNext_5_6.addEventListener('click', () => {
+    const candySingle = document.getElementById('candySingle');
+    candySingle.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
-                wrapperBottomRight.removeChild(questionNext_5_6);
-                container.removeChild(containerDifference);
-                questionCat_5_0();
+                wrapperBottomRight.appendChild(arrowNextClick);
+                arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+                arrowNextClick.id = 'questionNext_5_6';
+                const questionNext_5_6 = document.getElementById('questionNext_5_6');
+                questionNext_5_6.addEventListener('click', () => {
+                    let tl = gsap.timeline({
+                        onComplete: () => {
+                            wrapperBottomRight.removeChild(questionNext_5_6);
+                            container.removeChild(containerDifference);
+                            // questionCat_5_0();
+                        }
+                    });
+                    tl
+                        .to(containerDifference, {
+                            autoAlpha: 0,
+                            delay: '-0.1'
+                        })
+                    ;
+                });
             }
         });
         tl
-            .to(containerDifference, {
-                autoAlpha: 0,
-                delay: '-0.1'
+            .to(candySingle, {
+                duration: 0.3,
+                autoAlpha: 1
             })
         ;
     });
-
 }
