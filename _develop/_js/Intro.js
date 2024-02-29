@@ -342,7 +342,7 @@ class Intro {
 
         container.className += ' container--dialog';
         // wrapperTopAbout.className = 'wrapper__top';
-        dialogBlockVovka.id = 'containerVovka';
+        dialogBlockVovka.id = 'containerVovkaCenter';
         dialogBlockVovka.innerHTML = `
             <img src="assets/games/magicFeather/images/mf_vovka.png" alt="Диалог в библиотеке. Вовка">
         `;
@@ -359,7 +359,7 @@ class Intro {
         // wrapper.appendChild(dialogBlockBack);
         // wrapper.appendChild(wrapperTopAbout);
 
-        const containerVovka = document.getElementById('containerVovka'),
+        const containerVovka = document.getElementById('containerVovkaCenter'),
             containerNestor = document.getElementById('containerNestor'),
             wrapperDialogBack = document.querySelector('.wrapper__dialog')
         ;
@@ -379,7 +379,7 @@ class Intro {
                 .to(containerVovka, {
                     duration: 0.4,
                     delay: '-0.2',
-                    left: '40%',
+                    // x: '40%',
                     autoAlpha: 1
                 })
             ;

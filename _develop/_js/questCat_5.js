@@ -1,10 +1,10 @@
-function questionCat_2_0() {
+function questionCat_5_0() {
     questionLoad.questionBlock();
     questionLoad.questionBlockText(
-        'Левитационное устройство исключительно вертикального перемещения',
-        'ковёр–самолёт',
-        'ступа Бабы–Яги',
-        'сапоги-скороходы');
+        'Экологически чистое, энерго-экономичное устройство для освещения помещения',
+        'волшебная лампа',
+        'перо жар-птицы',
+        'огниво');
 
     const
         wrapperBottom = document.createElement('div'),
@@ -50,19 +50,19 @@ function questionCat_2_0() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_0';
-            const questionNext_2_0 = document.getElementById('questionNext_2_0');
-            questionNext_2_0.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_5_0';
+            const questionNext_5_0 = document.getElementById('questionNext_5_0');
+            questionNext_5_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_0);
+                        wrapperBottomRight.removeChild(questionNext_5_0);
                         containerDialog.removeChild(containerVovka);
                         containerDialog.removeChild(containerNestor);
                         container.className = 'container';
-                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--second';
+                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--five';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_1();
+                        questionCat_5_1();
                     }
                 });
                 tl
@@ -89,13 +89,13 @@ function questionCat_2_0() {
     }
 }
 
-// Елена Премудрая
-function questionCat_2_1() {
+// Перышко Ясно-Сокола
+function questionCat_5_1() {
     questionLoad.questionBlockText(
-        '«Выпусти меня на волю; как будешь в нужде, я тебе сам пригожусь; только помяни меня - и я в ту ж минуту явлюсь к тебе на выручку». Кому даровал солдат свободу?',
-        'джину',
-        'Кощею-бессмертному',
-        'нечистому духу');
+        'Только отец за заставу, а навстречу ему старичок несет коробочку. «Что несешь, старина?» - «Перышко Финиста ясна сокола». – «Что за него просишь?» - «Давай...». Что попросил старичок за пёрышко?',
+        'ничего',
+        'тысячу рублей',
+        'исполнить просьбу');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -114,7 +114,7 @@ function questionCat_2_1() {
     `;
     container.appendChild(containerPerson);
 
-    questionLoad.answerBlock(2, 'Верно!');
+    questionLoad.answerBlock(1, 'Верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -126,15 +126,15 @@ function questionCat_2_1() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_1';
-            const questionNext_2_1 = document.getElementById('questionNext_2_1');
-            questionNext_2_1.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_5_1';
+            const questionNext_5_1 = document.getElementById('questionNext_5_1');
+            questionNext_5_1.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_1);
+                        wrapperBottomRight.removeChild(questionNext_5_1);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_2();
+                        questionCat_5_2();
                     }
                 });
                 tl
@@ -151,12 +151,12 @@ function questionCat_2_1() {
 
 }
 
-function questionCat_2_2() {
+function questionCat_5_2() {
     questionLoad.questionBlockText(
-        'Красные девицы принесли волшебный ковер, разостлали по полу, ударились о тот ковер и сделались...',
-        'голубками',
-        'бабочками',
-        'лебёдушками');
+        '«На другой день сестры поднялись на хитрости: вечером, когда на дворе совсем стемнело, подставили лестницу, ... на окне красной девицы».',
+        'натыкали острых ножей да иголок',
+        'подвесили капкан',
+        'расставили сети');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -180,15 +180,15 @@ function questionCat_2_2() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_2';
-            const questionNext_2_2 = document.getElementById('questionNext_2_2');
-            questionNext_2_2.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_5_2';
+            const questionNext_5_2 = document.getElementById('questionNext_5_2');
+            questionNext_5_2.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_2);
+                        wrapperBottomRight.removeChild(questionNext_5_2);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_3();
+                        questionCat_5_3();
                     }
                 });
                 tl
@@ -205,12 +205,12 @@ function questionCat_2_2() {
 
 }
 
-function questionCat_2_3() {
+function questionCat_5_3() {
     questionLoad.questionBlockText(
-        'А солдату крепко не терпится; попробовал в другой и в третий раз - чутко спит королевна, после всякого поцелуя пробуждается. За третьим разом встала она с постели и говорит: «Тут что-нибудь да недаром: дай-ка посмотрю в...»',
-        'в волшебное зеркальце',
-        'в волшебную шкатулку',
-        'волшебную книгу');
+        'Кто одарил красну-девицу забавами разными?',
+        'старушка с сёстрами',
+        'Баба–Яга',
+        'Козьма Скоробогатый');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -222,7 +222,7 @@ function questionCat_2_3() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(2, 'Правильно!');
+    questionLoad.answerBlock(0, 'Правильно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -234,15 +234,15 @@ function questionCat_2_3() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_3';
-            const questionNext_2_3 = document.getElementById('questionNext_2_3');
-            questionNext_2_3.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_5_3';
+            const questionNext_5_3 = document.getElementById('questionNext_5_3');
+            questionNext_5_3.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_3);
+                        wrapperBottomRight.removeChild(questionNext_5_3);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_4();
+                        questionCat_5_4();
                     }
                 });
                 tl
@@ -259,12 +259,12 @@ function questionCat_2_3() {
 
 }
 
-function questionCat_2_4() {
+function questionCat_5_4() {
     questionLoad.questionBlockText(
-        'Вот махнет королевна платком, и покатится молодецкая голова!..». Смилуйся, прекрасная королевна, - просит солдат со слезами, - позволь напоследях...',
-        'слово молвить',
-        'песню спеть',
-        'сказы сказывать');
+        'Долог был путь красны девицы. Три пары башмаков железных истоптала, три посоха чугунных изломала, … прежде чем нашла добра молодца!"',
+        'три просвиры каменных изглодала',
+        'три медных горшка извела',
+        'три стальных наряда износила');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -276,7 +276,7 @@ function questionCat_2_4() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(1, 'Точно!');
+    questionLoad.answerBlock(0, 'Точно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -288,15 +288,15 @@ function questionCat_2_4() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_4';
-            const questionNext_2_4 = document.getElementById('questionNext_2_4');
-            questionNext_2_4.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_5_4';
+            const questionNext_5_4 = document.getElementById('questionNext_5_4');
+            questionNext_5_4.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_4);
+                        wrapperBottomRight.removeChild(questionNext_5_4);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_5();
+                        questionCat_5_5();
                     }
                 });
                 tl
@@ -313,12 +313,12 @@ function questionCat_2_4() {
 
 }
 
-function questionCat_2_5() {
+function questionCat_5_5() {
     questionLoad.questionBlockText(
-        'Подскочил к солдату, ударил его по щеке и оборотил ..., а сам сделался мышкою, схватил … в зубы, прокрался во дворец, нашел волшебную книгу и воткнул в нее...',
-        'булавку',
-        'иголку',
-        'кнопку');
+        'На третий день сидит красная девица, держит в руках ... Загляделась просвирнина дочка. «Продай, красная девица, продай», - говорит, - мне свою забаву!». За какую забаву купила девица красавица третью ночь подле Финиста ясна сокола?',
+        'золотое пяличко с иголочкой, что сама вышивает',
+        'серебряное блюдечко и золотое яичко',
+        'серебряное донце и золотое веретенце');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -327,11 +327,10 @@ function questionCat_2_5() {
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
-        arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerPerson = document.querySelector('.container__person')
+        arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(1, 'Совершеноо верно!');
+    questionLoad.answerBlock(0, 'Совершеноо верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -343,24 +342,21 @@ function questionCat_2_5() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_5';
-            const questionNext_2_5 = document.getElementById('questionNext_2_5');
-            questionNext_2_5.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_5_5';
+            const questionNext_5_5 = document.getElementById('questionNext_5_5');
+            questionNext_5_5.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_5);
+                        wrapperBottomRight.removeChild(questionNext_5_5);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        container.removeChild(containerPerson);
-                        wrapper.removeChild(containerQuest);
-                        questionCat_2_6();
+                        questionCat_5_6();
                     }
                 });
                 tl
                     .to([
                         containerInsideRight,
-                        containerInsideLeft,
-                        containerQuest], {
+                        containerInsideLeft], {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
@@ -371,7 +367,7 @@ function questionCat_2_5() {
 
 }
 
-function questionCat_2_6() {
+function questionCat_5_6() {
     arrowBackLoad.arrowNextHidden();
 
     const questionBack_2 = document.getElementById('questionBack_2'),
@@ -385,7 +381,7 @@ function questionCat_2_6() {
 
     containerDifference.className = 'container__difference';
     containerDifference.innerHTML = `
-        <img src="assets/games/magicFeather/images/mf_pikeDifference.png" alt="Елена Премудрая. Найди лишний предмет">
+        <img src="assets/games/magicFeather/images/mf_FinistCFDifference.png" alt="Перышко Ясно-Сокола. Найди леденец">
     `;
     container.appendChild(containerDifference);
     let diff = gsap.from(containerDifference, {
@@ -395,14 +391,14 @@ function questionCat_2_6() {
 
     wrapperBottomRight.appendChild(arrowNextClick);
     arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-    arrowNextClick.id = 'questionNext_2_6';
-    const questionNext_2_6 = document.getElementById('questionNext_2_6');
-    questionNext_2_6.addEventListener('click', () => {
+    arrowNextClick.id = 'questionNext_5_6';
+    const questionNext_5_6 = document.getElementById('questionNext_5_6');
+    questionNext_5_6.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
-                wrapperBottomRight.removeChild(questionNext_2_6);
+                wrapperBottomRight.removeChild(questionNext_5_6);
                 container.removeChild(containerDifference);
-                questionCat_3_0();
+                questionCat_5_0();
             }
         });
         tl

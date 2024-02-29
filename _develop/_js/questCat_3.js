@@ -1,10 +1,10 @@
-function questionCat_2_0() {
+function questionCat_3_0() {
     questionLoad.questionBlock();
     questionLoad.questionBlockText(
-        'Левитационное устройство исключительно вертикального перемещения',
-        'ковёр–самолёт',
-        'ступа Бабы–Яги',
-        'сапоги-скороходы');
+        'Говорящий гаджет для трансляции сторис того, что в мире происходит:',
+        'яблочко на блюдечке',
+        'волшебное зеркальце',
+        'сосуд с волшебным варевом');
 
     const
         wrapperBottom = document.createElement('div'),
@@ -38,7 +38,7 @@ function questionCat_2_0() {
         containerInsideRight = document.getElementById('containerInsideRight')
     ;
 
-    questionLoad.answerBlock(1, 'Верно!');
+    questionLoad.answerBlock(0, 'Верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -50,19 +50,19 @@ function questionCat_2_0() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_0';
-            const questionNext_2_0 = document.getElementById('questionNext_2_0');
-            questionNext_2_0.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_3_0';
+            const questionNext_3_0 = document.getElementById('questionNext_3_0');
+            questionNext_3_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_0);
+                        wrapperBottomRight.removeChild(questionNext_3_0);
                         containerDialog.removeChild(containerVovka);
                         containerDialog.removeChild(containerNestor);
                         container.className = 'container';
-                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--second';
+                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--third';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_1();
+                        questionCat_3_1();
                     }
                 });
                 tl
@@ -89,13 +89,13 @@ function questionCat_2_0() {
     }
 }
 
-// Елена Премудрая
-function questionCat_2_1() {
+// Марья Морьевна
+function questionCat_3_1() {
     questionLoad.questionBlockText(
-        '«Выпусти меня на волю; как будешь в нужде, я тебе сам пригожусь; только помяни меня - и я в ту ж минуту явлюсь к тебе на выручку». Кому даровал солдат свободу?',
-        'джину',
-        'Кощею-бессмертному',
-        'нечистому духу');
+        '«Только пришли во дворец - как ударил гром, распалася крыша, раздвоился потолок, и влетел орел; ударился об пол и сделался добрым молодцем: «Здравствуй, Иван-царевич! Прежде я гостем ходил, а теперь пришел сватом». И посватал...',
+        'Ольгу-царевну',
+        'Марью–царевну',
+        'Анну–царевну');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -110,11 +110,11 @@ function questionCat_2_1() {
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
-        <img src="assets/games/magicFeather/images/mf_elenaWise.png" alt="Елена Премудрая">
+        <img src="assets/games/magicFeather/images/mf_mariaMorevna.png" alt="Марья Морьевна">
     `;
     container.appendChild(containerPerson);
 
-    questionLoad.answerBlock(2, 'Верно!');
+    questionLoad.answerBlock(0, 'Правильно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -126,15 +126,15 @@ function questionCat_2_1() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_1';
-            const questionNext_2_1 = document.getElementById('questionNext_2_1');
-            questionNext_2_1.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_3_1';
+            const questionNext_3_1 = document.getElementById('questionNext_3_1');
+            questionNext_3_1.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_1);
+                        wrapperBottomRight.removeChild(questionNext_3_1);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_2();
+                        questionCat_3_2();
                     }
                 });
                 tl
@@ -151,12 +151,12 @@ function questionCat_2_1() {
 
 }
 
-function questionCat_2_2() {
+function questionCat_3_2() {
     questionLoad.questionBlockText(
-        'Красные девицы принесли волшебный ковер, разостлали по полу, ударились о тот ковер и сделались...',
-        'голубками',
-        'бабочками',
-        'лебёдушками');
+        'Марья Моревна, прекрасная королевна на войну собирается; покидает она на Ивана-царевича все хозяйство и приказывает: «Везде ходи, за всем присматривай; только в … не моги заглядывать!»',
+        'в чулан',
+        'в подвал',
+        'в пещеру');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -168,7 +168,7 @@ function questionCat_2_2() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(0, 'Верно!');
+    questionLoad.answerBlock(0, 'Именно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -180,15 +180,15 @@ function questionCat_2_2() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_2';
-            const questionNext_2_2 = document.getElementById('questionNext_2_2');
-            questionNext_2_2.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_3_2';
+            const questionNext_3_2 = document.getElementById('questionNext_3_2');
+            questionNext_3_2.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_2);
+                        wrapperBottomRight.removeChild(questionNext_3_2);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_3();
+                        questionCat_3_3();
                     }
                 });
                 tl
@@ -205,12 +205,12 @@ function questionCat_2_2() {
 
 }
 
-function questionCat_2_3() {
+function questionCat_3_3() {
     questionLoad.questionBlockText(
-        'А солдату крепко не терпится; попробовал в другой и в третий раз - чутко спит королевна, после всякого поцелуя пробуждается. За третьим разом встала она с постели и говорит: «Тут что-нибудь да недаром: дай-ка посмотрю в...»',
-        'в волшебное зеркальце',
-        'в волшебную шкатулку',
-        'волшебную книгу');
+        '«Прощайте! Пойду жену искать - Марью Моревну, прекрасную королевну». Отвечает ворон: «Трудно тебе сыскать ее; оставь-ка у нас...: будем на нее смотреть, тебя вспоминать». Царевич отдал ему..., попрощался и пошел в дорогу». Что оставил Иван – царевич ворону?',
+        'серебряную ложку',
+        'серебряную вилку',
+        'серебряную табакерку');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -234,15 +234,15 @@ function questionCat_2_3() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_3';
-            const questionNext_2_3 = document.getElementById('questionNext_2_3');
-            questionNext_2_3.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_3_3';
+            const questionNext_3_3 = document.getElementById('questionNext_3_3');
+            questionNext_3_3.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_3);
+                        wrapperBottomRight.removeChild(questionNext_3_3);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_4();
+                        questionCat_3_4();
                     }
                 });
                 tl
@@ -259,12 +259,12 @@ function questionCat_2_3() {
 
 }
 
-function questionCat_2_4() {
+function questionCat_3_4() {
     questionLoad.questionBlockText(
-        'Вот махнет королевна платком, и покатится молодецкая голова!..». Смилуйся, прекрасная королевна, - просит солдат со слезами, - позволь напоследях...',
-        'слово молвить',
-        'песню спеть',
-        'сказы сказывать');
+        '«За тридевять земель, в тридесятом царстве, за огненной рекою живет баба-яга – «Как же ты через огненную реку переправился?» - «А у меня есть... - как махну в правую сторону три раза, сделается высокий-высокий мост, и огонь его не достанет!». Марья Моревна выслушала, пересказала все Ивану-царевичу и …унесла да ему отдала».',
+        'платок',
+        'перстень',
+        'посох');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -276,7 +276,7 @@ function questionCat_2_4() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(1, 'Точно!');
+    questionLoad.answerBlock(0, 'Точно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -288,15 +288,15 @@ function questionCat_2_4() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_4';
-            const questionNext_2_4 = document.getElementById('questionNext_2_4');
-            questionNext_2_4.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_3_4';
+            const questionNext_3_4 = document.getElementById('questionNext_3_4');
+            questionNext_3_4.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_4);
+                        wrapperBottomRight.removeChild(questionNext_3_4);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
-                        questionCat_2_5();
+                        questionCat_3_5();
                     }
                 });
                 tl
@@ -313,12 +313,12 @@ function questionCat_2_4() {
 
 }
 
-function questionCat_2_5() {
+function questionCat_3_5() {
     questionLoad.questionBlockText(
-        'Подскочил к солдату, ударил его по щеке и оборотил ..., а сам сделался мышкою, схватил … в зубы, прокрался во дворец, нашел волшебную книгу и воткнул в нее...',
-        'булавку',
-        'иголку',
-        'кнопку');
+        '«Баба-яга заснула, а в самую полночь Иван-царевич украл у нее..., оседлал его, сел и поскакал к огненной реке». Какого коня выручил Иван-царевич за службу у Бабы- Яги?',
+        'Конька–Горбунка',
+        'Сивку–Бурку',
+        'паршивого жеребёнка');
 
     arrowBackLoad.arrowNextHidden();
 
@@ -331,7 +331,7 @@ function questionCat_2_5() {
         containerPerson = document.querySelector('.container__person')
     ;
 
-    questionLoad.answerBlock(1, 'Совершеноо верно!');
+    questionLoad.answerBlock(2, 'Совершеноо верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -343,17 +343,17 @@ function questionCat_2_5() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2_5';
-            const questionNext_2_5 = document.getElementById('questionNext_2_5');
-            questionNext_2_5.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_3_5';
+            const questionNext_3_5 = document.getElementById('questionNext_3_5');
+            questionNext_3_5.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2_5);
+                        wrapperBottomRight.removeChild(questionNext_3_5);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         container.removeChild(containerPerson);
                         wrapper.removeChild(containerQuest);
-                        questionCat_2_6();
+                        questionCat_3_6();
                     }
                 });
                 tl
@@ -371,7 +371,7 @@ function questionCat_2_5() {
 
 }
 
-function questionCat_2_6() {
+function questionCat_3_6() {
     arrowBackLoad.arrowNextHidden();
 
     const questionBack_2 = document.getElementById('questionBack_2'),
@@ -385,7 +385,7 @@ function questionCat_2_6() {
 
     containerDifference.className = 'container__difference';
     containerDifference.innerHTML = `
-        <img src="assets/games/magicFeather/images/mf_pikeDifference.png" alt="Елена Премудрая. Найди лишний предмет">
+        <img src="assets/games/magicFeather/images/mf_mariaMorevnaDifference.png" alt="Марья Морьевна. Найди животных">
     `;
     container.appendChild(containerDifference);
     let diff = gsap.from(containerDifference, {
@@ -395,14 +395,14 @@ function questionCat_2_6() {
 
     wrapperBottomRight.appendChild(arrowNextClick);
     arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-    arrowNextClick.id = 'questionNext_2_6';
-    const questionNext_2_6 = document.getElementById('questionNext_2_6');
-    questionNext_2_6.addEventListener('click', () => {
+    arrowNextClick.id = 'questionNext_3_6';
+    const questionNext_3_6 = document.getElementById('questionNext_3_6');
+    questionNext_3_6.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
-                wrapperBottomRight.removeChild(questionNext_2_6);
+                wrapperBottomRight.removeChild(questionNext_3_6);
                 container.removeChild(containerDifference);
-                questionCat_3_0();
+                questionCat_4_0();
             }
         });
         tl
