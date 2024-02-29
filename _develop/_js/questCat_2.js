@@ -380,35 +380,54 @@ function questionCat_2_6() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerDifference = document.createElement('div')
+        containerDifference = document.createElement('div'),
+        appleHide = document.createElement('picture')
     ;
 
     containerDifference.className = 'container__difference';
+    appleHide.id = 'appleSingle';
     containerDifference.innerHTML = `
-        <img src="assets/games/magicFeather/images/mf_pikeDifference.png" alt="Елена Премудрая. Найди лишний предмет">
+        <img src="assets/games/magicFeather/images/mf_elenaWiseDifference.png" alt="Елена Премудрая. Найди лишний предмет">
+    `;
+    appleHide.innerHTML = `
+        <img src="assets/games/magicFeather/images/mf_elenaWiseApple.png" alt="Елена Премудрая. Яблоко">
     `;
     container.appendChild(containerDifference);
+    containerDifference.appendChild(appleHide);
     let diff = gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
 
-    wrapperBottomRight.appendChild(arrowNextClick);
-    arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-    arrowNextClick.id = 'questionNext_2_6';
-    const questionNext_2_6 = document.getElementById('questionNext_2_6');
-    questionNext_2_6.addEventListener('click', () => {
+    const appleSingle = document.getElementById('appleSingle');
+    appleSingle.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
-                wrapperBottomRight.removeChild(questionNext_2_6);
-                container.removeChild(containerDifference);
-                questionCat_3_0();
+                wrapperBottomRight.appendChild(arrowNextClick);
+                arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+                arrowNextClick.id = 'questionNext_2_6';
+                const questionNext_2_6 = document.getElementById('questionNext_2_6');
+                questionNext_2_6.addEventListener('click', () => {
+                    let tl = gsap.timeline({
+                        onComplete: () => {
+                            wrapperBottomRight.removeChild(questionNext_2_6);
+                            container.removeChild(containerDifference);
+                            questionCat_3_0();
+                        }
+                    });
+                    tl
+                        .to(containerDifference, {
+                            autoAlpha: 0,
+                            delay: '-0.1'
+                        })
+                    ;
+                });
             }
         });
         tl
-            .to(containerDifference, {
-                autoAlpha: 0,
-                delay: '-0.1'
+            .to(appleSingle, {
+                duration: 0.3,
+                autoAlpha: 0
             })
         ;
     });
