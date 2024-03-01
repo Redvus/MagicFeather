@@ -12,17 +12,23 @@ function questionCat_5_0() {
         wrapperTopAbout = document.querySelector('.wrapper__top'),
         wrapperBackDialog = document.createElement('div'),
         wrapperBack = document.querySelector('.wrapper__back'),
-        wrapperBackCatFive = document.createElement('div')
+        wrapperBackCatFive = document.createElement('div'),
+        containerVovka = document.getElementById('containerVovka'),
+        containerNestor = document.getElementById('containerNestor')
     ;
 
     arrowBackLoad.arrowNextHidden();
     wrapperBackCatFive.className = 'wrapper__back_category wrapper__back_category--five';
     wrapperBackDialog.className = 'wrapper__back_dialog';
-    questionDialogPerson.dialogPersonStart();
+    // questionDialogPerson.dialogPersonStart();
     wrapperBack.appendChild(wrapperBackDialog);
     gsap.from(wrapperBackDialog, {
         duration: 0.6,
         autoAlpha: 0
+    });
+    gsap.to([containerVovka, containerNestor], {
+        duration: 0.6,
+        autoAlpha: 1
     });
 
     const
@@ -38,8 +44,6 @@ function questionCat_5_0() {
         containerDialog = document.querySelector('.container--dialog'),
         containerBlockLeft = document.getElementById('containerBlockLeft'),
         containerBlockRight = document.getElementById('containerBlockRight'),
-        containerVovka = document.getElementById('containerVovkaCenter'),
-        containerNestor = document.getElementById('containerNestor'),
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
         categoryQuestBack = document.createElement('div'),
         containerInsideLeft = document.getElementById('containerInsideLeft'),
@@ -68,8 +72,6 @@ function questionCat_5_0() {
                     onComplete: () => {
                         wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_5_0);
-                        containerDialog.removeChild(containerVovka);
-                        containerDialog.removeChild(containerNestor);
                         container.className = 'container';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);

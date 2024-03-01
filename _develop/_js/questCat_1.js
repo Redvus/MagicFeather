@@ -70,8 +70,8 @@ function questionCat_1_0() {
                     onComplete: () => {
                         wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_0);
-                        containerDialog.removeChild(containerVovka);
-                        containerDialog.removeChild(containerNestor);
+                        // containerDialog.removeChild(containerVovka);
+                        // containerDialog.removeChild(containerNestor);
                         container.className = 'container';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
@@ -409,7 +409,7 @@ function questionCat_1_6() {
         <img src="assets/games/magicFeather/images/mf_pikeDifference.png" alt="По щучьему велению. Найди 7 отличий">
     `;
     container.appendChild(containerDifference);
-    let diff = gsap.from(containerDifference, {
+    gsap.from(containerDifference, {
        duration: 0.6,
        autoAlpha: 0
     });
