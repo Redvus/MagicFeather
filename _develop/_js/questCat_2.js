@@ -9,13 +9,21 @@ function questionCat_2_0() {
     const
         wrapperBottom = document.createElement('div'),
         containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper-back'),
-        wrapperTopAbout = document.querySelector('.wrapper__top')
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBackDialog = document.createElement('div'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatSecond = document.createElement('div')
     ;
 
     arrowBackLoad.arrowNextHidden();
-    introAboutBack.className = 'wrapper-back wrapper__dialog';
+    wrapperBackCatSecond.className = 'wrapper__back_category wrapper__back_category--second';
+    wrapperBackDialog.className = 'wrapper__back_dialog';
     questionDialogPerson.dialogPersonStart();
+    wrapperBack.appendChild(wrapperBackDialog);
+    gsap.from(wrapperBackDialog, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     const
         arrowBackClick = document.getElementById('arrowBack'),
@@ -54,22 +62,21 @@ function questionCat_2_0() {
             const questionNext_2_0 = document.getElementById('questionNext_2_0');
             questionNext_2_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
+                    onStart: () => {
+                        wrapperBack.appendChild(wrapperBackCatSecond);
+                    },
                     onComplete: () => {
+                        wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_2_0);
                         containerDialog.removeChild(containerVovka);
                         containerDialog.removeChild(containerNestor);
                         container.className = 'container';
-                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--second';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_2_1();
                     }
                 });
                 tl
-                    // .to(introAboutBack, {
-                    //     duration: 0.2,
-                    //     autoAlpha: 0
-                    // })
                     .to([
                         containerVovka,
                         containerNestor,
@@ -78,12 +85,16 @@ function questionCat_2_0() {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
-                // .to(introAboutBack, {
-                //     duration: 0.3,
-                //     delay: '0.5',
-                //     autoAlpha: 1
-                // })
-                ;
+                    .to(wrapperBackDialog, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 1
+                    })
+                    .from(wrapperBackCatSecond, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 0
+                    })
             });
         });
     }
@@ -113,6 +124,10 @@ function questionCat_2_1() {
         <img src="assets/games/magicFeather/images/mf_elenaWise.png" alt="Елена Премудрая">
     `;
     container.appendChild(containerPerson);
+    gsap.from(containerPerson, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     questionLoad.answerBlock(2, 'Верно!');
 
@@ -360,7 +375,8 @@ function questionCat_2_5() {
                     .to([
                         containerInsideRight,
                         containerInsideLeft,
-                        containerQuest], {
+                        containerQuest,
+                        containerPerson], {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
@@ -381,7 +397,9 @@ function questionCat_2_6() {
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
         containerDifference = document.createElement('div'),
-        appleHide = document.createElement('picture')
+        appleHide = document.createElement('picture'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatSecond = document.querySelector('.wrapper__back_category--second')
     ;
 
     containerDifference.className = 'container__difference';
@@ -394,7 +412,7 @@ function questionCat_2_6() {
     `;
     container.appendChild(containerDifference);
     containerDifference.appendChild(appleHide);
-    let diff = gsap.from(containerDifference, {
+    gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
@@ -410,6 +428,7 @@ function questionCat_2_6() {
                 questionNext_2_6.addEventListener('click', () => {
                     let tl = gsap.timeline({
                         onComplete: () => {
+                            wrapperBack.removeChild(wrapperBackCatSecond);
                             wrapperBottomRight.removeChild(questionNext_2_6);
                             container.removeChild(containerDifference);
                             questionCat_3_0();
@@ -419,6 +438,10 @@ function questionCat_2_6() {
                         .to(containerDifference, {
                             autoAlpha: 0,
                             delay: '-0.1'
+                        })
+                        .to(wrapperBackCatSecond, {
+                            duration: 0.3,
+                            autoAlpha: 0
                         })
                     ;
                 });

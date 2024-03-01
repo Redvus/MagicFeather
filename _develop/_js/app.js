@@ -377,7 +377,7 @@ function dialogDev() {
     dialogDevLoad.dialogStart();
 
     const
-        introAboutBack = document.querySelector('.wrapper-back'),
+        introAboutBack = document.querySelector('.wrapper__back'),
         containerVovka = document.getElementById('containerVovka'),
         containerNestor = document.getElementById('containerNestor'),
         wrapperBottom = document.createElement('div'),
@@ -421,6 +421,9 @@ function dialogDev() {
                     if (document.querySelector('.container-quest')) {
                         wrapper.removeChild(document.querySelector('.container-quest'));
                     }
+                    if (document.querySelector('.container__person')) {
+                        container.removeChild(document.querySelector('.container__person'));
+                    }
                     // wrapper.removeChild(container);
                     // container.className = 'container';
                     // container.removeChild(containerNestor);
@@ -437,7 +440,8 @@ function dialogDev() {
                     arrowBackClick,
                     arrowNextClick,
                     settingsClick,
-                    document.querySelector('.container-quest')], {
+                    document.querySelector('.container-quest'),
+                    document.querySelector('.container__person')], {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -455,7 +459,7 @@ function dialogDev() {
                     wrapperBottomCenter.removeChild(settingsClick);
                     wrapperBottomRight.removeChild(arrowNextClick);
                     // wrapperBottomLeft.removeChild(arrowBackClick);
-                    questionCat_2_6();
+                    questionCat_5_0();
                 }
             });
             tl

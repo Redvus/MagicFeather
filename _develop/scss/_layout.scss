@@ -26,53 +26,9 @@
 		opacity: 0;
 	}
 
-	&__dialog {
-		width: 100%;
-		height: 100vh;
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
-		background: url("../images/mf_backDialog.jpg") 50% 0 no-repeat;
-		background-size: auto 100%;
-		z-index: 0;
-		//opacity: 0;
-	}
 
-	&__category {
-		width: 100%;
-		height: 100vh;
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
-		z-index: 0;
 
-		&--first {
-			background: url("../images/mf_backBehestPike.jpg") 50% 0 no-repeat;
-			background-size: auto 100%;
-		}
 
-		&--second {
-			background: url("../images/mf_backElenaWise.jpg") 50% 0 no-repeat;
-			background-size: auto 100%;
-		}
-
-		&--third {
-			background: url("../images/mf_backMariaMorevna.jpg") 50% 0 no-repeat;
-			background-size: auto 100%;
-		}
-
-		&--fourth {
-			background: url("../images/mf_backSivkoBurko.jpg") 50% 0 no-repeat;
-			background-size: auto 100%;
-		}
-
-		&--five {
-			background: url("../images/mf_backFinistClearFalcon.jpg") 50% 0 no-repeat;
-			background-size: auto 100%;
-		}
-	}
 
 	&__citizen {
 		width: 100%;
@@ -354,6 +310,14 @@
 	}
 
 	&__back {
+		width: 100%;
+		height: 100vh;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		//opacity: 0;
 
 		&_service {
 			width: 100%;
@@ -365,6 +329,54 @@
 			background: url("../images/kraevedia_backService.jpg") 50% 0 no-repeat;
 			background-size: auto 100%;
 			z-index: 0;
+		}
+
+		&_dialog {
+			width: 100%;
+			height: 100vh;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: url("../images/mf_backDialog.jpg") 50% 0 no-repeat;
+			background-size: auto 100%;
+			z-index: 0;
+			//opacity: 0;
+		}
+
+		&_category {
+			width: 100%;
+			height: 100vh;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 0;
+
+			&--first {
+				background: url("../images/mf_backBehestPike.jpg") 50% 0 no-repeat;
+				background-size: auto 100%;
+			}
+
+			&--second {
+				background: url("../images/mf_backElenaWise.jpg") 50% 0 no-repeat;
+				background-size: auto 100%;
+			}
+
+			&--third {
+				background: url("../images/mf_backMariaMorevna.jpg") 50% 0 no-repeat;
+				background-size: auto 100%;
+			}
+
+			&--fourth {
+				background: url("../images/mf_backSivkoBurko.jpg") 50% 0 no-repeat;
+				background-size: auto 100%;
+			}
+
+			&--five {
+				background: url("../images/mf_backFinistClearFalcon.jpg") 50% 0 no-repeat;
+				background-size: auto 100%;
+			}
 		}
 	}
 
@@ -872,26 +884,26 @@
 		}
 
 		&_left {
-			width: calc(50% - (#{$paddingBase} * 1.5));
+			width: calc(50% - (#{$paddingBase} * 2));
 			//height: calc(100% - #{$containerAboutPadding} - (calc(#{$containerAboutPadding} - (#{$paddingBase} * 2))));
 			height: calc(100% - (#{$containerAboutPadding} * 3));
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			margin-right: calc(#{$paddingBase} * 1.5);
+			margin-right: calc(#{$paddingBase} * 2);
 			//padding: $containerAboutPadding calc(#{$paddingBase} * 4) calc(#{$containerAboutPadding} - (#{$paddingBase} * 2));
 			padding: calc(#{$containerAboutPadding} * 2) calc(#{$paddingBase} * 4) $containerAboutPadding;
 			background: url("../images/mf_fieldTextAuthors.png") 50% 50% / 100% no-repeat;
 		}
 
 		&_right {
-			width: calc(50% - (#{$paddingBase} * 1.5));
+			width: calc(50% - (#{$paddingBase} * 2));
 			height: calc(100% - (#{$containerAboutPadding} * 3));
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			margin-left: calc(#{$paddingBase} * 1.5);
+			margin-left: calc(#{$paddingBase} * 2);
 			padding: calc(#{$containerAboutPadding} * 2) calc(#{$paddingBase} * 4) $containerAboutPadding;
 			background: url("../images/mf_fieldTextAuthors.png") 50% 50% / 100% no-repeat;
 

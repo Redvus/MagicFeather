@@ -9,13 +9,21 @@ function questionCat_5_0() {
     const
         wrapperBottom = document.createElement('div'),
         containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper-back'),
-        wrapperTopAbout = document.querySelector('.wrapper__top')
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBackDialog = document.createElement('div'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatFive = document.createElement('div')
     ;
 
     arrowBackLoad.arrowNextHidden();
-    introAboutBack.className = 'wrapper-back wrapper__dialog';
+    wrapperBackCatFive.className = 'wrapper__back_category wrapper__back_category--five';
+    wrapperBackDialog.className = 'wrapper__back_dialog';
     questionDialogPerson.dialogPersonStart();
+    wrapperBack.appendChild(wrapperBackDialog);
+    gsap.from(wrapperBackDialog, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     const
         arrowBackClick = document.getElementById('arrowBack'),
@@ -54,22 +62,21 @@ function questionCat_5_0() {
             const questionNext_5_0 = document.getElementById('questionNext_5_0');
             questionNext_5_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
+                    onStart: () => {
+                        wrapperBack.appendChild(wrapperBackCatFive);
+                    },
                     onComplete: () => {
+                        wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_5_0);
                         containerDialog.removeChild(containerVovka);
                         containerDialog.removeChild(containerNestor);
                         container.className = 'container';
-                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--five';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_5_1();
                     }
                 });
                 tl
-                    // .to(introAboutBack, {
-                    //     duration: 0.2,
-                    //     autoAlpha: 0
-                    // })
                     .to([
                         containerVovka,
                         containerNestor,
@@ -78,11 +85,16 @@ function questionCat_5_0() {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
-                // .to(introAboutBack, {
-                //     duration: 0.3,
-                //     delay: '0.5',
-                //     autoAlpha: 1
-                // })
+                    .to(wrapperBackDialog, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 1
+                    })
+                    .from(wrapperBackCatFive, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 0
+                    })
                 ;
             });
         });
@@ -110,9 +122,13 @@ function questionCat_5_1() {
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
-        <img src="assets/games/magicFeather/images/mf_elenaWise.png" alt="Елена Премудрая">
+        <img src="assets/games/magicFeather/images/mf_finistClearFalcon.png" alt="Финист Ясный Сокол">
     `;
     container.appendChild(containerPerson);
+    gsap.from(containerPerson, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     questionLoad.answerBlock(1, 'Верно!');
 
@@ -327,7 +343,8 @@ function questionCat_5_5() {
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
-        arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
+        arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
+        containerPerson = document.querySelector('.container__person')
     ;
 
     questionLoad.answerBlock(0, 'Совершеноо верно!');
@@ -359,7 +376,8 @@ function questionCat_5_5() {
                     .to([
                         containerInsideRight,
                         containerInsideLeft,
-                        containerQuest], {
+                        containerQuest,
+                        containerPerson], {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
@@ -380,7 +398,9 @@ function questionCat_5_6() {
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
         containerDifference = document.createElement('div'),
-        findCandy = document.createElement('picture')
+        findCandy = document.createElement('picture'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatFive = document.querySelector('.wrapper__back_category--five')
     ;
 
     containerDifference.className = 'container__difference';
@@ -393,7 +413,7 @@ function questionCat_5_6() {
     `;
     container.appendChild(containerDifference);
     containerDifference.appendChild(findCandy);
-    let diff = gsap.from(containerDifference, {
+    gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
@@ -409,15 +429,20 @@ function questionCat_5_6() {
                 questionNext_5_6.addEventListener('click', () => {
                     let tl = gsap.timeline({
                         onComplete: () => {
+                            wrapperBack.removeChild(wrapperBackCatFive);
                             wrapperBottomRight.removeChild(questionNext_5_6);
                             container.removeChild(containerDifference);
-                            // questionCat_5_0();
+                            introDev();
                         }
                     });
                     tl
                         .to(containerDifference, {
                             autoAlpha: 0,
                             delay: '-0.1'
+                        })
+                        .to(wrapperBackCatFive, {
+                            duration: 0.3,
+                            autoAlpha: 0
                         })
                     ;
                 });

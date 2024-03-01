@@ -9,13 +9,21 @@ function questionCat_3_0() {
     const
         wrapperBottom = document.createElement('div'),
         containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper-back'),
-        wrapperTopAbout = document.querySelector('.wrapper__top')
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBackDialog = document.createElement('div'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatThird = document.createElement('div')
     ;
 
     arrowBackLoad.arrowNextHidden();
-    introAboutBack.className = 'wrapper-back wrapper__dialog';
+    wrapperBackCatThird.className = 'wrapper__back_category wrapper__back_category--third';
+    wrapperBackDialog.className = 'wrapper__back_dialog';
     questionDialogPerson.dialogPersonStart();
+    wrapperBack.appendChild(wrapperBackDialog);
+    gsap.from(wrapperBackDialog, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     const
         arrowBackClick = document.getElementById('arrowBack'),
@@ -54,22 +62,21 @@ function questionCat_3_0() {
             const questionNext_3_0 = document.getElementById('questionNext_3_0');
             questionNext_3_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
+                    onStart: () => {
+                        wrapperBack.appendChild(wrapperBackCatThird);
+                    },
                     onComplete: () => {
+                        wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_3_0);
                         containerDialog.removeChild(containerVovka);
                         containerDialog.removeChild(containerNestor);
                         container.className = 'container';
-                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--third';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_3_1();
                     }
                 });
                 tl
-                    // .to(introAboutBack, {
-                    //     duration: 0.2,
-                    //     autoAlpha: 0
-                    // })
                     .to([
                         containerVovka,
                         containerNestor,
@@ -78,11 +85,16 @@ function questionCat_3_0() {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
-                // .to(introAboutBack, {
-                //     duration: 0.3,
-                //     delay: '0.5',
-                //     autoAlpha: 1
-                // })
+                    .to(wrapperBackDialog, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 1
+                    })
+                    .from(wrapperBackCatThird, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 0
+                    })
                 ;
             });
         });
@@ -113,6 +125,10 @@ function questionCat_3_1() {
         <img src="assets/games/magicFeather/images/mf_mariaMorevna.png" alt="Марья Морьевна">
     `;
     container.appendChild(containerPerson);
+    gsap.from(containerPerson, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     questionLoad.answerBlock(0, 'Правильно!');
 
@@ -360,7 +376,8 @@ function questionCat_3_5() {
                     .to([
                         containerInsideRight,
                         containerInsideLeft,
-                        containerQuest], {
+                        containerQuest,
+                        containerPerson], {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
@@ -380,7 +397,9 @@ function questionCat_3_6() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerDifference = document.createElement('div')
+        containerDifference = document.createElement('div'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatThird = document.querySelector('.wrapper__back_category--third')
     ;
 
     containerDifference.className = 'container__difference';
@@ -388,7 +407,7 @@ function questionCat_3_6() {
         <img src="assets/games/magicFeather/images/mf_mariaMorevnaDifference.png" alt="Марья Морьевна. Найди животных">
     `;
     container.appendChild(containerDifference);
-    let diff = gsap.from(containerDifference, {
+    gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
@@ -400,6 +419,7 @@ function questionCat_3_6() {
     questionNext_3_6.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
+                wrapperBack.removeChild(wrapperBackCatThird);
                 wrapperBottomRight.removeChild(questionNext_3_6);
                 container.removeChild(containerDifference);
                 questionCat_4_0();
@@ -409,6 +429,10 @@ function questionCat_3_6() {
             .to(containerDifference, {
                 autoAlpha: 0,
                 delay: '-0.1'
+            })
+            .to(wrapperBackCatThird, {
+                duration: 0.3,
+                autoAlpha: 0
             })
         ;
     });

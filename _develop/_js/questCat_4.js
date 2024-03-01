@@ -9,13 +9,21 @@ function questionCat_4_0() {
     const
         wrapperBottom = document.createElement('div'),
         containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper-back'),
-        wrapperTopAbout = document.querySelector('.wrapper__top')
+        wrapperTopAbout = document.querySelector('.wrapper__top'),
+        wrapperBackDialog = document.createElement('div'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatFourth = document.createElement('div')
     ;
 
     arrowBackLoad.arrowNextHidden();
-    introAboutBack.className = 'wrapper-back wrapper__dialog';
+    wrapperBackCatFourth.className = 'wrapper__back_category wrapper__back_category--fourth';
+    wrapperBackDialog.className = 'wrapper__back_dialog';
     questionDialogPerson.dialogPersonStart();
+    wrapperBack.appendChild(wrapperBackDialog);
+    gsap.from(wrapperBackDialog, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     const
         arrowBackClick = document.getElementById('arrowBack'),
@@ -54,22 +62,21 @@ function questionCat_4_0() {
             const questionNext_4_0 = document.getElementById('questionNext_4_0');
             questionNext_4_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
+                    onStart: () => {
+                        wrapperBack.appendChild(wrapperBackCatFourth);
+                    },
                     onComplete: () => {
+                        wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_4_0);
                         containerDialog.removeChild(containerVovka);
                         containerDialog.removeChild(containerNestor);
                         container.className = 'container';
-                        introAboutBack.className = 'wrapper-back wrapper__category wrapper__category--fourth';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_4_1();
                     }
                 });
                 tl
-                    // .to(introAboutBack, {
-                    //     duration: 0.2,
-                    //     autoAlpha: 0
-                    // })
                     .to([
                         containerVovka,
                         containerNestor,
@@ -78,11 +85,16 @@ function questionCat_4_0() {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
-                // .to(introAboutBack, {
-                //     duration: 0.3,
-                //     delay: '0.5',
-                //     autoAlpha: 1
-                // })
+                    .to(wrapperBackDialog, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 1
+                    })
+                    .from(wrapperBackCatFourth, {
+                        duration: 0.6,
+                        delay: '-0.3',
+                        autoAlpha: 0
+                    })
                 ;
             });
         });
@@ -113,6 +125,10 @@ function questionCat_4_1() {
         <img src="assets/games/magicFeather/images/mf_sivkoBurko.png" alt="Сивка-Бурка">
     `;
     container.appendChild(containerPerson);
+    gsap.from(containerPerson, {
+        duration: 0.6,
+        autoAlpha: 0
+    });
 
     questionLoad.answerBlock(2, 'Верно!');
 
@@ -361,7 +377,8 @@ function questionCat_4_5() {
                     .to([
                         containerInsideRight,
                         containerInsideLeft,
-                        containerQuest], {
+                        containerQuest,
+                        containerPerson], {
                         autoAlpha: 0,
                         delay: '-0.1'
                     })
@@ -382,7 +399,9 @@ function questionCat_4_6() {
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
         containerDifference = document.createElement('div'),
-        findFrog = document.createElement('picture')
+        findFrog = document.createElement('picture'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatFourth = document.querySelector('.wrapper__back_category--fourth')
     ;
 
     containerDifference.className = 'container__difference';
@@ -395,7 +414,7 @@ function questionCat_4_6() {
     `;
     container.appendChild(containerDifference);
     containerDifference.appendChild(findFrog);
-    let diff = gsap.from(containerDifference, {
+    gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
@@ -411,6 +430,7 @@ function questionCat_4_6() {
                 questionNext_4_6.addEventListener('click', () => {
                     let tl = gsap.timeline({
                         onComplete: () => {
+                            wrapperBack.removeChild(wrapperBackCatFourth);
                             wrapperBottomRight.removeChild(questionNext_4_6);
                             container.removeChild(containerDifference);
                             questionCat_5_0();
@@ -420,6 +440,10 @@ function questionCat_4_6() {
                         .to(containerDifference, {
                             autoAlpha: 0,
                             delay: '-0.1'
+                        })
+                        .to(wrapperBackCatFourth, {
+                            duration: 0.3,
+                            autoAlpha: 0
                         })
                     ;
                 });

@@ -96,7 +96,7 @@ class Question {
                 .from(insideTextLeft, {
                     autoAlpha: 0,
                     duration: 0.4,
-                    delay: 0.7
+                    delay: 0.2
                 })
                 .from(questButtonList, {
                     autoAlpha: 0,

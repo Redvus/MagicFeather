@@ -75,9 +75,11 @@ class Intro {
     dialogStart() {
         const dialogBlockVovka = document.createElement('picture'),
             dialogBlockNestor = document.createElement('picture'),
-            wrapperTopAbout = document.createElement('div')
+            wrapperTopAbout = document.createElement('div'),
+            wrapperBack = document.createElement('div')
         ;
 
+        wrapperBack.className = 'wrapper__back';
         container.className += ' container--dialog';
         wrapperTopAbout.className = 'wrapper__top';
         dialogBlockVovka.id = 'containerVovka';
@@ -89,11 +91,12 @@ class Intro {
             <img src="assets/games/magicFeather/images/mf_nestor.png" alt="Диалог в библиотеке. Нестор">
         `;
 
+        wrapper.appendChild(wrapperBack);
         container.appendChild(dialogBlockVovka);
         container.appendChild(dialogBlockNestor);
 
         const dialogBlockBack = document.createElement('div');
-        dialogBlockBack.className = 'wrapper-back wrapper__dialog';
+        dialogBlockBack.className = 'wrapper__back_dialog';
         wrapper.appendChild(dialogBlockBack);
         wrapper.appendChild(wrapperTopAbout);
 
@@ -111,8 +114,10 @@ class Intro {
 
         const containerVovka = document.getElementById('containerVovka'),
             containerNestor = document.getElementById('containerNestor'),
-            wrapperDialogBack = document.querySelector('.wrapper__dialog')
+            wrapperDialogBack = document.querySelector('.wrapper__back_dialog')
         ;
+
+        wrapperBack.appendChild(wrapperDialogBack);
 
         function dialogAnim() {
             let tl = gsap.timeline({
