@@ -119,17 +119,25 @@ function questionCat_4_1() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerPerson = document.createElement('picture')
+        containerPerson = document.createElement('picture'),
+        wrapperTop = document.querySelector('.wrapper__top')
     ;
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_sivkoBurko.png" alt="Сивка-Бурка">
     `;
+    wrapperTop.innerHTML = `
+        <h1 class="wrapper__top_title">Сивка-Бурка</h1>
+    `;
     container.appendChild(containerPerson);
     gsap.from(containerPerson, {
         duration: 0.6,
         autoAlpha: 0
+    });
+    gsap.to(wrapperTop, {
+        duration: 0.6,
+        autoAlpha: 1
     });
 
     questionLoad.answerBlock(2, 'Верно!');
@@ -421,7 +429,11 @@ function questionCat_4_6() {
         autoAlpha: 0
     });
 
-    const frogSingle = document.getElementById('frogSingle');
+    const
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopTitle = document.querySelector('.wrapper__top_title'),
+        frogSingle = document.getElementById('frogSingle')
+    ;
     frogSingle.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
@@ -433,6 +445,7 @@ function questionCat_4_6() {
                     let tl = gsap.timeline({
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatFourth);
+                            wrapperTop.removeChild(wrapperTopTitle);
                             wrapperBottomRight.removeChild(questionNext_4_6);
                             container.removeChild(containerDifference);
                             questionCat_5_0();
@@ -443,7 +456,7 @@ function questionCat_4_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to(wrapperBackCatFourth, {
+                        .to([wrapperBackCatFourth, wrapperTopTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

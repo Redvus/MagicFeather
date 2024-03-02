@@ -60,16 +60,16 @@ function questionCat_1_0() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_0';
-            const questionNext_0 = document.getElementById('questionNext_0');
-            questionNext_0.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_1_0';
+            const questionNext_1_0 = document.getElementById('questionNext_1_0');
+            questionNext_1_0.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onStart: () => {
                         wrapperBack.appendChild(wrapperBackCatFirst);
                     },
                     onComplete: () => {
                         wrapperBack.removeChild(wrapperBackDialog);
-                        wrapperBottomRight.removeChild(questionNext_0);
+                        wrapperBottomRight.removeChild(questionNext_1_0);
                         // containerDialog.removeChild(containerVovka);
                         // containerDialog.removeChild(containerNestor);
                         container.className = 'container';
@@ -119,17 +119,25 @@ function questionCat_1_1() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerPerson = document.createElement('picture')
+        containerPerson = document.createElement('picture'),
+        wrapperTop = document.querySelector('.wrapper__top')
     ;
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_Pike.png" alt="По щучьему велению. Щука">
     `;
+    wrapperTop.innerHTML = `
+        <h1 class="wrapper__top_title">По щучьему велению</h1>
+    `;
     container.appendChild(containerPerson);
     gsap.from(containerPerson, {
         duration: 0.6,
         autoAlpha: 0
+    });
+    gsap.to(wrapperTop, {
+       duration: 0.6,
+       autoAlpha: 1
     });
 
     questionLoad.answerBlock(1, 'Верно!');
@@ -144,12 +152,12 @@ function questionCat_1_1() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_1';
-            const questionNext_1 = document.getElementById('questionNext_1');
-            questionNext_1.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_1_1';
+            const questionNext_1_1 = document.getElementById('questionNext_1_1');
+            questionNext_1_1.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_1);
+                        wrapperBottomRight.removeChild(questionNext_1_1);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_1_2();
@@ -198,12 +206,12 @@ function questionCat_1_2() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_2';
-            const questionNext_2 = document.getElementById('questionNext_2');
-            questionNext_2.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_1_2';
+            const questionNext_1_2 = document.getElementById('questionNext_1_2');
+            questionNext_1_2.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_2);
+                        wrapperBottomRight.removeChild(questionNext_1_2);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_1_3();
@@ -252,12 +260,12 @@ function questionCat_1_3() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_3';
-            const questionNext_3 = document.getElementById('questionNext_3');
-            questionNext_3.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_1_3';
+            const questionNext_1_3 = document.getElementById('questionNext_1_3');
+            questionNext_1_3.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_3);
+                        wrapperBottomRight.removeChild(questionNext_1_3);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_1_4();
@@ -306,12 +314,12 @@ function questionCat_1_4() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_4';
-            const questionNext_4 = document.getElementById('questionNext_4');
-            questionNext_4.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_1_4';
+            const questionNext_1_4 = document.getElementById('questionNext_1_4');
+            questionNext_1_4.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_4);
+                        wrapperBottomRight.removeChild(questionNext_1_4);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         questionCat_1_5();
@@ -361,12 +369,12 @@ function questionCat_1_5() {
         answerVarArray[i].addEventListener('click', () => {
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-            arrowNextClick.id = 'questionNext_5';
-            const questionNext_5 = document.getElementById('questionNext_5');
-            questionNext_5.addEventListener('click', () => {
+            arrowNextClick.id = 'questionNext_1_5';
+            const questionNext_1_5 = document.getElementById('questionNext_1_5');
+            questionNext_1_5.addEventListener('click', () => {
                 let tl = gsap.timeline({
                     onComplete: () => {
-                        wrapperBottomRight.removeChild(questionNext_5);
+                        wrapperBottomRight.removeChild(questionNext_1_5);
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
                         container.removeChild(containerPerson);
@@ -393,6 +401,11 @@ function questionCat_1_5() {
 function questionCat_1_6() {
     arrowBackLoad.arrowNextHidden();
 
+    if (localStorage.getItem('mfDifferenceQuest_1_6') === null
+        || localStorage.getItem('mfDifferenceQuest_1_6') >= 7) {
+        localStorage.setItem('mfDifferenceQuest_1_6', JSON.stringify(0));
+    }
+
     const questionBack_2 = document.getElementById('questionBack_2'),
         containerQuest = document.querySelector('.container-quest'),
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
@@ -401,42 +414,118 @@ function questionCat_1_6() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
         containerDifference = document.createElement('div'),
         wrapperBack = document.querySelector('.wrapper__back'),
-        wrapperBackCatFirst = document.querySelector('.wrapper__back_category--first')
+        wrapperBackCatFirst = document.querySelector('.wrapper__back_category--first'),
+        partBlock_1_1 = document.createElement('div'),
+        partBlock_1_2 = document.createElement('div'),
+        partBlock_2_1 = document.createElement('div'),
+        partBlock_2_2 = document.createElement('div'),
+        partBlock_3_1 = document.createElement('div'),
+        partBlock_3_2 = document.createElement('div'),
+        partBlock_4_1 = document.createElement('div'),
+        partBlock_4_2 = document.createElement('div'),
+        partBlock_5_1 = document.createElement('div'),
+        partBlock_5_2 = document.createElement('div'),
+        partBlock_6_1 = document.createElement('div'),
+        partBlock_6_2 = document.createElement('div'),
+        partBlock_7_1 = document.createElement('div'),
+        partBlock_7_2 = document.createElement('div')
     ;
 
     containerDifference.className = 'container__difference';
+    partBlock_1_1.className = 'container__part container__part--1 container__part--1-1';
+    partBlock_1_2.className = 'container__part container__part--1 container__part--1-2';
+    partBlock_2_1.className = 'container__part container__part--2 container__part--2-1';
+    partBlock_2_2.className = 'container__part container__part--2 container__part--2-2';
+    partBlock_3_1.className = 'container__part container__part--3 container__part--3-1';
+    partBlock_3_2.className = 'container__part container__part--3 container__part--3-2';
+    partBlock_4_1.className = 'container__part container__part--4 container__part--4-1';
+    partBlock_4_2.className = 'container__part container__part--4 container__part--4-2';
+    partBlock_5_1.className = 'container__part container__part--5 container__part--5-1';
+    partBlock_5_2.className = 'container__part container__part--5 container__part--5-2';
+    partBlock_6_1.className = 'container__part container__part--6 container__part--6-1';
+    partBlock_6_2.className = 'container__part container__part--6 container__part--6-2';
+    partBlock_7_1.className = 'container__part container__part--7 container__part--7-1';
+    partBlock_7_2.className = 'container__part container__part--7 container__part--7-2';
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_pikeDifference.png" alt="По щучьему велению. Найди 7 отличий">
     `;
     container.appendChild(containerDifference);
+    containerDifference.appendChild(partBlock_1_1);
+    containerDifference.appendChild(partBlock_1_2);
+    containerDifference.appendChild(partBlock_2_1);
+    containerDifference.appendChild(partBlock_2_2);
+    containerDifference.appendChild(partBlock_3_1);
+    containerDifference.appendChild(partBlock_3_2);
+    containerDifference.appendChild(partBlock_4_1);
+    containerDifference.appendChild(partBlock_4_2);
+    containerDifference.appendChild(partBlock_5_1);
+    containerDifference.appendChild(partBlock_5_2);
+    containerDifference.appendChild(partBlock_6_1);
+    containerDifference.appendChild(partBlock_6_2);
+    containerDifference.appendChild(partBlock_7_1);
+    containerDifference.appendChild(partBlock_7_2);
     gsap.from(containerDifference, {
        duration: 0.6,
        autoAlpha: 0
     });
 
-    wrapperBottomRight.appendChild(arrowNextClick);
-    arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-    arrowNextClick.id = 'questionNext_6';
-    const questionNext_6 = document.getElementById('questionNext_6');
-    questionNext_6.addEventListener('click', () => {
-        let tl = gsap.timeline({
-            onComplete: () => {
-                wrapperBack.removeChild(wrapperBackCatFirst);
-                wrapperBottomRight.removeChild(questionNext_6);
-                container.removeChild(containerDifference);
-                questionCat_2_0();
+    const
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopTitle = document.querySelector('.wrapper__top_title'),
+        containerPart_1 = document.querySelector('.container__part--1'),
+        containerPart_2 = document.querySelector('.container__part--2'),
+        containerPart_3 = document.querySelector('.container__part--3'),
+        containerPart_4 = document.querySelector('.container__part--4'),
+        containerPart_5 = document.querySelector('.container__part--5'),
+        containerPart_6 = document.querySelector('.container__part--6'),
+        containerPart_7 = document.querySelector('.container__part--7'),
+        containerParts = [
+            containerPart_1,
+            containerPart_2,
+            containerPart_3,
+            containerPart_4,
+            containerPart_5,
+            containerPart_6,
+            containerPart_7
+        ]
+    ;
+
+    for (let i = 0; i < containerParts.length; i++) {
+        containerParts[i].addEventListener('click', () => {
+            let progressQuestion_1_6 = JSON.parse(localStorage.getItem('mfDifferenceQuest_1_6'));
+            let progressQuestion_1_6_sum = progressQuestion_1_6 + 1;
+            localStorage.setItem('mfDifferenceQuest_1_6', JSON.stringify(progressQuestion_1_6_sum));
+            gsap.to((containerParts[i]), {
+                duration: 0.3,
+                autoAlpha: 1
+            });
+            if (progressQuestion_1_6_sum === 7) {
+                wrapperBottomRight.appendChild(arrowNextClick);
+                arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+                arrowNextClick.id = 'questionNext_1_6';
+                const questionNext_1_6 = document.getElementById('questionNext_1_6');
+                questionNext_1_6.addEventListener('click', () => {
+                    let tl = gsap.timeline({
+                        onComplete: () => {
+                            wrapperBack.removeChild(wrapperBackCatFirst);
+                            wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperBottomRight.removeChild(questionNext_1_6);
+                            container.removeChild(containerDifference);
+                            questionCat_2_0();
+                        }
+                    });
+                    tl
+                        .to(containerDifference, {
+                            autoAlpha: 0,
+                            delay: '-0.1'
+                        })
+                        .to([wrapperBackCatFirst, wrapperTopTitle], {
+                            duration: 0.3,
+                            autoAlpha: 0
+                        })
+                    ;
+                });
             }
         });
-        tl
-            .to(containerDifference, {
-                autoAlpha: 0,
-                delay: '-0.1'
-            })
-            .to(wrapperBackCatFirst, {
-                duration: 0.3,
-                autoAlpha: 0
-            })
-        ;
-    });
-
+    }
 }

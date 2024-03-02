@@ -119,17 +119,25 @@ function questionCat_5_1() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerPerson = document.createElement('picture')
+        containerPerson = document.createElement('picture'),
+        wrapperTop = document.querySelector('.wrapper__top')
     ;
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_finistClearFalcon.png" alt="Финист Ясный Сокол">
     `;
+    wrapperTop.innerHTML = `
+        <h1 class="wrapper__top_title">Финист Ясный Сокол</h1>
+    `;
     container.appendChild(containerPerson);
     gsap.from(containerPerson, {
         duration: 0.6,
         autoAlpha: 0
+    });
+    gsap.to(wrapperTop, {
+        duration: 0.6,
+        autoAlpha: 1
     });
 
     questionLoad.answerBlock(1, 'Верно!');
@@ -420,7 +428,11 @@ function questionCat_5_6() {
         autoAlpha: 0
     });
 
-    const candySingle = document.getElementById('candySingle');
+    const
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopTitle = document.querySelector('.wrapper__top_title'),
+        candySingle = document.getElementById('candySingle')
+    ;
     candySingle.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
@@ -432,6 +444,7 @@ function questionCat_5_6() {
                     let tl = gsap.timeline({
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatFive);
+                            wrapperTop.removeChild(wrapperTopTitle);
                             wrapperBottomRight.removeChild(questionNext_5_6);
                             container.removeChild(containerDifference);
                             introDev();
@@ -442,7 +455,7 @@ function questionCat_5_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to(wrapperBackCatFive, {
+                        .to([wrapperBackCatFive, wrapperTopTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

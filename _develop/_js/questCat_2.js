@@ -120,17 +120,25 @@ function questionCat_2_1() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerPerson = document.createElement('picture')
+        containerPerson = document.createElement('picture'),
+        wrapperTop = document.querySelector('.wrapper__top')
     ;
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_elenaWise.png" alt="Елена Премудрая">
     `;
+    wrapperTop.innerHTML = `
+        <h1 class="wrapper__top_title">Елена Премудрая</h1>
+    `;
     container.appendChild(containerPerson);
     gsap.from(containerPerson, {
         duration: 0.6,
         autoAlpha: 0
+    });
+    gsap.to(wrapperTop, {
+        duration: 0.6,
+        autoAlpha: 1
     });
 
     questionLoad.answerBlock(2, 'Верно!');
@@ -421,7 +429,11 @@ function questionCat_2_6() {
         autoAlpha: 0
     });
 
-    const appleSingle = document.getElementById('appleSingle');
+    const
+        appleSingle = document.getElementById('appleSingle'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopTitle = document.querySelector('.wrapper__top_title')
+    ;
     appleSingle.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
@@ -433,6 +445,7 @@ function questionCat_2_6() {
                     let tl = gsap.timeline({
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatSecond);
+                            wrapperTop.removeChild(wrapperTopTitle);
                             wrapperBottomRight.removeChild(questionNext_2_6);
                             container.removeChild(containerDifference);
                             questionCat_3_0();
@@ -443,7 +456,7 @@ function questionCat_2_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to(wrapperBackCatSecond, {
+                        .to([wrapperBackCatSecond, wrapperTopTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

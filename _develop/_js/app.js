@@ -459,7 +459,7 @@ function dialogDev() {
                     wrapperBottomCenter.removeChild(settingsClick);
                     wrapperBottomRight.removeChild(arrowNextClick);
                     // wrapperBottomLeft.removeChild(arrowBackClick);
-                    questionCat_1_0();
+                    questionCat_5_0();
                 }
             });
             tl

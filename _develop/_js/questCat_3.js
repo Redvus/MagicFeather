@@ -119,17 +119,25 @@ function questionCat_3_1() {
         wrapperCategory = document.querySelector('.wrapper__category'),
         wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden'),
-        containerPerson = document.createElement('picture')
+        containerPerson = document.createElement('picture'),
+        wrapperTop = document.querySelector('.wrapper__top')
     ;
 
     containerPerson.className = 'container__person';
     containerPerson.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mariaMorevna.png" alt="Марья Морьевна">
     `;
+    wrapperTop.innerHTML = `
+        <h1 class="wrapper__top_title">Марья Морьевна</h1>
+    `;
     container.appendChild(containerPerson);
     gsap.from(containerPerson, {
         duration: 0.6,
         autoAlpha: 0
+    });
+    gsap.to(wrapperTop, {
+        duration: 0.6,
+        autoAlpha: 1
     });
 
     questionLoad.answerBlock(0, 'Правильно!');
@@ -393,7 +401,13 @@ function questionCat_3_5() {
 function questionCat_3_6() {
     arrowBackLoad.arrowNextHidden();
 
-    const questionBack_2 = document.getElementById('questionBack_2'),
+    if (localStorage.getItem('mfDifferenceQuest_3_6') === null
+        || localStorage.getItem('mfDifferenceQuest_3_6') >= 8) {
+        localStorage.setItem('mfDifferenceQuest_3_6', JSON.stringify(0));
+    }
+
+    const
+        questionBack_2 = document.getElementById('questionBack_2'),
         containerQuest = document.querySelector('.container-quest'),
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
         wrapperCategory = document.querySelector('.wrapper__category'),
@@ -402,89 +416,124 @@ function questionCat_3_6() {
         containerDifference = document.createElement('div'),
         wrapperBack = document.querySelector('.wrapper__back'),
         wrapperBackCatThird = document.querySelector('.wrapper__back_category--third'),
-        bearColor = document.createElement('div'),
-        fishColor = document.createElement('div'),
-        foxColor = document.createElement('div'),
-        frogColor = document.createElement('div'),
-        heronColor = document.createElement('div'),
-        selesenColor = document.createElement('div'),
-        squirrelColor = document.createElement('div'),
-        woodpeckerColor = document.createElement('div')
+        bearBlock = document.createElement('div'),
+        fishBlock = document.createElement('div'),
+        foxBlock = document.createElement('div'),
+        frogBlock = document.createElement('div'),
+        heronBlock = document.createElement('div'),
+        selesenBlock = document.createElement('div'),
+        squirrelBlock = document.createElement('div'),
+        woodpeckerBlock = document.createElement('div')
     ;
 
     containerDifference.className = 'container__difference';
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mariaMorevnaDifference.png" alt="Марья Морьевна. Найди животных">
     `;
-    bearColor.innerHTML = `
+    bearBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmBear.png" alt="Марья Морьевна. Медведь">
     `;
-    fishColor.innerHTML = `
+    fishBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmFish.png" alt="Марья Морьевна. Медведь">
     `;
-    foxColor.innerHTML = `
+    foxBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmFox.png" alt="Марья Морьевна. Медведь">
     `;
-    frogColor.innerHTML = `
+    frogBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmFrog.png" alt="Марья Морьевна. Лягушка">
     `;
-    heronColor.innerHTML = `
+    heronBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmHeron.png" alt="Марья Морьевна. Цапля">
     `;
-    selesenColor.innerHTML = `
+    selesenBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmSelesen.png" alt="Марья Морьевна. Селезень">
     `;
-    squirrelColor.innerHTML = `
+    squirrelBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmSquirrel.png" alt="Марья Морьевна. Белка">
     `;
-    woodpeckerColor.innerHTML = `
+    woodpeckerBlock.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mmWoodpecker.png" alt="Марья Морьевна. Дятел">
     `;
-    bearColor.id = 'bearColor';
-    fishColor.id = 'fishColor';
-    foxColor.id = 'foxColor';
-    frogColor.id = 'frogColor';
-    heronColor.id = 'heronColor';
-    selesenColor.id = 'selesenColor';
-    squirrelColor.id = 'squirrelColor';
-    woodpeckerColor.id = 'woodpeckerColor';
+    bearBlock.id = 'bearColor';
+    fishBlock.id = 'fishColor';
+    foxBlock.id = 'foxColor';
+    frogBlock.id = 'frogColor';
+    heronBlock.id = 'heronColor';
+    selesenBlock.id = 'selesenColor';
+    squirrelBlock.id = 'squirrelColor';
+    woodpeckerBlock.id = 'woodpeckerColor';
     container.appendChild(containerDifference);
-    containerDifference.appendChild(bearColor);
-    containerDifference.appendChild(fishColor);
-    containerDifference.appendChild(foxColor);
-    containerDifference.appendChild(frogColor);
-    containerDifference.appendChild(heronColor);
-    containerDifference.appendChild(selesenColor);
-    containerDifference.appendChild(squirrelColor);
-    containerDifference.appendChild(woodpeckerColor);
+    containerDifference.appendChild(bearBlock);
+    containerDifference.appendChild(fishBlock);
+    containerDifference.appendChild(foxBlock);
+    containerDifference.appendChild(frogBlock);
+    containerDifference.appendChild(heronBlock);
+    containerDifference.appendChild(selesenBlock);
+    containerDifference.appendChild(squirrelBlock);
+    containerDifference.appendChild(woodpeckerBlock);
     gsap.from(containerDifference, {
         duration: 0.6,
         autoAlpha: 0
     });
 
-    wrapperBottomRight.appendChild(arrowNextClick);
-    arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
-    arrowNextClick.id = 'questionNext_3_6';
-    const questionNext_3_6 = document.getElementById('questionNext_3_6');
-    questionNext_3_6.addEventListener('click', () => {
-        let tl = gsap.timeline({
-            onComplete: () => {
-                wrapperBack.removeChild(wrapperBackCatThird);
-                wrapperBottomRight.removeChild(questionNext_3_6);
-                container.removeChild(containerDifference);
-                questionCat_4_0();
+    const
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopTitle = document.querySelector('.wrapper__top_title'),
+        bearColor = document.getElementById('bearColor'),
+        fishColor = document.getElementById('fishColor'),
+        foxColor = document.getElementById('foxColor'),
+        frogColor = document.getElementById('frogColor'),
+        heronColor = document.getElementById('heronColor'),
+        selesenColor = document.getElementById('selesenColor'),
+        squirrelColor = document.getElementById('squirrelColor'),
+        woodpeckerColor = document.getElementById('woodpeckerColor'),
+        animalsColor = [
+            bearColor,
+            fishColor,
+            foxColor,
+            frogColor,
+            heronColor,
+            selesenColor,
+            squirrelColor,
+            woodpeckerColor]
+    ;
+
+    for (let i = 0; i < animalsColor.length; i++) {
+        animalsColor[i].addEventListener('click', () => {
+            let progressQuestion_3_6 = JSON.parse(localStorage.getItem('mfDifferenceQuest_3_6'));
+            let progressQuestion_3_6_sum = progressQuestion_3_6 + 1;
+            localStorage.setItem('mfDifferenceQuest_3_6', JSON.stringify(progressQuestion_3_6_sum));
+            gsap.to((animalsColor[i]), {
+                duration: 0.3,
+                autoAlpha: 1
+            });
+            if (progressQuestion_3_6_sum === 8) {
+                wrapperBottomRight.appendChild(arrowNextClick);
+                arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+                arrowNextClick.id = 'questionNext_3_6';
+                const questionNext_3_6 = document.getElementById('questionNext_3_6');
+                questionNext_3_6.addEventListener('click', () => {
+                    let tl = gsap.timeline({
+                        onComplete: () => {
+                            wrapperBack.removeChild(wrapperBackCatThird);
+                            wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperBottomRight.removeChild(questionNext_3_6);
+                            container.removeChild(containerDifference);
+                            questionCat_4_0();
+                        }
+                    });
+                    tl
+                        .to(containerDifference, {
+                            autoAlpha: 0,
+                            delay: '-0.1'
+                        })
+                        .to([wrapperBackCatThird, wrapperTopTitle], {
+                            duration: 0.3,
+                            autoAlpha: 0
+                        })
+                    ;
+                });
             }
         });
-        tl
-            .to(containerDifference, {
-                autoAlpha: 0,
-                delay: '-0.1'
-            })
-            .to(wrapperBackCatThird, {
-                duration: 0.3,
-                autoAlpha: 0
-            })
-        ;
-    });
-
+    }
 }
