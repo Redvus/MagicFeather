@@ -195,10 +195,10 @@ class Intro {
                  baloon_5 = document.getElementById('dialogBaloon_5'),
                  baloon_6 = document.getElementById('dialogBaloon_6'),
                  arrowNext = document.getElementById('arrowNext'),
-                 timeShort = 0.1, // 0.3
-                 timeLong = 0.1, // 1.5
-                 timePauseShort = 0.1, // 0.3
-                 timePauseLong = 0.1 // 1
+                 timeShort = 0.3, // 0.3
+                 timeLong = 1.5, // 1.5
+                 timePauseShort = 0.3, // 0.3
+                 timePauseLong = 1 // 1
              ;
 
             function dialogBaloonAinm() {

@@ -26,13 +26,13 @@ function introDev() {
         // soundsLoad.rightAnswer('assets/games/magicFeather/sounds/cp_progressClear.ogg');
 
         // Music Background
-        // if (backgroundMusicID === null) {
-        //     soundsLoad.backgroundMusicLoad('assets/games/magicFeather/sounds/mf_ambient.ogg');
-        //     localStorage.setItem('backgroundMusic', JSON.stringify(1));
-        // } else if (backgroundMusicID.paused || localStorage.getItem('backgroundMusic') === '0') {
-        //     backgroundMusicID.pause();
-        //     localStorage.setItem('backgroundMusic', JSON.stringify(0));
-        // }
+        if (backgroundMusicID === null) {
+            soundsLoad.backgroundMusicLoad('assets/games/magicFeather/sounds/mf_ambient.ogg');
+            localStorage.setItem('backgroundMusic', JSON.stringify(1));
+        } else if (backgroundMusicID.paused || localStorage.getItem('backgroundMusic') === '0') {
+            backgroundMusicID.pause();
+            localStorage.setItem('backgroundMusic', JSON.stringify(0));
+        }
 
         let tl = gsap.timeline({
             onComplete: () => {
@@ -384,29 +384,19 @@ function writerStart() {
             settingsToggleMusicID = document.getElementById('backgroundMusicID'),
             settingsMusicValue = JSON.parse(localStorage.getItem('backgroundMusic'));
 
-        settingsClearButton.addEventListener('click', () => {
-            localStorage.clear();
-            localStorage.setItem('progressCitizenAll', JSON.stringify(0));
-            localStorage.setItem('progressChicheroneAll', JSON.stringify(0));
-            localStorage.setItem('progressKraevedAll', JSON.stringify(0));
-            setProgressCitizen.textContent = JSON.parse(localStorage.getItem('progressCitizenAll'));
-            setProgressChicherone.textContent = JSON.parse(localStorage.getItem('progressChicheroneAll'));
-            setProgressKraeved.textContent = JSON.parse(localStorage.getItem('progressKraevedAll'));
-            soundsLoad.rightAnswer('assets/games/kraevedia/sounds/cp_progressClear.ogg');
-            categoryCitizen.className = 'category__main';
-            categoryChicherone.className = 'category__main';
-            categoryKraeved.className = 'category__main';
-        });
+        // settingsClearButton.addEventListener('click', () => {
+        //     localStorage.clear();
+        // });
 
-        settingsClearButton.addEventListener('mouseover', () => {
-            settingsText.textContent = 'Вы уверены?';
-            settingsClearButton.textContent = 'Да';
-        });
-
-        settingsClearButton.addEventListener('mouseleave', () => {
-            settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
-            settingsClearButton.textContent = 'Сбросить прогресс';
-        });
+        // settingsClearButton.addEventListener('mouseover', () => {
+        //     settingsText.textContent = 'Вы уверены?';
+        //     settingsClearButton.textContent = 'Да';
+        // });
+        //
+        // settingsClearButton.addEventListener('mouseleave', () => {
+        //     settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
+        //     settingsClearButton.textContent = 'Сбросить прогресс';
+        // });
 
         if (localStorage.getItem('backgroundMusic') === '0') {
             settingsToggleMusic.textContent = 'Включить музыку';
@@ -450,7 +440,7 @@ function dialogDev() {
     const dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll(),
         settingsLoad = new Settings(),
-        timePause = 1000 // 11000
+        timePause = 11000 // 11000
     ;
 
     dialogDevLoad.dialogStart();
@@ -569,29 +559,19 @@ function dialogDev() {
                 settingsToggleMusicID = document.getElementById('backgroundMusicID'),
                 settingsMusicValue = JSON.parse(localStorage.getItem('backgroundMusic'));
 
-            settingsClearButton.addEventListener('click', () => {
-                localStorage.clear();
-                localStorage.setItem('progressCitizenAll', JSON.stringify(0));
-                localStorage.setItem('progressChicheroneAll', JSON.stringify(0));
-                localStorage.setItem('progressKraevedAll', JSON.stringify(0));
-                setProgressCitizen.textContent = JSON.parse(localStorage.getItem('progressCitizenAll'));
-                setProgressChicherone.textContent = JSON.parse(localStorage.getItem('progressChicheroneAll'));
-                setProgressKraeved.textContent = JSON.parse(localStorage.getItem('progressKraevedAll'));
-                soundsLoad.rightAnswer('assets/games/kraevedia/sounds/cp_progressClear.ogg');
-                categoryCitizen.className = 'category__main';
-                categoryChicherone.className = 'category__main';
-                categoryKraeved.className = 'category__main';
-            });
+            // settingsClearButton.addEventListener('click', () => {
+            //     localStorage.clear();
+            // });
 
-            settingsClearButton.addEventListener('mouseover', () => {
-                settingsText.textContent = 'Вы уверены?';
-                settingsClearButton.textContent = 'Да';
-            });
-
-            settingsClearButton.addEventListener('mouseleave', () => {
-                settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
-                settingsClearButton.textContent = 'Сбросить прогресс';
-            });
+            // settingsClearButton.addEventListener('mouseover', () => {
+            //     settingsText.textContent = 'Вы уверены?';
+            //     settingsClearButton.textContent = 'Да';
+            // });
+            //
+            // settingsClearButton.addEventListener('mouseleave', () => {
+            //     settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
+            //     settingsClearButton.textContent = 'Сбросить прогресс';
+            // });
 
             if (localStorage.getItem('backgroundMusic') === '0') {
                 settingsToggleMusic.textContent = 'Включить музыку';
@@ -632,11 +612,11 @@ function dialogDev() {
 }
 
 function init() {
-    // introDev();
+    introDev();
     // authorsStart();
     // aboutStart();
     // writerStart();
-    dialogDev();
+    // dialogDev();
     // questionCat_1_0();
     // catLibraryDev();
     // catQuestDev_1();

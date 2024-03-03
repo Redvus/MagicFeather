@@ -401,7 +401,8 @@ function questionCat_5_5() {
 function questionCat_5_6() {
     arrowBackLoad.arrowNextHidden();
 
-    const questionBack_2 = document.getElementById('questionBack_2'),
+    const
+        questionBack_2 = document.getElementById('questionBack_2'),
         containerQuest = document.querySelector('.container-quest'),
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
         wrapperCategory = document.querySelector('.wrapper__category'),
@@ -450,6 +451,7 @@ function questionCat_5_6() {
                             wrapperBack.removeChild(wrapperBackCatFive);
                             wrapperTop.removeChild(wrapperTopTitle);
                             wrapperTop.removeChild(wrapperTopSubTitle);
+                            wrapper.removeChild(wrapperTop);
                             wrapperBottomRight.removeChild(questionNext_5_6);
                             container.removeChild(containerDifference);
                             introDev();
@@ -462,6 +464,7 @@ function questionCat_5_6() {
                         })
                         .to([
                             wrapperBackCatFive,
+                            wrapperTop,
                             wrapperTopTitle,
                             wrapperTopSubTitle], {
                             duration: 0.3,
