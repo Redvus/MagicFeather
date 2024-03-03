@@ -410,10 +410,15 @@ function questionCat_5_6() {
         containerDifference = document.createElement('div'),
         findCandy = document.createElement('picture'),
         wrapperBack = document.querySelector('.wrapper__back'),
-        wrapperBackCatFive = document.querySelector('.wrapper__back_category--five')
+        wrapperBackCatFive = document.querySelector('.wrapper__back_category--five'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopSubTitle = document.createElement('h2')
     ;
 
     containerDifference.className = 'container__difference';
+    wrapperTopSubTitle.className = 'wrapper__top_title-sub';
+    wrapperTopSubTitle.innerHTML = 'Найди леденец';
+    wrapperTop.appendChild(wrapperTopSubTitle);
     findCandy.id = 'candySingle';
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_FinistCFDifference.png" alt="Перышко Ясно-Сокола. Найди леденец">
@@ -429,7 +434,6 @@ function questionCat_5_6() {
     });
 
     const
-        wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTopTitle = document.querySelector('.wrapper__top_title'),
         candySingle = document.getElementById('candySingle')
     ;
@@ -445,6 +449,7 @@ function questionCat_5_6() {
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatFive);
                             wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperTop.removeChild(wrapperTopSubTitle);
                             wrapperBottomRight.removeChild(questionNext_5_6);
                             container.removeChild(containerDifference);
                             introDev();
@@ -455,7 +460,10 @@ function questionCat_5_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to([wrapperBackCatFive, wrapperTopTitle], {
+                        .to([
+                            wrapperBackCatFive,
+                            wrapperTopTitle,
+                            wrapperTopSubTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

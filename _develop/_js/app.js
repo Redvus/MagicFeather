@@ -262,7 +262,8 @@ function aboutStart() {
 /* Writer */
 function writerStart() {
     const writerLoad = new About(),
-        arrowBackLoad = new ArrowsAll()
+        arrowBackLoad = new ArrowsAll(),
+        settingsLoad = new Settings()
     ;
 
     writerLoad.aboutWriter('Сказки Александра Николаевича Афанасьева – бесценный памятник народного творчества, который он в неприкосновенности сберёг и передал потомкам. В этих сказках отразились все переживания, чаяния, и мечты народа, наш русский культурный код, воплощённый в конкретных образах и сюжетах. Приглашаем вас вспомнить любимые сказки детства в нашей игре «Волшебное перо».');
@@ -365,12 +366,90 @@ function writerStart() {
             })
         ;
     });
+
+    //Settings
+    // arrowBackLoad.clearStorage();
+    const
+        settingButton = document.getElementById('settingsClick'),
+        wrapperTopTitle = document.querySelector('.wrapper__top')
+    ;
+    settingButton.addEventListener('click', () => {
+        settingsLoad.settingsBlock();
+        const settingsClearButton = document.getElementById('clearProgressButton'),
+            settingsBack = document.querySelector('.wrapper__lightbox'),
+            settingsBlock = document.querySelector('.wrapper__lightbox_block'),
+            settingsClose = document.getElementById('settingsCloseButton'),
+            settingsText = document.getElementById('settingsText'),
+            settingsToggleMusic = document.getElementById('turnOfSoundButton'),
+            settingsToggleMusicID = document.getElementById('backgroundMusicID'),
+            settingsMusicValue = JSON.parse(localStorage.getItem('backgroundMusic'));
+
+        settingsClearButton.addEventListener('click', () => {
+            localStorage.clear();
+            localStorage.setItem('progressCitizenAll', JSON.stringify(0));
+            localStorage.setItem('progressChicheroneAll', JSON.stringify(0));
+            localStorage.setItem('progressKraevedAll', JSON.stringify(0));
+            setProgressCitizen.textContent = JSON.parse(localStorage.getItem('progressCitizenAll'));
+            setProgressChicherone.textContent = JSON.parse(localStorage.getItem('progressChicheroneAll'));
+            setProgressKraeved.textContent = JSON.parse(localStorage.getItem('progressKraevedAll'));
+            soundsLoad.rightAnswer('assets/games/kraevedia/sounds/cp_progressClear.ogg');
+            categoryCitizen.className = 'category__main';
+            categoryChicherone.className = 'category__main';
+            categoryKraeved.className = 'category__main';
+        });
+
+        settingsClearButton.addEventListener('mouseover', () => {
+            settingsText.textContent = 'Вы уверены?';
+            settingsClearButton.textContent = 'Да';
+        });
+
+        settingsClearButton.addEventListener('mouseleave', () => {
+            settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
+            settingsClearButton.textContent = 'Сбросить прогресс';
+        });
+
+        if (localStorage.getItem('backgroundMusic') === '0') {
+            settingsToggleMusic.textContent = 'Включить музыку';
+        }
+
+        settingsToggleMusic.addEventListener('click', () => {
+            if (settingsToggleMusicID.paused || settingsMusicValue === '0') {
+                settingsToggleMusicID.play();
+                settingsToggleMusic.textContent = 'Выключить музыку';
+                localStorage.setItem('backgroundMusic', JSON.stringify(1));
+            } else if (settingsToggleMusicID.play || settingsMusicValue === '1'){
+                settingsToggleMusicID.pause();
+                settingsToggleMusic.textContent = 'Включить музыку';
+                localStorage.setItem('backgroundMusic', JSON.stringify(0));
+            }
+        });
+
+        settingsClose.addEventListener('click', () => {
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    wrapper.removeChild(settingsBack);
+                }
+            });
+            tl
+                .to(settingsBlock, {
+                    duration: 0.3,
+                    y: '5%',
+                    autoAlpha: 0
+                })
+                .to(settingsBack, {
+                    duration: 0.3,
+                    autoAlpha: 0
+                })
+            ;
+        });
+    });
 }
 
 /* Dialog */
 function dialogDev() {
     const dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll(),
+        settingsLoad = new Settings(),
         timePause = 1000 // 11000
     ;
 
@@ -456,16 +535,14 @@ function dialogDev() {
         arrowNextClick.addEventListener('click', () => {
             let tl = gsap.timeline({
                 onComplete: () => {
-                    wrapperBottomCenter.removeChild(settingsClick);
+                    // wrapperBottomCenter.removeChild(settingsClick);
                     wrapperBottomRight.removeChild(arrowNextClick);
                     // wrapperBottomLeft.removeChild(arrowBackClick);
-                    questionCat_5_0();
+                    questionCat_1_0();
                 }
             });
             tl
-                .to([
-                    arrowNextClick,
-                    settingsClick], {
+                .to(arrowNextClick, {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -474,6 +551,82 @@ function dialogDev() {
                     left: '40%'
                 })
             ;
+        });
+
+        //Settings
+        const
+            settingButton = document.getElementById('settingsClick'),
+            wrapperTopTitle = document.querySelector('.wrapper__top')
+        ;
+        settingButton.addEventListener('click', () => {
+            settingsLoad.settingsBlock();
+            const settingsClearButton = document.getElementById('clearProgressButton'),
+                settingsBack = document.querySelector('.wrapper__lightbox'),
+                settingsBlock = document.querySelector('.wrapper__lightbox_block'),
+                settingsClose = document.getElementById('settingsCloseButton'),
+                settingsText = document.getElementById('settingsText'),
+                settingsToggleMusic = document.getElementById('turnOfSoundButton'),
+                settingsToggleMusicID = document.getElementById('backgroundMusicID'),
+                settingsMusicValue = JSON.parse(localStorage.getItem('backgroundMusic'));
+
+            settingsClearButton.addEventListener('click', () => {
+                localStorage.clear();
+                localStorage.setItem('progressCitizenAll', JSON.stringify(0));
+                localStorage.setItem('progressChicheroneAll', JSON.stringify(0));
+                localStorage.setItem('progressKraevedAll', JSON.stringify(0));
+                setProgressCitizen.textContent = JSON.parse(localStorage.getItem('progressCitizenAll'));
+                setProgressChicherone.textContent = JSON.parse(localStorage.getItem('progressChicheroneAll'));
+                setProgressKraeved.textContent = JSON.parse(localStorage.getItem('progressKraevedAll'));
+                soundsLoad.rightAnswer('assets/games/kraevedia/sounds/cp_progressClear.ogg');
+                categoryCitizen.className = 'category__main';
+                categoryChicherone.className = 'category__main';
+                categoryKraeved.className = 'category__main';
+            });
+
+            settingsClearButton.addEventListener('mouseover', () => {
+                settingsText.textContent = 'Вы уверены?';
+                settingsClearButton.textContent = 'Да';
+            });
+
+            settingsClearButton.addEventListener('mouseleave', () => {
+                settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
+                settingsClearButton.textContent = 'Сбросить прогресс';
+            });
+
+            if (localStorage.getItem('backgroundMusic') === '0') {
+                settingsToggleMusic.textContent = 'Включить музыку';
+            }
+
+            settingsToggleMusic.addEventListener('click', () => {
+                if (settingsToggleMusicID.paused || settingsMusicValue === '0') {
+                    settingsToggleMusicID.play();
+                    settingsToggleMusic.textContent = 'Выключить музыку';
+                    localStorage.setItem('backgroundMusic', JSON.stringify(1));
+                } else if (settingsToggleMusicID.play || settingsMusicValue === '1'){
+                    settingsToggleMusicID.pause();
+                    settingsToggleMusic.textContent = 'Включить музыку';
+                    localStorage.setItem('backgroundMusic', JSON.stringify(0));
+                }
+            });
+
+            settingsClose.addEventListener('click', () => {
+                let tl = gsap.timeline({
+                    onComplete: () => {
+                        wrapper.removeChild(settingsBack);
+                    }
+                });
+                tl
+                    .to(settingsBlock, {
+                        duration: 0.3,
+                        y: '5%',
+                        autoAlpha: 0
+                    })
+                    .to(settingsBack, {
+                        duration: 0.3,
+                        autoAlpha: 0
+                    })
+                ;
+            });
         });
     }, timePause);
 }

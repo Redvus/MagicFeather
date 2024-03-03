@@ -411,10 +411,15 @@ function questionCat_2_6() {
         containerDifference = document.createElement('div'),
         appleHide = document.createElement('picture'),
         wrapperBack = document.querySelector('.wrapper__back'),
-        wrapperBackCatSecond = document.querySelector('.wrapper__back_category--second')
+        wrapperBackCatSecond = document.querySelector('.wrapper__back_category--second'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopSubTitle = document.createElement('h2')
     ;
 
     containerDifference.className = 'container__difference';
+    wrapperTopSubTitle.className = 'wrapper__top_title-sub';
+    wrapperTopSubTitle.innerHTML = 'Найди лишний предмет';
+    wrapperTop.appendChild(wrapperTopSubTitle);
     appleHide.id = 'appleSingle';
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_elenaWiseDifference.png" alt="Елена Премудрая. Найди лишний предмет">
@@ -431,7 +436,6 @@ function questionCat_2_6() {
 
     const
         appleSingle = document.getElementById('appleSingle'),
-        wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTopTitle = document.querySelector('.wrapper__top_title')
     ;
     appleSingle.addEventListener('click', () => {
@@ -446,6 +450,7 @@ function questionCat_2_6() {
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatSecond);
                             wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperTop.removeChild(wrapperTopSubTitle);
                             wrapperBottomRight.removeChild(questionNext_2_6);
                             container.removeChild(containerDifference);
                             questionCat_3_0();
@@ -456,7 +461,10 @@ function questionCat_2_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to([wrapperBackCatSecond, wrapperTopTitle], {
+                        .to([
+                            wrapperBackCatSecond,
+                            wrapperTopTitle,
+                            wrapperTopSubTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

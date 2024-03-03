@@ -411,10 +411,15 @@ function questionCat_4_6() {
         containerDifference = document.createElement('div'),
         findFrog = document.createElement('picture'),
         wrapperBack = document.querySelector('.wrapper__back'),
-        wrapperBackCatFourth = document.querySelector('.wrapper__back_category--fourth')
+        wrapperBackCatFourth = document.querySelector('.wrapper__back_category--fourth'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopSubTitle = document.createElement('h2')
     ;
 
     containerDifference.className = 'container__difference';
+    wrapperTopSubTitle.className = 'wrapper__top_title-sub';
+    wrapperTopSubTitle.innerHTML = 'Найди царевну-лягушку';
+    wrapperTop.appendChild(wrapperTopSubTitle);
     findFrog.id = 'frogSingle';
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_sivkoBurkoDifference.png" alt="Сивко-Бурко. Найди лягушку">
@@ -430,7 +435,6 @@ function questionCat_4_6() {
     });
 
     const
-        wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTopTitle = document.querySelector('.wrapper__top_title'),
         frogSingle = document.getElementById('frogSingle')
     ;
@@ -446,6 +450,7 @@ function questionCat_4_6() {
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatFourth);
                             wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperTop.removeChild(wrapperTopSubTitle);
                             wrapperBottomRight.removeChild(questionNext_4_6);
                             container.removeChild(containerDifference);
                             questionCat_5_0();
@@ -456,7 +461,10 @@ function questionCat_4_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to([wrapperBackCatFourth, wrapperTopTitle], {
+                        .to([
+                            wrapperBackCatFourth,
+                            wrapperTopTitle,
+                            wrapperTopSubTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

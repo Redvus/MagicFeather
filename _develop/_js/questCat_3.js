@@ -1,3 +1,9 @@
+if (localStorage.getItem('mfDifferenceQuest_3_6') === null
+    || localStorage.getItem('mfDifferenceQuest_3_6') >= 8
+    || localStorage.getItem('mfDifferenceQuest_3_6') <= 8) {
+    localStorage.setItem('mfDifferenceQuest_3_6', JSON.stringify(0));
+}
+
 function questionCat_3_0() {
     questionLoad.questionBlock();
     questionLoad.questionBlockText(
@@ -401,11 +407,6 @@ function questionCat_3_5() {
 function questionCat_3_6() {
     arrowBackLoad.arrowNextHidden();
 
-    if (localStorage.getItem('mfDifferenceQuest_3_6') === null
-        || localStorage.getItem('mfDifferenceQuest_3_6') >= 8) {
-        localStorage.setItem('mfDifferenceQuest_3_6', JSON.stringify(0));
-    }
-
     const
         questionBack_2 = document.getElementById('questionBack_2'),
         containerQuest = document.querySelector('.container-quest'),
@@ -423,10 +424,15 @@ function questionCat_3_6() {
         heronBlock = document.createElement('div'),
         selesenBlock = document.createElement('div'),
         squirrelBlock = document.createElement('div'),
-        woodpeckerBlock = document.createElement('div')
+        woodpeckerBlock = document.createElement('div'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopSubTitle = document.createElement('h2')
     ;
 
     containerDifference.className = 'container__difference';
+    wrapperTopSubTitle.className = 'wrapper__top_title-sub';
+    wrapperTopSubTitle.innerHTML = 'Найди животных';
+    wrapperTop.appendChild(wrapperTopSubTitle);
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_mariaMorevnaDifference.png" alt="Марья Морьевна. Найди животных">
     `;
@@ -477,7 +483,6 @@ function questionCat_3_6() {
     });
 
     const
-        wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTopTitle = document.querySelector('.wrapper__top_title'),
         bearColor = document.getElementById('bearColor'),
         fishColor = document.getElementById('fishColor'),
@@ -499,7 +504,7 @@ function questionCat_3_6() {
     ;
 
     for (let i = 0; i < animalsColor.length; i++) {
-        animalsColor[i].addEventListener('click', () => {
+        animalsColor[i].addEventListener('click', (e) => {
             let progressQuestion_3_6 = JSON.parse(localStorage.getItem('mfDifferenceQuest_3_6'));
             let progressQuestion_3_6_sum = progressQuestion_3_6 + 1;
             localStorage.setItem('mfDifferenceQuest_3_6', JSON.stringify(progressQuestion_3_6_sum));
@@ -507,6 +512,7 @@ function questionCat_3_6() {
                 duration: 0.3,
                 autoAlpha: 1
             });
+            animalsColor[i].style.pointerEvents = 'none';
             if (progressQuestion_3_6_sum === 8) {
                 wrapperBottomRight.appendChild(arrowNextClick);
                 arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
@@ -517,6 +523,7 @@ function questionCat_3_6() {
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatThird);
                             wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperTop.removeChild(wrapperTopSubTitle);
                             wrapperBottomRight.removeChild(questionNext_3_6);
                             container.removeChild(containerDifference);
                             questionCat_4_0();
@@ -527,7 +534,10 @@ function questionCat_3_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to([wrapperBackCatThird, wrapperTopTitle], {
+                        .to([
+                            wrapperBackCatThird,
+                            wrapperTopTitle,
+                            wrapperTopSubTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })

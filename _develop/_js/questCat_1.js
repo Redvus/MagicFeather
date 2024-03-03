@@ -3,6 +3,12 @@ const questionLoad = new Question(),
     questionDialogPerson = new Intro()
 ;
 
+if (localStorage.getItem('mfDifferenceQuest_1_6') === null
+    || localStorage.getItem('mfDifferenceQuest_1_6') >= 7
+    || localStorage.getItem('mfDifferenceQuest_1_6') <= 7) {
+    localStorage.setItem('mfDifferenceQuest_1_6', JSON.stringify(0));
+}
+
 function questionCat_1_0() {
     questionLoad.questionBlock();
     questionLoad.questionBlockText(
@@ -70,8 +76,6 @@ function questionCat_1_0() {
                     onComplete: () => {
                         wrapperBack.removeChild(wrapperBackDialog);
                         wrapperBottomRight.removeChild(questionNext_1_0);
-                        // containerDialog.removeChild(containerVovka);
-                        // containerDialog.removeChild(containerNestor);
                         container.className = 'container';
                         containerBlockLeft.removeChild(containerInsideLeft);
                         containerBlockRight.removeChild(containerInsideRight);
@@ -401,11 +405,6 @@ function questionCat_1_5() {
 function questionCat_1_6() {
     arrowBackLoad.arrowNextHidden();
 
-    if (localStorage.getItem('mfDifferenceQuest_1_6') === null
-        || localStorage.getItem('mfDifferenceQuest_1_6') >= 7) {
-        localStorage.setItem('mfDifferenceQuest_1_6', JSON.stringify(0));
-    }
-
     const questionBack_2 = document.getElementById('questionBack_2'),
         containerQuest = document.querySelector('.container-quest'),
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
@@ -415,90 +414,119 @@ function questionCat_1_6() {
         containerDifference = document.createElement('div'),
         wrapperBack = document.querySelector('.wrapper__back'),
         wrapperBackCatFirst = document.querySelector('.wrapper__back_category--first'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopSubTitle = document.createElement('h2'),
         partBlock_1_1 = document.createElement('div'),
         partBlock_1_2 = document.createElement('div'),
+        partBlock_1_3 = document.createElement('div'),
+        partBlock_1_4 = document.createElement('div'),
+        partBlock_1_5 = document.createElement('div'),
+        partBlock_1_6 = document.createElement('div'),
+        partBlock_1_7 = document.createElement('div'),
         partBlock_2_1 = document.createElement('div'),
         partBlock_2_2 = document.createElement('div'),
-        partBlock_3_1 = document.createElement('div'),
-        partBlock_3_2 = document.createElement('div'),
-        partBlock_4_1 = document.createElement('div'),
-        partBlock_4_2 = document.createElement('div'),
-        partBlock_5_1 = document.createElement('div'),
-        partBlock_5_2 = document.createElement('div'),
-        partBlock_6_1 = document.createElement('div'),
-        partBlock_6_2 = document.createElement('div'),
-        partBlock_7_1 = document.createElement('div'),
-        partBlock_7_2 = document.createElement('div')
+        partBlock_2_3 = document.createElement('div'),
+        partBlock_2_4 = document.createElement('div'),
+        partBlock_2_5 = document.createElement('div'),
+        partBlock_2_6 = document.createElement('div'),
+        partBlock_2_7 = document.createElement('div')
     ;
 
     containerDifference.className = 'container__difference';
-    partBlock_1_1.className = 'container__part container__part--1 container__part--1-1';
-    partBlock_1_2.className = 'container__part container__part--1 container__part--1-2';
-    partBlock_2_1.className = 'container__part container__part--2 container__part--2-1';
-    partBlock_2_2.className = 'container__part container__part--2 container__part--2-2';
-    partBlock_3_1.className = 'container__part container__part--3 container__part--3-1';
-    partBlock_3_2.className = 'container__part container__part--3 container__part--3-2';
-    partBlock_4_1.className = 'container__part container__part--4 container__part--4-1';
-    partBlock_4_2.className = 'container__part container__part--4 container__part--4-2';
-    partBlock_5_1.className = 'container__part container__part--5 container__part--5-1';
-    partBlock_5_2.className = 'container__part container__part--5 container__part--5-2';
-    partBlock_6_1.className = 'container__part container__part--6 container__part--6-1';
-    partBlock_6_2.className = 'container__part container__part--6 container__part--6-2';
-    partBlock_7_1.className = 'container__part container__part--7 container__part--7-1';
-    partBlock_7_2.className = 'container__part container__part--7 container__part--7-2';
+    wrapperTopSubTitle.className = 'wrapper__top_title-sub';
+    wrapperTopSubTitle.innerHTML = 'Найди 7 отличий';
+    wrapperTop.appendChild(wrapperTopSubTitle);
+    partBlock_1_1.className = 'container__part';
+    partBlock_1_2.className = 'container__part';
+    partBlock_1_3.className = 'container__part';
+    partBlock_1_4.className = 'container__part';
+    partBlock_1_5.className = 'container__part';
+    partBlock_1_6.className = 'container__part';
+    partBlock_1_7.className = 'container__part';
+    partBlock_2_1.className = 'container__part';
+    partBlock_2_2.className = 'container__part';
+    partBlock_2_3.className = 'container__part';
+    partBlock_2_4.className = 'container__part';
+    partBlock_2_5.className = 'container__part';
+    partBlock_2_6.className = 'container__part';
+    partBlock_2_7.className = 'container__part';
+
+    partBlock_1_1.id = 'partLeft_1';
+    partBlock_1_2.id = 'partLeft_2';
+    partBlock_1_3.id = 'partLeft_3';
+    partBlock_1_4.id = 'partLeft_4';
+    partBlock_1_5.id = 'partLeft_5';
+    partBlock_1_6.id = 'partLeft_6';
+    partBlock_1_7.id = 'partLeft_7';
+
+    partBlock_2_1.id = 'partRight_1';
+    partBlock_2_2.id = 'partRight_2';
+    partBlock_2_3.id = 'partRight_3';
+    partBlock_2_4.id = 'partRight_4';
+    partBlock_2_5.id = 'partRight_5';
+    partBlock_2_6.id = 'partRight_6';
+    partBlock_2_7.id = 'partRight_7';
+
     containerDifference.innerHTML = `
         <img src="assets/games/magicFeather/images/mf_pikeDifference.png" alt="По щучьему велению. Найди 7 отличий">
     `;
     container.appendChild(containerDifference);
     containerDifference.appendChild(partBlock_1_1);
     containerDifference.appendChild(partBlock_1_2);
+    containerDifference.appendChild(partBlock_1_3);
+    containerDifference.appendChild(partBlock_1_4);
+    containerDifference.appendChild(partBlock_1_5);
+    containerDifference.appendChild(partBlock_1_6);
+    containerDifference.appendChild(partBlock_1_7);
     containerDifference.appendChild(partBlock_2_1);
     containerDifference.appendChild(partBlock_2_2);
-    containerDifference.appendChild(partBlock_3_1);
-    containerDifference.appendChild(partBlock_3_2);
-    containerDifference.appendChild(partBlock_4_1);
-    containerDifference.appendChild(partBlock_4_2);
-    containerDifference.appendChild(partBlock_5_1);
-    containerDifference.appendChild(partBlock_5_2);
-    containerDifference.appendChild(partBlock_6_1);
-    containerDifference.appendChild(partBlock_6_2);
-    containerDifference.appendChild(partBlock_7_1);
-    containerDifference.appendChild(partBlock_7_2);
+    containerDifference.appendChild(partBlock_2_3);
+    containerDifference.appendChild(partBlock_2_4);
+    containerDifference.appendChild(partBlock_2_5);
+    containerDifference.appendChild(partBlock_2_6);
+    containerDifference.appendChild(partBlock_2_7);
     gsap.from(containerDifference, {
        duration: 0.6,
        autoAlpha: 0
     });
 
     const
-        wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTopTitle = document.querySelector('.wrapper__top_title'),
-        containerPart_1 = document.querySelector('.container__part--1'),
-        containerPart_2 = document.querySelector('.container__part--2'),
-        containerPart_3 = document.querySelector('.container__part--3'),
-        containerPart_4 = document.querySelector('.container__part--4'),
-        containerPart_5 = document.querySelector('.container__part--5'),
-        containerPart_6 = document.querySelector('.container__part--6'),
-        containerPart_7 = document.querySelector('.container__part--7'),
-        containerParts = [
-            containerPart_1,
-            containerPart_2,
-            containerPart_3,
-            containerPart_4,
-            containerPart_5,
-            containerPart_6,
-            containerPart_7
-        ]
+        partLeft_1 = document.getElementById('partLeft_1'),
+        partLeft_2 = document.getElementById('partLeft_2'),
+        partLeft_3 = document.getElementById('partLeft_3'),
+        partLeft_4 = document.getElementById('partLeft_4'),
+        partLeft_5 = document.getElementById('partLeft_5'),
+        partLeft_6 = document.getElementById('partLeft_6'),
+        partLeft_7 = document.getElementById('partLeft_7'),
+        partRight_1 = document.getElementById('partRight_1'),
+        partRight_2 = document.getElementById('partRight_2'),
+        partRight_3 = document.getElementById('partRight_3'),
+        partRight_4 = document.getElementById('partRight_4'),
+        partRight_5 = document.getElementById('partRight_5'),
+        partRight_6 = document.getElementById('partRight_6'),
+        partRight_7 = document.getElementById('partRight_7'),
+        containerPartsLeft = [
+            partLeft_1, partLeft_2, partLeft_3, partLeft_4, partLeft_5, partLeft_6, partLeft_7],
+        containerPartsRight = [
+            partRight_1, partRight_2, partRight_3, partRight_4, partRight_5, partRight_6, partRight_7]
     ;
 
-    for (let i = 0; i < containerParts.length; i++) {
-        containerParts[i].addEventListener('click', () => {
+    for (let i = 0; i < containerPartsLeft.length; i++) {
+        containerPartsLeft[i].addEventListener('click', () => {
             let progressQuestion_1_6 = JSON.parse(localStorage.getItem('mfDifferenceQuest_1_6'));
             let progressQuestion_1_6_sum = progressQuestion_1_6 + 1;
             localStorage.setItem('mfDifferenceQuest_1_6', JSON.stringify(progressQuestion_1_6_sum));
-            gsap.to((containerParts[i]), {
+            gsap.to((containerPartsLeft[i]), {
                 duration: 0.3,
                 autoAlpha: 1
             });
+            gsap.to(containerPartsRight[i], {
+                duration: 0.3,
+                autoAlpha: 1
+            });
+            containerPartsLeft[i].style.pointerEvents = 'none';
+            containerPartsRight[i].style.pointerEvents = 'none';
             if (progressQuestion_1_6_sum === 7) {
                 wrapperBottomRight.appendChild(arrowNextClick);
                 arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
@@ -509,6 +537,7 @@ function questionCat_1_6() {
                         onComplete: () => {
                             wrapperBack.removeChild(wrapperBackCatFirst);
                             wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperTop.removeChild(wrapperTopSubTitle);
                             wrapperBottomRight.removeChild(questionNext_1_6);
                             container.removeChild(containerDifference);
                             questionCat_2_0();
@@ -519,7 +548,58 @@ function questionCat_1_6() {
                             autoAlpha: 0,
                             delay: '-0.1'
                         })
-                        .to([wrapperBackCatFirst, wrapperTopTitle], {
+                        .to([
+                            wrapperBackCatFirst,
+                            wrapperTopTitle,
+                            wrapperTopSubTitle], {
+                            duration: 0.3,
+                            autoAlpha: 0
+                        })
+                    ;
+                });
+            }
+        });
+    }
+    for (let i = 0; i < containerPartsRight.length; i++) {
+        containerPartsRight[i].addEventListener('click', () => {
+            let progressQuestion_1_6 = JSON.parse(localStorage.getItem('mfDifferenceQuest_1_6'));
+            let progressQuestion_1_6_sum = progressQuestion_1_6 + 1;
+            localStorage.setItem('mfDifferenceQuest_1_6', JSON.stringify(progressQuestion_1_6_sum));
+            gsap.to((containerPartsLeft[i]), {
+                duration: 0.3,
+                autoAlpha: 1
+            });
+            gsap.to(containerPartsRight[i], {
+                duration: 0.3,
+                autoAlpha: 1
+            });
+            containerPartsLeft[i].style.pointerEvents = 'none';
+            containerPartsRight[i].style.pointerEvents = 'none';
+            if (progressQuestion_1_6_sum === 7) {
+                wrapperBottomRight.appendChild(arrowNextClick);
+                arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
+                arrowNextClick.id = 'questionNext_1_6';
+                const questionNext_1_6 = document.getElementById('questionNext_1_6');
+                questionNext_1_6.addEventListener('click', () => {
+                    let tl = gsap.timeline({
+                        onComplete: () => {
+                            wrapperBack.removeChild(wrapperBackCatFirst);
+                            wrapperTop.removeChild(wrapperTopTitle);
+                            wrapperTop.removeChild(wrapperTopSubTitle);
+                            wrapperBottomRight.removeChild(questionNext_1_6);
+                            container.removeChild(containerDifference);
+                            questionCat_2_0();
+                        }
+                    });
+                    tl
+                        .to(containerDifference, {
+                            autoAlpha: 0,
+                            delay: '-0.1'
+                        })
+                        .to([
+                            wrapperBackCatFirst,
+                            wrapperTopTitle,
+                            wrapperTopSubTitle], {
                             duration: 0.3,
                             autoAlpha: 0
                         })
