@@ -53,12 +53,19 @@
 				margin-top: 5vh;
 			}
 
+			&--about {
+				width: auto;
+				height: 15vmin;
+				margin-top: 2vh;
+			}
+
 			img {
 				@extend %imgCenter;
 				object-fit: contain;
 			}
 
 			&--writer {
+				width: auto;
 				height: 23vmin;
 				margin-top: 1vh;
 			}
@@ -492,6 +499,23 @@
 		}
 	}
 
+	&__mobile {
+		width: calc(100vw - (#{$paddingBase} * 2));
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		background-color: $primary;
+		padding: 0 $paddingBase;
+		z-index: 9999;
+
+		p {
+			font-size: $font-size-h2;
+			text-align: center;
+		}
+	}
+
 	//@include grid-media($Medium) {
 	//	//padding: 6rem 1rem 0;
 	//}
@@ -545,11 +569,6 @@
 		//height: inherit;
 		//position: fixed;
 		//min-height: 100vh;
-
-		&__intro {
-			background: url("../images/kraevedia_back.jpg") 50% 90% no-repeat;
-			background-size: auto 30%;
-		}
 
 		&__top {
 			width: $introTopBlockWidthMobile;
@@ -816,18 +835,18 @@
 		}
 
 		&_text {
-			width: calc(100% - (#{$paddingBase} * 2));
+			width: 100%;
 			flex-direction: column;
 			align-items: flex-start;
-			padding: 0 $paddingBase;
+			padding: 0;
 
 			p {
-				font-size: $font-size-base;
+				font-size: $font-size-small;
 			}
 
 			ul {
 				li {
-					font-size: $font-size-base;
+					font-size: $font-size-small;
 				}
 			}
 
@@ -843,7 +862,8 @@
 
 			p {
 				margin: 0;
-				font-size: calc(#{$body-font-size} + 1vmin);
+				//font-size: calc(#{$body-font-size} + 0.5vmin);
+				font-size: $font-size-large;
 			}
 
 			&:first-child {
@@ -851,8 +871,8 @@
 			}
 
 			&--gone {
-				border: $border_1;
-				padding: calc(#{$paddingBase} / 3) calc(#{$paddingBase} / 2);
+				border: $border_4;
+				padding: calc(#{$paddingBase} / 4) calc(#{$paddingBase} / 2);
 				display: inline-block;
 			}
 		}

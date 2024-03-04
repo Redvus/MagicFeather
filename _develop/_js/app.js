@@ -9,7 +9,8 @@ function introDev() {
     const introDevLoad = new Intro();
     introDevLoad.introStart();
 
-    const clickLoadGame = document.getElementById('clickLoadGame'),
+    const
+        clickLoadGame = document.getElementById('clickLoadGame'),
         clickAuthors = document.getElementById('clickAboutAuthors'),
         clickAbout = document.getElementById('clickAboutLibrary'),
         wrapperTop = document.querySelector('.wrapper__top'),
@@ -19,8 +20,14 @@ function introDev() {
         wrapperBack = document.querySelector('.wrapper__intro'),
         backgroundMusicID = document.getElementById('backgroundMusicID'),
         introFeather = document.getElementById('introFeather'),
-        choiceCatLoad = new ChoiceCategory()
+        choiceCatLoad = new ChoiceCategory(),
+        wrapperMobile = document.createElement('div')
     ;
+
+    wrapperMobile.className = 'wrapper__mobile';
+    wrapperMobile.innerHTML = `
+        <p>Игра разработана только<br />для десктопной версии</p>
+    `;
 
     clickLoadGame.addEventListener('click', () => {
         // soundsLoad.rightAnswer('assets/games/magicFeather/sounds/cp_progressClear.ogg');
@@ -149,6 +156,14 @@ function introDev() {
             })
         ;
     });
+
+    if (document.body.clientWidth < 570 || screen.width < 570) {
+        wrapper.removeChild(wrapperTop);
+        wrapper.removeChild(wrapperCenter);
+        wrapper.removeChild(wrapperBottom);
+        wrapper.removeChild(wrapperBack);
+        wrapper.appendChild(wrapperMobile);
+    }
 }
 
 /* Authors */
@@ -165,7 +180,8 @@ function authorsStart() {
         'Программист',
         'Александр Суворов');
 
-    const containerAbout = document.querySelector('.container__wrapper_about'),
+    const
+        containerAbout = document.querySelector('.container__wrapper_about'),
         introAboutBack = document.querySelector('.wrapper__service'),
         wrapperTopAbout = document.querySelector('.wrapper__top'),
         wrapperBottom = document.createElement('div')
@@ -216,8 +232,9 @@ function aboutStart() {
 
     aboutLoad.aboutLibrary('МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе&nbsp;– Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы&nbsp;– это информационные, образовательные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием</li><li>сканированием</li><li>ламинированием</li><li>документов</li><li>распечаткой информации</li><li>на принтере</li><li>записью на электронные</li><li>носители</li></ul>');
 
-    const containerAbout = document.querySelector('.container__wrapper_about'),
-        introAboutBack = document.querySelector('.wrapper__dialog'),
+    const
+        containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__service'),
         wrapperTopAbout = document.querySelector('.wrapper__top'),
         wrapperBottom = document.createElement('div')
     ;

@@ -21,7 +21,7 @@ class About {
         container.className = 'container container--about';
 
         wrapperTitleAuthors.innerHTML = `
-            <picture id="authorsTitle" class="wrapper__top_title">
+            <picture id="authorsTitle" class="wrapper__top_title wrapper__top_title--about">
                 <img src="assets/games/magicFeather/images/mf_titleAbout.png" alt="Волшебное перо. Об авторах">
             </picture>
         `;
@@ -140,7 +140,7 @@ class About {
         container.className = 'container container--about';
 
         wrapperTitleAuthors.innerHTML = `
-            <picture id="authorsTitle" class="wrapper__top_title">
+            <picture id="authorsTitle" class="wrapper__top_title wrapper__top_title--about">
                 <img src="assets/games/magicFeather/images/mf_titleLibrary.png" alt="Волшебное перо. О библиотеке">
             </picture>
         `;
@@ -162,7 +162,7 @@ class About {
         containerWrapper.appendChild(containerAboutRight);
 
         const introBlockBack = document.createElement('div');
-        introBlockBack.className = 'wrapper__dialog';
+        introBlockBack.className = 'wrapper__service';
         wrapper.appendChild(introBlockBack);
 
         // const wrapperAboutBack = document.createElement('div');
