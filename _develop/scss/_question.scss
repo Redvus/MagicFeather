@@ -69,7 +69,7 @@
 
         &_list {
             width: 100%;
-            height: 70%;
+            height: 90%;
             //display: flex;
             //flex-direction: column;
             display: block;
@@ -80,26 +80,27 @@
 
             li {
                 width: 100%;
-                //height: calc((100% / 3) - #{$paddingBase});
+                //min-height: calc(#{$paddingBase} * 5);
                 list-style: none;
                 position: absolute;
-                padding-bottom: $paddingBase;
+                margin: calc(#{$paddingBase} / 2) 0;
                 z-index: 1;
 
                 a {
-                    width: calc(100% - (#{$paddingBase} * 4));
-                    min-height: 5vmin;
+                    width: calc(100% - (#{$paddingBase} * 6));
+                    //height: calc(#{$paddingBase} * 5);
+                    height: 9vmin;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBack.png");
+                    background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBack2.png");
                     //border-radius: 1rem;
                     //border: 0.3rem solid $secondary;
                     color: $secondary;
-                    font-size: $font-size-h6;
+                    font-size: $font-size-base;
                     text-align: center;
                     line-height: 1;
-                    padding: calc(#{$paddingBase} / 2) calc(#{$paddingBase} * 2);
+                    padding: calc(#{$paddingBase} / 2) calc(#{$paddingBase} * 3);
                     //font-family: $heading-font;
                 }
 
@@ -116,17 +117,29 @@
                     visibility: hidden;
                 }
 
-                &:last-child {
-                    margin-bottom: 0;
-                }
+                //&:after,
+                //&:before {
+                //    content: '';
+                //    width: calc(#{$paddingBase} * 2);
+                //    height: calc(#{$paddingBase} * 2);
+                //    display: block;
+                //    position: relative;
+                //    background: no-repeat 50% / 100% 100% url("../images/mf_questAfter.png");
+                //    left: 50%;
+                //    transform: translateX(-50%);
+                //}
+
+                //&:last-child {
+                //    margin-bottom: 0;
+                //}
             }
 
             &--right {
-                background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBackRight.png") !important;
+                background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBackRight2.png") !important;
             }
 
             &--wrong {
-                background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBackWrong.png") !important;
+                background: no-repeat 50% / 100% 100% url("../images/mf_questButtonBackWrong2.png") !important;
             }
         }
 

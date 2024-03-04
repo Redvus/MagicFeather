@@ -903,7 +903,7 @@
 
 			p {
 				//margin-bottom: calc(#{$paddingBase} / 2.5);
-				margin: 0;
+				margin: 0 $paddingBase;
 			}
 		}
 	}
