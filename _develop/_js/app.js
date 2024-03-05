@@ -510,6 +510,15 @@ function dialogDev() {
                     if (document.querySelector('.container__person')) {
                         container.removeChild(document.querySelector('.container__person'));
                     }
+                    if (document.querySelector('.wrapper__top_title')) {
+                        container.removeChild(document.querySelector('.wrapper__top_title'));
+                    }
+                    if (document.querySelector('.wrapper__top_title-sub')) {
+                        container.removeChild(document.querySelector('.wrapper__top_title-sub'));
+                    }
+                    if (document.querySelector('.container__difference')) {
+                        container.removeChild(document.querySelector('.container__difference'));
+                    }
                     // wrapper.removeChild(container);
                     // container.className = 'container';
                     // container.removeChild(containerNestor);
@@ -527,7 +536,10 @@ function dialogDev() {
                     arrowNextClick,
                     settingsClick,
                     document.querySelector('.container-quest'),
-                    document.querySelector('.container__person')], {
+                    document.querySelector('.container__person'),
+                    document.querySelector('.wrapper__top_title'),
+                    document.querySelector('.wrapper__top_title-sub'),
+                    document.querySelector('.container__difference')], {
                     autoAlpha: 0,
                     delay: '-0.1'
                 })
@@ -634,9 +646,6 @@ function init() {
     // aboutStart();
     // writerStart();
     // dialogDev();
-    // questionCat_1_0();
-    // catLibraryDev();
-    // catQuestDev_1();
 }
 
 init();

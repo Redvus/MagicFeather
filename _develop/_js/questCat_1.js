@@ -405,7 +405,8 @@ function questionCat_1_5() {
 function questionCat_1_6() {
     arrowBackLoad.arrowNextHidden();
 
-    const questionBack_2 = document.getElementById('questionBack_2'),
+    const
+        questionBack_2 = document.getElementById('questionBack_2'),
         containerQuest = document.querySelector('.container-quest'),
         wrapperBottomAll = document.querySelector('.wrapper__bottom'),
         wrapperCategory = document.querySelector('.wrapper__category'),
