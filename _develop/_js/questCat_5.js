@@ -448,13 +448,14 @@ function questionCat_5_6() {
                 questionNext_5_6.addEventListener('click', () => {
                     let tl = gsap.timeline({
                         onComplete: () => {
-                            wrapperBack.removeChild(wrapperBackCatFive);
+                            // wrapperBack.removeChild(wrapperBackCatFive);
                             wrapperTop.removeChild(wrapperTopTitle);
                             wrapperTop.removeChild(wrapperTopSubTitle);
                             wrapper.removeChild(wrapperTop);
                             wrapperBottomRight.removeChild(questionNext_5_6);
                             container.removeChild(containerDifference);
-                            introDev();
+                            // introDev();
+                            questionCat_5_7();
                         }
                     });
                     tl
@@ -463,7 +464,7 @@ function questionCat_5_6() {
                             delay: '-0.1'
                         })
                         .to([
-                            wrapperBackCatFive,
+                            // wrapperBackCatFive,
                             wrapperTop,
                             wrapperTopTitle,
                             wrapperTopSubTitle], {
@@ -478,6 +479,46 @@ function questionCat_5_6() {
             .to(candySingle, {
                 duration: 0.3,
                 autoAlpha: 1
+            })
+        ;
+    });
+}
+
+function questionCat_5_7() {
+
+    const finalBlock = new Settings();
+    finalBlock.finalBlock();
+
+    const
+        finalButton = document.getElementById('finalButton'),
+        settingsBack = document.querySelector('.wrapper__lightbox'),
+        settingsBlock = document.querySelector('.wrapper__lightbox_block--final'),
+        wrapperBack = document.querySelector('.wrapper__back'),
+        wrapperBackCatFive = document.querySelector('.wrapper__back_category--five'),
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTopSubTitle = document.createElement('h2'),
+        wrapperBottomAll = document.querySelector('.wrapper__bottom'),
+        wrapperCategory = document.querySelector('.wrapper__category'),
+        wrapperBottomRight = document.querySelector('.wrapper__bottom_part--right'),
+        arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
+    ;
+
+    finalButton.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapperBack.removeChild(wrapperBackCatFive);
+                settingsBack.removeChild(settingsBlock);
+                wrapper.removeChild(settingsBack);
+                introDev();
+            }
+        });
+        tl
+            .to([
+                wrapperBackCatFive,
+                settingsBlock,
+                settingsBack], {
+                duration: 0.3,
+                autoAlpha: 0
             })
         ;
     });
