@@ -454,7 +454,8 @@ function writerStart() {
 
 /* Dialog */
 function dialogDev() {
-    const dialogDevLoad = new Intro(),
+    const
+        dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll(),
         settingsLoad = new Settings(),
         timePause = 11000 // 11000

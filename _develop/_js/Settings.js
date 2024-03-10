@@ -43,16 +43,35 @@ class Settings {
     }
 
     finalBlock() {
+        let
+            progressCat = localStorage.getItem('progressCat');
+
         const
             settingsBack = document.createElement('div'),
-            settingsBlock = document.createElement('div')
+            settingsBlock = document.createElement('div'),
+            settingsTextWrong = document.createElement('div'),
+            settingsTextWright = document.createElement('div'),
+            settingsButtonBack = document.createElement('div')
         ;
         settingsBack.className = 'wrapper__lightbox';
         settingsBlock.className = 'wrapper__lightbox_block wrapper__lightbox_block--final';
-        settingsBlock.innerHTML = `
+        settingsButtonBack.innerHTML = `
             <a href="javascript:void(0);" class="wrapper__lightbox_button" id="finalButton">Вернуться к началу</a>
         `;
+        settingsTextWrong.innerHTML = `
+            <p>Вы молодец, но можно лучше, попробуйте еще раз, все получится!</p>
+        `;
+        settingsTextWright.innerHTML = `
+            <p>Вы отлично справились, поздравляем!</p>
+        `;
+
         settingsBack.appendChild(settingsBlock);
+        if (progressCat > 0) {
+            settingsBlock.appendChild(settingsTextWrong);
+        } else if(progressCat === 0) {
+            settingsBlock.appendChild(settingsTextWright);
+        }
+        settingsBlock.appendChild(settingsButtonBack);
         wrapper.appendChild(settingsBack);
 
         function finalBlockAnim() {

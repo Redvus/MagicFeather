@@ -1,4 +1,11 @@
 function questionCat_2_0() {
+    let answerWrightNum = 1;
+
+    if (localStorage.getItem('progressCat_2_0') === null ||
+        localStorage.getItem('progressCat_2_0') >= 0) {
+        localStorage.setItem('progressCat_2_0', JSON.stringify(0));
+    }
+
     questionLoad.questionBlock();
     questionLoad.questionBlockText(
         'Левитационное устройство исключительно вертикального перемещения',
@@ -50,7 +57,7 @@ function questionCat_2_0() {
         containerInsideRight = document.getElementById('containerInsideRight')
     ;
 
-    questionLoad.answerBlock(1, 'Верно!');
+    questionLoad.answerBlock(answerWrightNum, 'Верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -60,6 +67,16 @@ function questionCat_2_0() {
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
+            if (answerVarArray[i] !== answerVarArray[answerWrightNum]) {
+                localStorage.setItem('progressCat_2_0', JSON.stringify(1));
+                let progressCat_2_0 = JSON.parse(localStorage.getItem('progressCat_2_0'));
+                let progressCat_1 = JSON.parse(localStorage.getItem('progressCat_1'));
+                let progressCatSum = progressCat_1 + progressCat_2_0;
+
+                localStorage.setItem('progressCat_1', JSON.stringify(progressCatSum));
+                localStorage.setItem('progressCat', JSON.stringify(progressCatSum));
+            }
+
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
             arrowNextClick.id = 'questionNext_2_0';
@@ -106,6 +123,13 @@ function questionCat_2_0() {
 
 // Елена Премудрая
 function questionCat_2_1() {
+    let answerWrightNum = 2;
+
+    if (localStorage.getItem('progressCat_2_1') === null ||
+        localStorage.getItem('progressCat_2_1') >= 0) {
+        localStorage.setItem('progressCat_2_1', JSON.stringify(0));
+    }
+
     questionLoad.questionBlockText(
         '«Выпусти меня на волю; как будешь в нужде, я тебе сам пригожусь; только помяни меня - и я в ту ж минуту явлюсь к тебе на выручку». Кому даровал солдат свободу?',
         'джину',
@@ -141,7 +165,7 @@ function questionCat_2_1() {
         autoAlpha: 1
     });
 
-    questionLoad.answerBlock(2, 'Верно!');
+    questionLoad.answerBlock(answerWrightNum, 'Верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -151,6 +175,16 @@ function questionCat_2_1() {
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
+            if (answerVarArray[i] !== answerVarArray[answerWrightNum]) {
+                localStorage.setItem('progressCat_2_1', JSON.stringify(1));
+                let progressCat_2_1 = JSON.parse(localStorage.getItem('progressCat_2_1'));
+                let progressCat_1 = JSON.parse(localStorage.getItem('progressCat_1'));
+                let progressCatSum = progressCat_1 + progressCat_2_1;
+
+                localStorage.setItem('progressCat_1', JSON.stringify(progressCatSum));
+                localStorage.setItem('progressCat', JSON.stringify(progressCatSum));
+            }
+
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
             arrowNextClick.id = 'questionNext_2_1';
@@ -179,6 +213,13 @@ function questionCat_2_1() {
 }
 
 function questionCat_2_2() {
+    let answerWrightNum = 0;
+
+    if (localStorage.getItem('progressCat_2_2') === null ||
+        localStorage.getItem('progressCat_2_2') >= 0) {
+        localStorage.setItem('progressCat_2_2', JSON.stringify(0));
+    }
+
     questionLoad.questionBlockText(
         'Красные девицы принесли волшебный ковер, разостлали по полу, ударились о тот ковер и сделались...',
         'голубками',
@@ -195,7 +236,7 @@ function questionCat_2_2() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(0, 'Верно!');
+    questionLoad.answerBlock(answerWrightNum, 'Верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -205,6 +246,16 @@ function questionCat_2_2() {
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
+            if (answerVarArray[i] !== answerVarArray[answerWrightNum]) {
+                localStorage.setItem('progressCat_2_2', JSON.stringify(1));
+                let progressCat_2_2 = JSON.parse(localStorage.getItem('progressCat_2_2'));
+                let progressCat_1 = JSON.parse(localStorage.getItem('progressCat_1'));
+                let progressCatSum = progressCat_1 + progressCat_2_2;
+
+                localStorage.setItem('progressCat_1', JSON.stringify(progressCatSum));
+                localStorage.setItem('progressCat', JSON.stringify(progressCatSum));
+            }
+
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
             arrowNextClick.id = 'questionNext_2_2';
@@ -233,6 +284,13 @@ function questionCat_2_2() {
 }
 
 function questionCat_2_3() {
+    let answerWrightNum = 2;
+
+    if (localStorage.getItem('progressCat_2_3') === null ||
+        localStorage.getItem('progressCat_2_3') >= 0) {
+        localStorage.setItem('progressCat_2_3', JSON.stringify(0));
+    }
+
     questionLoad.questionBlockText(
         'А солдату крепко не терпится; попробовал в другой и в третий раз - чутко спит королевна, после всякого поцелуя пробуждается. За третьим разом встала она с постели и говорит: «Тут что-нибудь да недаром: дай-ка посмотрю в...»',
         'в волшебное зеркальце',
@@ -249,7 +307,7 @@ function questionCat_2_3() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(2, 'Правильно!');
+    questionLoad.answerBlock(answerWrightNum, 'Правильно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -259,6 +317,16 @@ function questionCat_2_3() {
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
+            if (answerVarArray[i] !== answerVarArray[answerWrightNum]) {
+                localStorage.setItem('progressCat_2_3', JSON.stringify(1));
+                let progressCat_2_3 = JSON.parse(localStorage.getItem('progressCat_2_3'));
+                let progressCat_1 = JSON.parse(localStorage.getItem('progressCat_1'));
+                let progressCatSum = progressCat_1 + progressCat_2_3;
+
+                localStorage.setItem('progressCat_1', JSON.stringify(progressCatSum));
+                localStorage.setItem('progressCat', JSON.stringify(progressCatSum));
+            }
+
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
             arrowNextClick.id = 'questionNext_2_3';
@@ -287,6 +355,13 @@ function questionCat_2_3() {
 }
 
 function questionCat_2_4() {
+    let answerWrightNum = 1;
+
+    if (localStorage.getItem('progressCat_2_4') === null ||
+        localStorage.getItem('progressCat_2_4') >= 0) {
+        localStorage.setItem('progressCat_2_4', JSON.stringify(0));
+    }
+
     questionLoad.questionBlockText(
         'Вот махнет королевна платком, и покатится молодецкая голова!..». Смилуйся, прекрасная королевна, - просит солдат со слезами, - позволь напоследях...',
         'слово молвить',
@@ -303,7 +378,7 @@ function questionCat_2_4() {
         arrowNextClick = document.querySelector('.wrapper__service_arrow--hidden')
     ;
 
-    questionLoad.answerBlock(1, 'Точно!');
+    questionLoad.answerBlock(answerWrightNum, 'Точно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -313,6 +388,16 @@ function questionCat_2_4() {
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
+            if (answerVarArray[i] !== answerVarArray[answerWrightNum]) {
+                localStorage.setItem('progressCat_2_4', JSON.stringify(1));
+                let progressCat_2_4 = JSON.parse(localStorage.getItem('progressCat_2_4'));
+                let progressCat_1 = JSON.parse(localStorage.getItem('progressCat_1'));
+                let progressCatSum = progressCat_1 + progressCat_2_4;
+
+                localStorage.setItem('progressCat_1', JSON.stringify(progressCatSum));
+                localStorage.setItem('progressCat', JSON.stringify(progressCatSum));
+            }
+
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
             arrowNextClick.id = 'questionNext_2_4';
@@ -341,6 +426,13 @@ function questionCat_2_4() {
 }
 
 function questionCat_2_5() {
+    let answerWrightNum = 1;
+
+    if (localStorage.getItem('progressCat_2_5') === null ||
+        localStorage.getItem('progressCat_2_5') >= 0) {
+        localStorage.setItem('progressCat_2_5', JSON.stringify(0));
+    }
+
     questionLoad.questionBlockText(
         'Подскочил к солдату, ударил его по щеке и оборотил ..., а сам сделался мышкою, схватил … в зубы, прокрался во дворец, нашел волшебную книгу и воткнул в нее...',
         'булавку',
@@ -358,7 +450,7 @@ function questionCat_2_5() {
         containerPerson = document.querySelector('.container__person')
     ;
 
-    questionLoad.answerBlock(1, 'Совершеноо верно!');
+    questionLoad.answerBlock(answerWrightNum, 'Совершеноо верно!');
 
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
@@ -368,6 +460,16 @@ function questionCat_2_5() {
 
     for (let i = 0; i < answerVarArray.length; i++) {
         answerVarArray[i].addEventListener('click', () => {
+            if (answerVarArray[i] !== answerVarArray[answerWrightNum]) {
+                localStorage.setItem('progressCat_2_5', JSON.stringify(1));
+                let progressCat_2_5 = JSON.parse(localStorage.getItem('progressCat_2_5'));
+                let progressCat_1 = JSON.parse(localStorage.getItem('progressCat_1'));
+                let progressCatSum = progressCat_1 + progressCat_2_5;
+
+                localStorage.setItem('progressCat_1', JSON.stringify(progressCatSum));
+                localStorage.setItem('progressCat', JSON.stringify(progressCatSum));
+            }
+
             wrapperBottomRight.appendChild(arrowNextClick);
             arrowNextClick.className = 'wrapper__service_arrow wrapper__service_arrow--next';
             arrowNextClick.id = 'questionNext_2_5';
