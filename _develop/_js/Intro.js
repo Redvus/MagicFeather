@@ -196,9 +196,9 @@ class Intro {
                  baloon_6 = document.getElementById('dialogBaloon_6'),
                  arrowNext = document.getElementById('arrowNext'),
                  timeShort = 0.3, // 0.3
-                 timeLong = 1.5, // 1.5
-                 timePauseShort = 0.3, // 0.3
-                 timePauseLong = 1 // 1
+                 timeLong = 2, // 1.5
+                 timePauseShort = 0.6, // 0.3
+                 timePauseLong = 2 // 1
              ;
 
             function dialogBaloonAinm() {
