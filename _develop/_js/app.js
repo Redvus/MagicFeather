@@ -458,7 +458,7 @@ function dialogDev() {
         dialogDevLoad = new Intro(),
         arrowBackLoad = new ArrowsAll(),
         settingsLoad = new Settings(),
-        timePause = 11000 // 11000
+        timePause = 16000 // 11000
     ;
 
     dialogDevLoad.dialogStart();
@@ -531,7 +531,6 @@ function dialogDev() {
             });
             tl
                 .to([
-                    containerVovka,
                     containerNestor,
                     arrowBackClick,
                     arrowNextClick,
@@ -543,6 +542,11 @@ function dialogDev() {
                     document.querySelector('.container__difference')], {
                     autoAlpha: 0,
                     delay: '-0.1'
+                })
+                .to(containerVovka, {
+                    autoAlpha: 0,
+                    delay: '-0.1',
+                    left: 0
                 })
                 .to(introAboutBack, {
                     autoAlpha: 0,
